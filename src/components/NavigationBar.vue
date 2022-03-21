@@ -1,12 +1,10 @@
 <template>
-<v-app-bar color="green darken-3">
-
-  <v-tabs centered>
-    <v-tab value="Home" to="/"> home </v-tab>
-    <v-tab value="About" to="/about">About </v-tab>
-  </v-tabs>
-</v-app-bar>
-
+  <v-app-bar color="green darken-3">
+    <v-tabs>
+      <v-tab value="Home" to="/"> home </v-tab>
+      <v-tab value="About" to="/about">About </v-tab>
+    </v-tabs>
+  </v-app-bar>
 </template>
 
 <script>
