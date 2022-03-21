@@ -1,15 +1,17 @@
 <template>
-<navigation-bar/>
-  <router-view/>
+  <v-app>
+    <navigation-bar />
+    <router-view />
+  </v-app>
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar.vue'
+import NavigationBar from "@/components/NavigationBar.vue";
 export default {
-  components:{
-    NavigationBar
-  }
-}
+  components: {
+    NavigationBar,
+  },
+};
 </script>
 
 <style lang="scss">
