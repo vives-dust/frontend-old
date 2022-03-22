@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
-    <v-col cols="auto">
-      <carouselVue class="ma-5" />
+    <v-col cols="12">
+      <carouselVue class="my-10" />
     </v-col>
   </v-row>
 
