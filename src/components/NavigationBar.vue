@@ -1,15 +1,16 @@
 <template>
-  <v-toolbar color="secondary">
-    <v-tabs class="">
-      <v-tab value="Home" to="/"> home </v-tab>
+  <v-card color="secondary">
+    <v-tabs centered>
+      <v-tab value="Home" to="/"> Home </v-tab>
       <v-tab value="About" to="/about">About </v-tab>
     </v-tabs>
-  </v-toolbar>
+  </v-card>
 </template>
 
 <script>
 export default {
   name: "NavigationBar",
+  
 };
 </script>
 
