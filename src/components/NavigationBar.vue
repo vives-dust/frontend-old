@@ -1,10 +1,10 @@
 <template>
-  <v-app-bar color="green darken-3" class="">
+  <v-toolbar color="secondary">
     <v-tabs class="">
       <v-tab value="Home" to="/"> home </v-tab>
       <v-tab value="About" to="/about">About </v-tab>
     </v-tabs>
-  </v-app-bar>
+  </v-toolbar>
 </template>
 
 <script>
