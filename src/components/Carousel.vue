@@ -1,13 +1,12 @@
 <template>
-  <p> nothing</p>
+      <p>nothing</p>
 </template>
 
 <script>
 export default {
-    name: 'carouselVue',
-}
+  name: "carouselVue",
+};
 </script>
 
 <style>
-
 </style>
