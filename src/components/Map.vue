@@ -1,5 +1,5 @@
 <template>
-  <v-card height="800" width="1500" justify="center" >
+  <v-card height="800" width="fill" justify="center" >
     <v-card-title> here will be the map</v-card-title>
     <v-card-text> this is a long random text</v-card-text>
   </v-card>

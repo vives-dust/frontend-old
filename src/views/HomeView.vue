@@ -1,13 +1,14 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12">
-      <carouselVue class="my-10" />
+    <v-col cols="10">
+      <carouselVue class="mt-10" />
+      <v-divider class="my-5" />
+      <h2>This is a secondary title</h2>
+      <mapVue class="mt-5" />
     </v-col>
   </v-row>
-
   <v-row justify="center">
-    <v-col cols="auto">
-      <mapVue class="ma-5" />
+    <v-col cols="10">
     </v-col>
   </v-row>
 </template>
