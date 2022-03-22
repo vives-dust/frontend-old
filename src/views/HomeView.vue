@@ -1,7 +1,6 @@
 <template>
 
   <carouselVue/>
-
   <mapVue/>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <v-card color="secondary">
-    <v-tabs centered>
+  <v-card color="secondary" height="50">
+    <v-tabs centered > 
       <v-tab value="Home" to="/"> Home </v-tab>
       <v-tab value="About" to="/about">About </v-tab>
     </v-tabs>
