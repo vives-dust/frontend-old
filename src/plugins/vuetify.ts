@@ -10,11 +10,11 @@ const myCustomLightTheme = {
     colors: {
       background: '#FFFFFF',
       surface: '#FFFFFF',
-      primary: '#0F7A4E',
-      secondary: '#1EFA9E',
-      third: '#69FBBE',
-      fourth:'#387A5E',
-      fifth:'#18C77E',  
+      primary: '#00FAE9',
+      secondary: '#28C6FA',
+      third: '#11AD6F',
+      fourth:'#1186AD',
+      fifth:'#0CFA9A',  
       error: '#B00020',
       info: '#2196F3',
       success: '#4CAF50',
@@ -23,7 +23,9 @@ const myCustomLightTheme = {
   }
   
 
+//00FAE9
 
+//0CFA9A
 
 
 export default createVuetify({

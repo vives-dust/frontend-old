@@ -1,9 +1,7 @@
 <template>
-  <v-app>
     <navigation-bar />
     <router-view />
     <footerBar/>
-  </v-app>
 </template>
 
 <script>
