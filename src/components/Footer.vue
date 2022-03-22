@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="text-medium-emphasis" color="secondary">
+  <v-footer class="text-medium-emphasis" color="fourth">
     <v-row justify="center">
       <v-col cols="3">
         <h2 >Dust</h2>
