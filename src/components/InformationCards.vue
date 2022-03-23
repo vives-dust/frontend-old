@@ -4,14 +4,14 @@
       <v-col cols="0" sm="4" v-for="card in cards" :key="card.id">
         <v-card dark color="third"  class="ma-1 pa-1">
           <v-row align="center" justify="center">
-            <v-col cols="1">
+            <v-col cols="2">
               <div>
                 <v-icon class="ml-8" size="60" :icon="card.icon" />
               </div>
             </v-col>
 
 
-            <v-col cols="11">
+            <v-col cols="10">
               <h2
                 class="mt-4 ml-n4 font-weight-regular hidden-xs-only"
                 style="text-align: center"
@@ -68,13 +68,13 @@ export default {
         {
           id: 4,
           title: "Owners",
-          subtitle: "Placeholder",
+          subtitle: "card",
           icon: "mdi:mdi-card-text",
         },
         {
           id: 5,
           title: "Centers",
-          subtitle: "Another place",
+          subtitle: "castle",
           icon: "mdi:mdi-castle",
         },
       ],
