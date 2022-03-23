@@ -1,17 +1,16 @@
 <template>
-  <v-card color="fifth" height="55">
-    <v-row justify="center">
-      <v-col cols="11">
-        <v-tabs centered class="mt-2">
-          <v-tab value="Home" to="/"> Home </v-tab>
-          <v-tab value="About" to="/about">About </v-tab>
-        </v-tabs>
-      </v-col>
-
+  <v-card color="fifth" height="auto">
+    <v-row no-gutters >
+      <v-tabs centered class="mt-2">
+        <v-tab value="Home" to="/"> Home </v-tab>
+        <v-tab value="About" to="/about">About </v-tab>
+      </v-tabs>
       <v-spacer />
-      <v-col cols="auto" class="mt-3">
-        <v-icon justify="right" class="mx-8"  size="30" icon="mdi:mdi-web" />
-      </v-col>
+      <v-icon
+        class="mt-3 mx-5"
+        size="30"
+        icon="mdi:mdi-web"
+      />
     </v-row>
   </v-card>
 </template>
