@@ -1,5 +1,5 @@
 <template>
-  <v-card color="primary" height="50">
+  <v-card color="fifth" height="50">
     <v-row justify="center" class="mt-1">
       <v-tabs centered>
         <v-tab  value="Home" to="/"> Home </v-tab>
