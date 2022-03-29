@@ -3,7 +3,7 @@
     <v-row >
       <v-col cols="1" class="text-left">
         <div>
-          <v-menu v-model="menu">
+          <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
               <v-btn
                 color="fifth"
@@ -16,13 +16,13 @@
                 <v-icon size="33" icon="mdi:mdi-web" />
               </v-btn>
             </template>
-            <v-list >
+            <v-list color="fifth" >
               <v-list-item
                 v-for="(item, index) in items"
                 :key="index"
               >
                 <v-list-item-title>
-                  <v-btn @click="menu = false">
+                  <v-btn color="fifth" @click="menu = false">
                     {{ item.title }}
                   </v-btn>
                 </v-list-item-title>
