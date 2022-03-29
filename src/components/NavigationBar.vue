@@ -11,7 +11,7 @@
 
       <v-col cols="1" class="text-right">
         <div>
-          <v-menu offset-y open-on-hover offset-x transition="slide-x-transition">
+          <v-menu offset-y offset-x transition="slide-x-transition" v-model="menu">
             <template v-slot:activator="{ props }">
               <v-btn
                 color="fifth"
@@ -27,7 +27,7 @@
             <v-list>
               <v-list-item class="mr-15" v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
-                  <v-btn>
+                  <v-btn @click="menu = false">
                     {{ item.title }}
                   </v-btn>
                 </v-list-item-title>
@@ -45,7 +45,7 @@ export default {
   name: "NavigationBar",
   data() {
     return {
-      showingLanguageSelectionTool: false,
+      menu: false,
       items: [
         { title: "\ud83c\uddfa\ud83c\uddf8 English" },
         { title: "\uD83C\uDDE7\uD83C\uDDEA Dutch" },
