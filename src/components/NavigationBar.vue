@@ -1,17 +1,9 @@
 <template>
   <v-card color="fifth" height="auto">
-    <v-row no-gutters>
-      <v-col cols="1"> </v-col>
-      <v-col cols="10" class="text-center">
-        <v-tabs centered class="mt-2" height="auto">
-          <v-tab value="Home" to="/"> Home </v-tab>
-          <v-tab value="About" to="/about">About </v-tab>
-        </v-tabs>
-      </v-col>
-
-      <v-col cols="1" class="text-right">
+    <v-row >
+      <v-col cols="1" class="text-left">
         <div>
-          <v-menu offset-y offset-x transition="slide-x-transition" v-model="menu">
+          <v-menu v-model="menu">
             <template v-slot:activator="{ props }">
               <v-btn
                 color="fifth"
@@ -19,13 +11,16 @@
                 v-bind="props"
                 elevation="0"
                 height="auto"
-                class="mt-3 mx-5"
+                class="mt-3"
               >
                 <v-icon size="33" icon="mdi:mdi-web" />
               </v-btn>
             </template>
-            <v-list>
-              <v-list-item class="mr-15" v-for="(item, index) in items" :key="index">
+            <v-list >
+              <v-list-item
+                v-for="(item, index) in items"
+                :key="index"
+              >
                 <v-list-item-title>
                   <v-btn @click="menu = false">
                     {{ item.title }}
@@ -36,6 +31,15 @@
           </v-menu>
         </div>
       </v-col>
+
+
+      <v-col cols="10" class="text-center">
+        <v-tabs centered class="mt-2" height="auto">
+          <v-tab value="Home" to="/"> Home </v-tab>
+          <v-tab value="About" to="/about">About </v-tab>
+        </v-tabs>
+      </v-col>
+      <v-col cols="1"> </v-col>
     </v-row>
   </v-card>
 </template>
