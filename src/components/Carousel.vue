@@ -1,4 +1,5 @@
 <template>
+  <v-card rounded>
     <v-carousel hide-delimiters :show-arrows="false" cycle height="auto">
       <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
         <v-row class="title fill-height" align="center" justify="center">
@@ -8,6 +9,7 @@
         </v-row>
       </v-carousel-item>
     </v-carousel>
+  </v-card>
 </template>
 
 <script>
