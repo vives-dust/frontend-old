@@ -10,25 +10,31 @@
       </v-col>
 
       <v-col cols="1" class="text-right">
-        <v-menu transition="fade-transition">
-          <v-btn
-            class="mt-3 mx-5"
-            color="fifth"
-            elevation="0"
-            @click="toggleshowingLanguageSelectionTool"
-          >
-            <v-icon size="33" icon="mdi:mdi-web" />
-          </v-btn>
-          <v-list>
-            <v-list-item
-              v-for="n in 5"
-              :key="n"
-              v-model="showingLanguageSelectionTool"
-            >
-              <v-list-item-title v-text="'Item ' + n"></v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <div>
+          <v-menu offset-y open-on-hover offset-x transition="slide-x-transition">
+            <template v-slot:activator="{ props }">
+              <v-btn
+                color="fifth"
+                dark
+                v-bind="props"
+                elevation="0"
+                height="auto"
+                class="mt-3 mx-5"
+              >
+                <v-icon size="33" icon="mdi:mdi-web" />
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item class="mr-15" v-for="(item, index) in items" :key="index">
+                <v-list-item-title>
+                  <v-btn>
+                    {{ item.title }}
+                  </v-btn>
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
       </v-col>
     </v-row>
   </v-card>
@@ -38,13 +44,19 @@
 export default {
   name: "NavigationBar",
   data() {
-    showingLanguageSelectionTool: false;
+    return {
+      showingLanguageSelectionTool: false,
+      items: [
+        { title: "\ud83c\uddfa\ud83c\uddf8 English" },
+        { title: "\uD83C\uDDE7\uD83C\uDDEA Dutch" },
+      ],
+    };
   },
-  methods:{
-    toggleshowingLanguageSelectionTool(){
-      this.showingLanguageSelectionTool = !this.showingLanguageSelectionTool
-    }
-  }
+  methods: {
+    toggleshowingLanguageSelectionTool() {
+      this.showingLanguageSelectionTool = !this.showingLanguageSelectionTool;
+    },
+  },
 };
 </script>
 
