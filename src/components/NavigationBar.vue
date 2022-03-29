@@ -1,15 +1,15 @@
 <template>
   <v-card color="fifth" height="">
     <v-row>
-      <v-col cols="1"> </v-col>
-      <v-col cols="10" class="text-center">
+      <!-- <v-col cols="1"> </v-col> -->
+      <v-col cols="12" class="text-center">
         <v-tabs centered class="mt-2">
           <v-tab value="Home" to="/"> Home </v-tab>
           <v-tab value="About" to="/about">About </v-tab>
         </v-tabs>
       </v-col>
 
-      <v-col cols="1" class="text-right">
+      <!-- <v-col cols="1" class="text-right">
         <v-menu transition="fade-transition">
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on">
@@ -22,7 +22,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-      </v-col>
+      </v-col> -->
     </v-row>
   </v-card>
 </template>
