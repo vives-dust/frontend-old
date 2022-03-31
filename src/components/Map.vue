@@ -1,41 +1,35 @@
 <template>
   <v-card height="800" width="auto" justify="center">
-  <l-map style="height:50vh">
-    <l-geo-json :geojson="geojson" :options="geojsonOptions" />
-  </l-map>
+  <l-map ref="map" v-model:zoom="zoom" :center="[47.41322, -1.219482]">
+    <l-tile-layer
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      layer-type="base"
+      name="OpenStreetMap"
+      :max-zoom="10"
+    />
+    <l-tile-layer
+      url="https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png"
+      attribution="<a href='https://blog.safecast.org/about/'>SafeCast</a> (<a href='https://creativecommons.org/licenses/by-sa/3.0/'>CC-BY-SA</a>"
+      :min-zoom="5"
+      :max-zoom="7"
+    />
+    </l-map>
   </v-card>
 </template>
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LGeoJson } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 export default {
   name: "mapVue",
   components: {
     LMap,
-    LGeoJson,
+    LTileLayer,
   },
-   data () {
-   return {
-      geojson: {
-        type: "FeatureCollection",
-        features: [
-          // ...
-        ],
-      },
-      geojsonOptions: {
-        // Options that don't rely on Leaflet methods.
-      },
+   data() {
+    return {
+      zoom: 2,
     };
-  },
-  async beforeMount() {
-    // HERE is where to load Leaflet components!
-    const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
-
-    // And now the Leaflet circleMarker function can be used by the options:
-    this.geojsonOptions.pointToLayer = (feature, latLng) =>
-      circleMarker(latLng, { radius: 8 });
-    this.mapIsReady = true;
   },
 };
   // data() {
