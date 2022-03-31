@@ -2,15 +2,16 @@
   <v-container fluid>
     <v-row dense justify="center">
       <v-col cols="0" sm="4" v-for="card in cards" :key="card.id">
-        <v-card dark color="third" class="ma-1 pa-1">
-          <v-row align="center">
+        <v-card dark color="third"  class="ma-1 pa-1">
+          <v-row align="center" >
             <v-col cols="5">
               <div>
-                <v-icon class="ml-8" size="80" :icon="card.icon" />
+                <v-icon class="ml-8" size="80" :icon="card.icon"/>
               </div>
             </v-col>
 
-            <v-col cols="3">
+
+            <v-col cols="3" >
               <h2
                 class="mt-4 ml-n4 font-weight-regular hidden-xs-only"
                 style="text-align: center"
@@ -41,7 +42,6 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n';
 export default {
   name: "informationCard",
   data() {
@@ -79,11 +79,6 @@ export default {
         },
       ],
     };
-  },
-  setup() {
-    const { t, locale } = useI18n();
-
-    return { t, locale };
   },
 };
 </script>

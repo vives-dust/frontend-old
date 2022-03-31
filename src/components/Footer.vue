@@ -3,8 +3,8 @@
     <v-row justify="center">
       <v-col cols="3">
         <h1>DUST</h1>
-        <p class="mt-3">{{t('footer.header',{},{locale: lang})}}</p>
-        <p>{{t('footer.underHeader',{},{locale: lang})}}</p>
+        <p class="mt-3">{{t('footer.header')}}</p>
+        <p>{{t('footer.underHeader')}}</p>
         <v-col class="mt-3">
           <v-icon
             class="mr-8 ml-n4"
@@ -17,39 +17,39 @@
       </v-col>
 
       <v-col cols="2">
-        <h3 class="text-disabled mb-5 mt-2">{{t('footer.links.title',{},{locale: lang})}}</h3>
+        <h3 class="text-disabled mb-5 mt-2">{{t('footer.links.title')}}</h3>
 
-        <p class="my-2">{{t('footer.links.one',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.links.two',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.links.three',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.links.four',{},{locale: lang})}}</p>
+        <p class="my-2">{{t('footer.links.one')}}</p>
+        <p class="my-2">{{t('footer.links.two')}}</p>
+        <p class="my-2">{{t('footer.links.three')}}</p>
+        <p class="my-2">{{t('footer.links.four')}}</p>
       </v-col>
 
       <v-col cols="2">
-        <h3 class="text-disabled mb-5 mt-2">{{t('footer.support.title',{},{locale: lang})}}</h3>
+        <h3 class="text-disabled mb-5 mt-2">{{t('footer.support.title')}}</h3>
 
-        <p class="my-2">{{t('footer.support.one',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.support.two',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.support.three',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.support.four',{},{locale: lang})}}</p>
+        <p class="my-2">{{t('footer.support.one')}}</p>
+        <p class="my-2">{{t('footer.support.two')}}</p>
+        <p class="my-2">{{t('footer.support.three')}}</p>
+        <p class="my-2">{{t('footer.support.four')}}</p>
       </v-col>
 
       <v-col cols="2">
-        <h3 class="text-disabled mb-5 mt-2">{{t('footer.legal.title',{},{locale: lang})}}</h3>
+        <h3 class="text-disabled mb-5 mt-2">{{t('footer.legal.title')}}</h3>
 
-        <p class="my-2">{{t('footer.legal.one',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.legal.two',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.legal.three',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.legal.four',{},{locale: lang})}}</p>
+        <p class="my-2">{{t('footer.legal.one')}}</p>
+        <p class="my-2">{{t('footer.legal.two')}}</p>
+        <p class="my-2">{{t('footer.legal.three')}}</p>
+        <p class="my-2">{{t('footer.legal.four')}}</p>
       </v-col>
 
       <v-col cols="auto">
-        <h3 class="text-disabled mb-5 mt-2">{{t('footer.sitemap.title',{},{locale: lang})}}</h3>
+        <h3 class="text-disabled mb-5 mt-2">{{t('footer.sitemap.title')}}</h3>
 
-        <p class="my-2">{{t('footer.sitemap.one',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.sitemap.two',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.sitemap.three',{},{locale: lang})}}</p>
-        <p class="my-2">{{t('footer.sitemap.four',{},{locale: lang})}}</p>
+        <p class="my-2">{{t('footer.sitemap.one')}}</p>
+        <p class="my-2">{{t('footer.sitemap.two')}}</p>
+        <p class="my-2">{{t('footer.sitemap.three')}}</p>
+        <p class="my-2">{{t('footer.sitemap.four')}}</p>
       </v-col>
     </v-row>
   </v-footer>

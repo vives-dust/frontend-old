@@ -3,33 +3,55 @@
     "footer": {
         "header": "Making the world drink enough water",
         "underHeader": "Just another paragraph for the sake of it",
-        "links":{
-            "title":"LINKS",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "links": {
+            "title": "LINKS",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "support":{
-            "title":"SUPPORT",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "support": {
+            "title": "SUPPORT",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "legal":{
-            "title":"LEGAL",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "legal": {
+            "title": "LEGAL",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "sitemap":{
-            "title":"SITEMAP",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "sitemap": {
+            "title": "SITEMAP",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
+        }
+    },
+    "cards": {
+        "card1": {
+            "title": "Name",
+            "subtitle": "foo"
+        },
+        "card2": {
+            "title": "Cities",
+            "subtitle": "Bar"
+        },
+        "card3": {
+            "title": "Projects",
+            "subtitle": "0"
+        },
+        "card4": {
+            "title": "Owners",
+            "subtitle": "24"
+        },
+        "card5": {
+            "title": "Centers",
+            "subtitle": "Castle"
         }
     }
 }
