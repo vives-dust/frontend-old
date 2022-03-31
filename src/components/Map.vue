@@ -1,6 +1,6 @@
 <template>
   <v-card height="800" width="auto" justify="center">
-  <l-map ref="map" v-model:zoom="zoom" :center="[47.41322, -1.219482]">
+  <l-map ref="map" v-model:zoom="zoom" :center="[51.209348, 3.2246995]">
     <l-tile-layer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       layer-type="base"
@@ -32,6 +32,7 @@ export default {
     };
   },
 };
+//https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue
   // data() {
   //   return {
   //     center: [51.209348, 3.2246995],
