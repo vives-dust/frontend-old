@@ -3,7 +3,7 @@
     <v-col cols="10">
       <carouselVue class="mt-10" />
       <v-divider class="my-5" />
-      <h2>{{t('mapText')}}</h2>
+      <h2>{{t('mapText',{},{locale: lang})}}</h2>
       <mapVue class="mt-5" />
       <v-divider class="my-5" />
       <informationCards />

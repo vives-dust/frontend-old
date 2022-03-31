@@ -6,12 +6,13 @@
         layer-type="base"
         name="OpenStreetMap"
         :max-zoom="10"
-      />  
+      />
     </l-map>
   </v-card>
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 export default {
@@ -33,6 +34,11 @@ export default {
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
+  },
+  setup() {
+    const { t, locale } = useI18n();
+
+    return { t, locale };
   },
 };
 //https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue

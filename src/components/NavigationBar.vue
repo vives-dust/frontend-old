@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
 export default {
   name: "NavigationBar",
   data() {
@@ -56,10 +57,15 @@ export default {
     toggleshowingLanguageSelectionTool() {
       this.showingLanguageSelectionTool = !this.showingLanguageSelectionTool;
     },
-    selectLanguage(language){
-      this.$i18n.locale = language
-      this.menu = false
-    }
+    selectLanguage(language) {
+      this.$i18n.locale = language;
+      this.menu = false;
+    },
+  },
+  setup() {
+    const { t, locale } = useI18n();
+
+    return { t, locale };
   },
 };
 </script>

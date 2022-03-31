@@ -1,3 +1,35 @@
 {
-    "mapText": "Kaart"
+    "mapText": "Kaart",
+    "footer": {
+        "header": "De wereld meer water laten drinken",
+        "underHeader": "gewoon een tweede paragraaf",
+        "links":{
+            "title":"LINKS",
+            "one":"Link one",
+            "two":"link two",
+            "three":"link three",
+            "four":"link four"
+        },
+        "support":{
+            "title":"SUPPORT",
+            "one":"Link one",
+            "two":"link two",
+            "three":"link three",
+            "four":"link four"
+        },
+        "legal":{
+            "title":"LEGAL",
+            "one":"Link one",
+            "two":"link two",
+            "three":"link three",
+            "four":"link four"
+        },
+        "sitemap":{
+            "title":"SITEMAP",
+            "one":"Link one",
+            "two":"link two",
+            "three":"link three",
+            "four":"link four"
+        }
+    }
 }
