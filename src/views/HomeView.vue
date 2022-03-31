@@ -3,7 +3,7 @@
     <v-col cols="10">
       <carouselVue class="mt-10" />
       <v-divider class="my-5" />
-      <h2>This is a secondary title</h2>
+      <h2>Map</h2>
       <mapVue class="mt-5" />
       <v-divider class="my-5" />
       <informationCards />
