@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import 'leaflet/dist/leaflet.css';
+import {i18n} from './plugins/vue-i18n'
 
 
 loadFonts()
@@ -13,4 +14,6 @@ createApp(App)
   .use(router)
   .use(store)
   .use(vuetify)
+  .use(i18n)
   .mount('#app')
+

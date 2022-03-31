@@ -1,6 +1,6 @@
 <template>
   <v-card color="fifth" height="auto">
-    <v-row >
+    <v-row>
       <v-col cols="1" class="text-left">
         <div>
           <v-menu v-model="menu" transition="slide-x-transition">
@@ -16,13 +16,10 @@
                 <v-icon size="33" icon="mdi:mdi-web" />
               </v-btn>
             </template>
-            <v-list color="fifth" >
-              <v-list-item
-                v-for="(item, index) in items"
-                :key="index"
-              >
+            <v-list color="fifth">
+              <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
-                  <v-btn color="fifth" @click="menu = false">
+                  <v-btn color="fifth" @click="selectLanguage(item.lang)">
                     {{ item.title }}
                   </v-btn>
                 </v-list-item-title>
@@ -31,7 +28,6 @@
           </v-menu>
         </div>
       </v-col>
-
 
       <v-col cols="10" class="text-center">
         <v-tabs centered class="mt-2" height="auto">
@@ -51,8 +47,8 @@ export default {
     return {
       menu: false,
       items: [
-        { title: "\ud83c\uddfa\ud83c\uddf8 English" },
-        { title: "\uD83C\uDDE7\uD83C\uDDEA Dutch" },
+        { title: "\ud83c\uddfa\ud83c\uddf8 English", lang: "en" },
+        { title: "\uD83C\uDDE7\uD83C\uDDEA Dutch", lang: "nl" },
       ],
     };
   },
@@ -60,6 +56,10 @@ export default {
     toggleshowingLanguageSelectionTool() {
       this.showingLanguageSelectionTool = !this.showingLanguageSelectionTool;
     },
+    selectLanguage(language){
+      this.$i18n.locale = language
+      this.menu = false
+    }
   },
 };
 </script>
