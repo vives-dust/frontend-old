@@ -5,31 +5,31 @@
         "underHeader": "gewoon een tweede paragraaf",
         "links": {
             "title": "LINKS",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "Link één",
+            "two": "link twee",
+            "three": "link drie",
+            "four": "link vier"
         },
         "support": {
             "title": "SUPPORT",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "Link één",
+            "two": "link twee",
+            "three": "link drie",
+            "four": "link vier"
         },
         "legal": {
             "title": "LEGAL",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "Link één",
+            "two": "link twee",
+            "three": "link drie",
+            "four": "link vier"
         },
         "sitemap": {
             "title": "SITEMAP",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "Link één",
+            "two": "link twee",
+            "three": "link drie",
+            "four": "link vier"
         }
     },
     "cards": {
@@ -61,6 +61,6 @@
     },
     "navigationBar": {
         "home": "Home",
-        "about": "About"
+        "about": "Over ons"
     }
 }
