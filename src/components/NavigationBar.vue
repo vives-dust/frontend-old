@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="1" class="text-left">
         <div>
-          <v-menu v-model="menu" transition="slide-x-transition">
+          <v-menu v-model="menu" transition="slide-x-transition" >
             <template v-slot:activator="{ props }">
               <v-btn
                 color="fifth"
@@ -16,7 +16,7 @@
                 <v-icon size="33" icon="mdi:mdi-web" />
               </v-btn>
             </template>
-            <v-list color="fifth">
+            <v-list color="fifth" style="margin-top:11px;">
               <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
                   <v-btn color="fifth" @click="selectLanguage(item.lang)">
