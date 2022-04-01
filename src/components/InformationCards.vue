@@ -6,7 +6,7 @@
           <v-row align="center" >
             <v-col cols="5">
               <div>
-                <v-icon class="ml-8" size="80" :icon="card.icon"/>
+                <v-icon class="ml-8" size="80" :icon="$t(card.icon)"/>
               </div>
             </v-col>
 
@@ -16,14 +16,14 @@
                 class="mt-4 ml-n4 font-weight-regular hidden-xs-only"
                 style="text-align: center"
               >
-                {{ card.title }}
+                {{ $t(card.title) }}
               </h2>
 
               <h4
                 class="mt-4 ml-n4 font-weight-regular hidden-sm-and-up"
                 style="text-align: center"
               >
-                {{ card.title }}
+                {{ $t(card.title) }}
               </h4>
 
               <p
@@ -31,7 +31,7 @@
                 :style="{ 'font-size': '50px' }"
                 style="text-align: center"
               >
-                {{ card.subtitle }}
+                {{ $t(card.subtitle)}}
               </p>
             </v-col>
           </v-row>
@@ -45,39 +45,20 @@
 export default {
   name: "informationCard",
   data() {
+    const keys = [
+      "card1",
+      "card2",
+      "card3",
+      "card4",
+      "card5"
+    ];
     return {
-      cards: [
-        {
-          id: 0,
-          title: "Names",
-          subtitle: "foo",
-          icon: "mdi:mdi-home-city",
-        },
-        {
-          id: 1,
-          title: "Cities",
-          subtitle: "Bar",
-          icon: "mdi:mdi-bus-articulated-front",
-        },
-        {
-          id: 3,
-          title: "Projects",
-          subtitle: "0",
-          icon: "mdi:mdi-bottle-wine-outline",
-        },
-        {
-          id: 4,
-          title: "Owners",
-          subtitle: "card",
-          icon: "mdi:mdi-card-text",
-        },
-        {
-          id: 5,
-          title: "Centers",
-          subtitle: "castle",
-          icon: "mdi:mdi-castle",
-        },
-      ],
+      cards: keys.map((key,id) =>({
+        id,
+        title: `cards.${key}.title`,
+        subtitle: `cards.${key}.subtitle`,
+        icon: `cards.${key}.icon`
+      })),
     };
   },
 };

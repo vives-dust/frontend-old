@@ -35,23 +35,28 @@
     "cards": {
         "card1": {
             "title": "Name",
-            "subtitle": "foo"
+            "subtitle": "foo",
+            "icon": "mdi:mdi-home-city"
         },
         "card2": {
             "title": "Cities",
-            "subtitle": "Bar"
+            "subtitle": "Bar",
+            "icon": "mdi:mdi-bus-articulated-front"
         },
         "card3": {
             "title": "Projects",
-            "subtitle": "0"
+            "subtitle": "0",
+            "icon": "mdi:mdi-bottle-wine-outline"
         },
         "card4": {
             "title": "Owners",
-            "subtitle": "24"
+            "subtitle": "24",
+            "icon": "mdi:mdi-card-text"
         },
         "card5": {
             "title": "Centers",
-            "subtitle": "Castle"
+            "subtitle": "Castle",
+            "icon": "mdi:mdi-castle"
         }
     }
 }
