@@ -31,8 +31,8 @@
 
       <v-col cols="10" class="text-center">
         <v-tabs centered class="mt-2" height="auto">
-          <v-tab value="Home" to="/"> Home </v-tab>
-          <v-tab value="About" to="/about">About </v-tab>
+          <v-tab value="Home" to="/">  {{ $t("navigationBar.home") }} </v-tab>
+          <v-tab value="About" to="/about">{{$t("navigationBar.about")}} </v-tab>
         </v-tabs>
       </v-col>
       <v-col cols="1"> </v-col>
@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n';
 export default {
   name: "NavigationBar",
   data() {
@@ -49,7 +48,7 @@ export default {
       menu: false,
       items: [
         { title: "\ud83c\uddfa\ud83c\uddf8 English", lang: "en" },
-        { title: "\uD83C\uDDE7\uD83C\uDDEA Dutch", lang: "nl" },
+        { title: "\uD83C\uDDE7\uD83C\uDDEA Nederlands", lang: "nl" },
       ],
     };
   },
@@ -61,11 +60,6 @@ export default {
       this.$i18n.locale = language;
       this.menu = false;
     },
-  },
-  setup() {
-    const { t, locale } = useI18n();
-
-    return { t, locale };
   },
 };
 </script>
