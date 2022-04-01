@@ -3,33 +3,64 @@
     "footer": {
         "header": "De wereld meer water laten drinken",
         "underHeader": "gewoon een tweede paragraaf",
-        "links":{
-            "title":"LINKS",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "links": {
+            "title": "LINKS",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "support":{
-            "title":"SUPPORT",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "support": {
+            "title": "SUPPORT",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "legal":{
-            "title":"LEGAL",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "legal": {
+            "title": "LEGAL",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         },
-        "sitemap":{
-            "title":"SITEMAP",
-            "one":"Link one",
-            "two":"link two",
-            "three":"link three",
-            "four":"link four"
+        "sitemap": {
+            "title": "SITEMAP",
+            "one": "Link one",
+            "two": "link two",
+            "three": "link three",
+            "four": "link four"
         }
+    },
+    "cards": {
+        "card1": {
+            "title": "Naam",
+            "subtitle": "foo",
+            "icon": "mdi:mdi-home-city"
+        },
+        "card2": {
+            "title": "Steden",
+            "subtitle": "Bar",
+            "icon": "mdi:mdi-bus-articulated-front"
+        },
+        "card3": {
+            "title": "Projecten",
+            "subtitle": "0",
+            "icon": "mdi:mdi-bottle-wine-outline"
+        },
+        "card4": {
+            "title": "Eigenaars",
+            "subtitle": "24",
+            "icon": "mdi:mdi-card-text"
+        },
+        "card5": {
+            "title": "Binnenstad",
+            "subtitle": "Castle",
+            "icon": "mdi:mdi-castle"
+        }
+    },
+    "navigationBar": {
+        "home": "Home",
+        "about": "About"
     }
 }

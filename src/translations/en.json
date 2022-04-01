@@ -59,8 +59,8 @@
             "icon": "mdi:mdi-castle"
         }
     },
-    "navigationBar":{
+    "navigationBar": {
         "home": "Home",
-        "about": "About"
+        "about": "Over ons"
     }
 }
