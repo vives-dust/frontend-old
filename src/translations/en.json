@@ -62,5 +62,25 @@
     "navigationBar": {
         "home": "Home",
         "about": "About"
+    },
+    "aboutPage":{
+        "title": "About us",
+        "introduction": "We build an application, some prototypes and the firmware going with it. So everything that would be needed to scale this project up. The idea is that everyone who needs a soil moisture sensor can use our open source schematics to make their own hardware. Then add a device to our user-friendly website, and you should be good to go. Data flows from your device directly to our site where you can see all data that comes from your device. Even placed in interactive graphs and everything! ",
+        "card1":{
+            "title":"What is this project",
+            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+        },
+        "card2":{
+            "title":"Why dust?",
+            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+        },
+        "card3":{
+            "title":"Where are we from",
+            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+        },
+        "card4":{
+            "title":"About the environment",
+            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+        }
     }
 }

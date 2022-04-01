@@ -62,5 +62,25 @@
     "navigationBar": {
         "home": "Home",
         "about": "Over ons"
+    },
+    "aboutPage":{
+        "title": "Over ons",
+        "introduction": "Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden.",
+        "card1":{
+            "title":"Wat is dit project",
+            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+        },
+        "card2":{
+            "title":"Waarom dust?",
+            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+        },
+        "card3":{
+            "title":"Van waar zijn wij",
+            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+        },
+        "card4":{
+            "title":"Over het milieu",
+            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+        }
     }
 }
