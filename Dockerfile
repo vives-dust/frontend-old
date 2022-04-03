@@ -9,15 +9,6 @@ RUN npm install
 COPY . .
 CMD ["npm", "run", "serve"]
 
-# Stop at a specific build stage🔗
-# When you build your image, you don’t necessarily need to build the entire Dockerfile
-# including every stage. You can specify a target build stage.
-# The following command assumes you are using the previous Dockerfile but
-# stops at the stage.
-#
-# development-stage is also build when targetting production-stage.
-# I think order here matters !
-
 # Build Stage
 FROM base as build-stage
 RUN npm install

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n';
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 export default {
