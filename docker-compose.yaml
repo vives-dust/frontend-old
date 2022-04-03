@@ -1,0 +1,11 @@
+# This is the development file
+version: "3.7"
+
+services:
+  frontend:
+    build: .
+    ports:
+      # Run dev server on host port 8080
+      - "80:80"
+    restart: "unless-stopped"
+

@@ -19,11 +19,11 @@ export default {
     return {
       items: [
         {
-          src: require("@/assets/vlaanderen1.jpg"),
+          src: require("@/assets/philipp.jpg"),
           title: "",
         },
         {
-          src: require("@/assets/bier2.jpg"),
+          src: require("@/assets/leaves.jpg"),
           title: "DUST",
         },
         {
