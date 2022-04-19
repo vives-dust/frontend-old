@@ -45,7 +45,9 @@ export default {
   },
   methods: {
     pinClicked(pinid) {
-      alert(pinid);
+     // alert(pinid);
+      //window.location.href = '/Sensor';
+      this.$router.push('sensor');
     },
   },
   mounted() {
