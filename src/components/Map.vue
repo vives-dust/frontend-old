@@ -45,15 +45,13 @@ export default {
   },
   methods: {
     pinClicked(pinid) {
-     // alert(pinid);
-      //window.location.href = '/Sensor';
-      this.$router.push('sensor');
+      this.$router.push({name: 'sensor', params: { id: pinid }} );
     },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
   },
-  computed: mapState(["pins"]),
+  computed: (mapState(["pins"])),
 };
 //https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue
 </script>
