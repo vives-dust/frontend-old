@@ -7,18 +7,22 @@
         name="OpenStreetMap"
         :max-zoom="10"
       />
+      <template v-for="pin in pins" :key="pin.id">
+        <l-marker :lat-lng="[pin.x, pin.y]"> </l-marker>
+      </template>
     </l-map>
   </v-card>
 </template>
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 export default {
   name: "mapVue",
   components: {
     LMap,
     LTileLayer,
+    LMarker,
   },
   data() {
     return {
@@ -28,12 +32,34 @@ export default {
         style_id: process.env.VUE_APP_STYLE_ID,
         acces_token: process.env.VUE_APP_MAPBOX_TOKEN,
       },
+      pins: [
+        {
+          id: 1,
+          x: 51.037861,
+          y: 4.240528,
+        },
+        {
+          id: 2,
+          x: 51.047861,
+          y: 4.240528,
+        },
+        {
+          id: 3,
+          x: 51.147861,
+          y: 4.240528,
+        },
+        {
+          id: 4,
+          x: 51.247861,
+          y: 4.240528,
+        },
+      ],
       url: "",
     };
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
-  }
+  },
 };
 //https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue
 </script>
