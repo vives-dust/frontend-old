@@ -8,7 +8,12 @@
         :max-zoom="10"
       />
       <template v-for="pin in pins" :key="pin.id">
-        <l-marker :lat-lng="[pin.x, pin.y]"> </l-marker>
+        <l-marker :lat-lng="[pin.x, pin.y]" @click="pinClicked(pin.id)">
+          <l-tooltip>
+            Marker: {{ pin.id }} <br />
+            Placed in location {{ pin.x }}, {{ pin.y }}
+          </l-tooltip>
+        </l-marker>
       </template>
     </l-map>
   </v-card>
@@ -16,14 +21,15 @@
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
-import { mapState } from 'vuex'
+import { LMap, LTileLayer, LMarker, LTooltip } from "@vue-leaflet/vue-leaflet";
+import { mapState } from "vuex";
 export default {
   name: "mapVue",
   components: {
     LMap,
     LTileLayer,
     LMarker,
+    LTooltip,
   },
   data() {
     return {
@@ -33,16 +39,19 @@ export default {
         style_id: process.env.VUE_APP_STYLE_ID,
         acces_token: process.env.VUE_APP_MAPBOX_TOKEN,
       },
-      
+
       url: "",
     };
+  },
+  methods: {
+    pinClicked(pinid) {
+      alert(pinid);
+    },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
   },
-  computed: mapState([
-  'pins'
-])
+  computed: mapState(["pins"]),
 };
 //https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue
 </script>
