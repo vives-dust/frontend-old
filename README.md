@@ -9,3 +9,6 @@
 color pallet chosen with: [Adobe collor-wheel](https://color.adobe.com/create/color-wheel)
 
 ![color-palet](./img/color-palet.png)
+
+
+using [chart.js](https://vue-chartjs.org/guide/#integration) for the sensor charts.

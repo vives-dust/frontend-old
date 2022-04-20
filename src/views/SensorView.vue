@@ -1,14 +1,23 @@
 <template>
-    <sensorPage/>
+  <sensorPageTitle />
+  <v-row justify="center">
+    <v-col cols="8">
+      <v-card>
+        <barChart />
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import sensorPage from "@/components/SensorPage.vue";
+import sensorPageTitle from "@/components/SensorPageTitle.vue";
+import barChart from "@/components/BarChart.vue";
 export default {
   name: "sensorView",
-  components:{
-      sensorPage
-  }
+  components: {
+    sensorPageTitle,
+    barChart,
+  },
 };
 </script>
 

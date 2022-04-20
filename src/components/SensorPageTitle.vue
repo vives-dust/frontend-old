@@ -12,7 +12,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  name: "sensorPage",
+  name: "sensorPageTitle",
   data() {
     return { id: "", currentSensor: null };
   },
