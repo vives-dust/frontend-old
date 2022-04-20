@@ -10,27 +10,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   name: "sensorPageTitle",
-  data() {
-    return { id: "", currentSensor: null };
-  },
-  created() {
-    this.id = this.$route.params.id;
-    this.SearchForSensor(this.id);
-  },
-  methods: {
-    SearchForSensor(id) {
-      return this.pins.forEach((pin) => {
-        if (pin.id == id) {
-          this.currentSensor = pin;
-        }
-      });
-      
-    },
-  },
-  computed: mapState(["pins"]),
+  props:["currentSensor"]
 };
 </script>
 

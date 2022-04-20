@@ -1,7 +1,8 @@
 <template>
-  <sensorPageTitle />
+  <sensorPageTitle :currentSensor="this.currentSensor" />
   <v-row justify="center">
     <v-col cols="8">
+      <singleMarkerMap :currentSensor="this.currentSensor"/>
       <v-card class="my-5 py-5">
         <v-row justify="center">
           <v-col cols="4">
@@ -32,15 +33,34 @@
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import doughnutChart from "@/components/DoughnutChart.vue";
 import lineChart from "@/components/LineChart.vue";
+import singleMarkerMap from "@/components/SingleMarkerMap.vue";
+import { mapState } from "vuex";
 export default {
   name: "sensorView",
   components: {
     sensorPageTitle,
     doughnutChart,
     lineChart,
+    singleMarkerMap,
   },
+  created() {
+    this.id = this.$route.params.id;
+    this.SearchForSensor(this.id);
+  },
+  methods: {
+    SearchForSensor(id) {
+      return this.pins.forEach((pin) => {
+        if (pin.id == id) {
+          this.currentSensor = pin;
+        }
+      });
+    },
+  },
+  computed: mapState(["pins"]),
   data() {
     return {
+      id: "",
+      currentSensor: null,
       doughnutChart1Data: {
         labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
         datasets: [
