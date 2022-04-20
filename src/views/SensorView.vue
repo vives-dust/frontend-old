@@ -2,7 +2,9 @@
   <sensorPageTitle :currentSensor="this.currentSensor" />
   <v-row justify="center">
     <v-col cols="8">
-      <singleMarkerMap :currentSensor="this.currentSensor"/>
+      <singleMarkerMap :currentSensor="this.currentSensor" />
+      <p class="text-h2 text-left mt-15">Summary</p>
+      <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5 py-5">
         <v-row justify="center">
           <v-col cols="4">
@@ -13,15 +15,18 @@
           </v-col>
         </v-row>
       </v-card>
-
+      <p class="text-h3 text-left mt-15">Humidity Sensors</p>
+      <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
         <lineChart :data="lineChart1Data" />
       </v-card>
-
+      <p class="text-h3 text-left mt-15">Temperature sensor</p>
+      <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
         <lineChart :data="lineChart2Data" />
       </v-card>
-
+      <p class="text-h3 text-left mt-15">Light sensor</p>
+      <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
         <lineChart :data="lineChart3Data" />
       </v-card>

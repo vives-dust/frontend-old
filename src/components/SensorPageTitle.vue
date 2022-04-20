@@ -1,10 +1,10 @@
 <template>
   <v-row justify="center">
     <v-col cols="8">
-      <p class="text-h2 text-center pt-15 pb-3">
-        Sensor: {{ currentSensor.name }}
+      <p class="text-h1 text-center mt-15">
+        {{ currentSensor.name }}
       </p>
-      <v-divider class="mb-2"></v-divider>
+      <v-divider class="mb-10 mt-3"></v-divider>
     </v-col>
   </v-row>
 </template>

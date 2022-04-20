@@ -13,4 +13,5 @@ color pallet chosen with: [Adobe collor-wheel](https://color.adobe.com/create/co
 
 using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor charts.
 
-[helper for charts.js](https://www.chartjs.org/docs/latest/samples/line/interpolation.html)
+[helper for charts.js](https://www.chartjs.org/docs/3.0.2/charts/line.html)
+

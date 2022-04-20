@@ -5,7 +5,7 @@
         :url="url"
         layer-type="base"
         name="OpenStreetMap"
-        :max-zoom="10"
+        :max-zoom="18"
       />
       <l-marker :lat-lng="[currentSensor.x, currentSensor.y]">
         <l-tooltip>
@@ -32,7 +32,7 @@ export default {
   props: ["currentSensor"],
   data() {
     return {
-      zoom: 12,
+      zoom: 13,
       urlConfig: {
         username: "flixushd",
         style_id: process.env.VUE_APP_STYLE_ID,
