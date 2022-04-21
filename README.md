@@ -1,4 +1,5 @@
 # dust
+The front-end of the dust project
 
 [nightly build](https://scintillating-hotteok-03eadd.netlify.app)
 
@@ -10,6 +11,10 @@ color pallet chosen with: [Adobe collor-wheel](https://color.adobe.com/create/co
 
 ![color-palet](./img/color-palet.png)
 
+
+## Libraries
+
+[Vue3](https://vuejs.org/)
 
 using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor charts.
 

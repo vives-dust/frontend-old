@@ -1,22 +1,18 @@
 <template>
   <v-card color="fifth" height="auto">
-    <v-row  align="center">
+    <v-row align="center">
       <v-col cols="1" class="text-left">
         <div>
-          <v-menu v-model="menu" transition="slide-x-transition" >
+          <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
-              <v-btn
-                color="fifth"
-                dark
-                v-bind="props"
-                elevation="0"
-                class="d-flex"
-              >
-                <p class="font-weight-700" v-if="this.$i18n.locale === 'en'"> {{this.items[0].code}} en</p>
-                <p v-else> {{this.items[1].code}} nl</p>
+              <v-btn color="fifth" v-bind="props" elevation="0" class="d-flex">
+                <p v-if="this.$i18n.locale === 'en'" class="mt-5">
+                  {{ this.items[0].code }} en
+                </p>
+                <p v-else>{{ this.items[1].code }} nl</p>
               </v-btn>
             </template>
-            <v-list color="fifth" style="margin-top:auto;">
+            <v-list color="fifth">
               <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
                   <v-btn color="fifth" @click="selectLanguage(item.lang)">
@@ -31,8 +27,18 @@
 
       <v-col cols="10" class="text-center">
         <v-tabs centered height="auto">
-          <v-tab value="Home" to="/">  {{ $t("navigationBar.home") }} </v-tab>
-          <v-tab value="About" to="/about">{{$t("navigationBar.about")}} </v-tab>
+          <v-tab value="Home" to="/" class="pr-n2">
+            <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
+            {{ $t("navigationBar.home") }}
+          </v-tab>
+          <v-divider vertical class="mx-2 my-2"></v-divider>
+          <v-tab value="About" to="/about"
+            ><v-icon
+              size="25"
+              class="mr-2 ml-n3"
+              icon="mdi:mdi-information"
+            />{{ $t("navigationBar.about") }}
+          </v-tab>
         </v-tabs>
       </v-col>
       <v-col cols="1"> </v-col>
@@ -47,8 +53,16 @@ export default {
     return {
       menu: false,
       items: [
-        { title: "\ud83c\uddfa\ud83c\uddf8 English", lang: "en", code: "\ud83c\uddfa\ud83c\uddf8"},
-        { title: "\uD83C\uDDE7\uD83C\uDDEA Nederlands", lang: "nl", code: "\uD83C\uDDE7\uD83C\uDDEA" },
+        {
+          title: "\ud83c\uddfa\ud83c\uddf8 English",
+          lang: "en",
+          code: "\ud83c\uddfa\ud83c\uddf8",
+        },
+        {
+          title: "\uD83C\uDDE7\uD83C\uDDEA Nederlands",
+          lang: "nl",
+          code: "\uD83C\uDDE7\uD83C\uDDEA",
+        },
       ],
     };
   },
@@ -63,6 +77,6 @@ export default {
 
 <style>
 p {
-    font-size: 17px;
+  font-size: 17px;
 }
 </style>
