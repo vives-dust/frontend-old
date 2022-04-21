@@ -1,7 +1,7 @@
 # Base
 FROM node:16.13.0-alpine3.14 as base
 WORKDIR /app
-COPY package*.json ./
+COPY package*.json .
 
 # Development Stage
 FROM base as development-stage

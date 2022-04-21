@@ -1,6 +1,6 @@
 <template>
   <v-card color="fifth" height="auto">
-    <v-row>
+    <v-row  align="center">
       <v-col cols="1" class="text-left">
         <div>
           <v-menu v-model="menu" transition="slide-x-transition" >
@@ -10,13 +10,13 @@
                 dark
                 v-bind="props"
                 elevation="0"
-                height="auto"
-                class="mt-3"
+                class="d-flex"
               >
-                <v-icon size="33" icon="mdi:mdi-web" />
+                <p class="font-weight-700" v-if="this.$i18n.locale === 'en'"> {{this.items[0].code}} en</p>
+                <p v-else> {{this.items[1].code}} nl</p>
               </v-btn>
             </template>
-            <v-list color="fifth" style="margin-top:11px;">
+            <v-list color="fifth" style="margin-top:auto;">
               <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
                   <v-btn color="fifth" @click="selectLanguage(item.lang)">
@@ -30,7 +30,7 @@
       </v-col>
 
       <v-col cols="10" class="text-center">
-        <v-tabs centered class="mt-2" height="auto">
+        <v-tabs centered height="auto">
           <v-tab value="Home" to="/">  {{ $t("navigationBar.home") }} </v-tab>
           <v-tab value="About" to="/about">{{$t("navigationBar.about")}} </v-tab>
         </v-tabs>
@@ -47,15 +47,12 @@ export default {
     return {
       menu: false,
       items: [
-        { title: "\ud83c\uddfa\ud83c\uddf8 English", lang: "en" },
-        { title: "\uD83C\uDDE7\uD83C\uDDEA Nederlands", lang: "nl" },
+        { title: "\ud83c\uddfa\ud83c\uddf8 English", lang: "en", code: "\ud83c\uddfa\ud83c\uddf8"},
+        { title: "\uD83C\uDDE7\uD83C\uDDEA Nederlands", lang: "nl", code: "\uD83C\uDDE7\uD83C\uDDEA" },
       ],
     };
   },
   methods: {
-    toggleshowingLanguageSelectionTool() {
-      this.showingLanguageSelectionTool = !this.showingLanguageSelectionTool;
-    },
     selectLanguage(language) {
       this.$i18n.locale = language;
       this.menu = false;
@@ -65,4 +62,7 @@ export default {
 </script>
 
 <style>
+p {
+    font-size: 17px;
+}
 </style>
