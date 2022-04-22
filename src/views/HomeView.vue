@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="11" class="md-8">
+    <v-col cols="11" sm=8 >
       <carouselVue class="mt-10" />
       <v-divider class="my-5" />
       <h2>{{t('mapText')}}</h2>

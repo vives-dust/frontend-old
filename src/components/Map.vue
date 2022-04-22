@@ -1,5 +1,5 @@
 <template>
-  <v-card :height="xs ? 800 : 300" width="auto" justify="center">
+  <v-card :height="xs ? 300 : 800" width="auto" justify="center">
     <l-map ref="map" v-model:zoom="zoom" :center="[51.037861, 4.240528]">
       <l-tile-layer
         :url="url"
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { useDisplay } from 'vuetify'
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LTooltip } from "@vue-leaflet/vue-leaflet";
 import { mapState } from "vuex";
@@ -45,14 +46,21 @@ export default {
   },
   methods: {
     pinClicked(pinid) {
-      this.$router.push({name: 'sensor', params: { id: pinid }} );
+      this.$router.push({ name: "sensor", params: { id: pinid } });
     },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
   },
-  computed: (mapState(["pins"])),
+  computed: mapState(["pins"]),
+  setup() {
+    // Destructure only the keys we want to use
+    const { xs, mdAndUp } = useDisplay();
+
+    return { xs, mdAndUp };
+  },
 };
+
 //https://github.com/vue-leaflet/vue3-demo-project/blob/master/src/App.vue
 </script>
 

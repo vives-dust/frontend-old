@@ -31,7 +31,7 @@
         </div>
       </v-col>
 
-      <v-col cols="11" class="text-center md-10">
+      <v-col cols="11" class="text-center" md="10">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" class="pr-n2">
             <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
@@ -47,7 +47,7 @@
           </v-tab>
         </v-tabs>
       </v-col>
-      <v-col cols="0" class="md-1"> </v-col>
+      <v-col cols="0" md="1"> </v-col>
     </v-row>
   </v-card>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row dense justify="center">
-      <v-col cols="0" sm="4" v-for="card in cards" :key="card.id">
+      <v-col cols="12" sm=4 v-for="card in cards" :key="card.id" class="hidden-xs-only">
         <v-card dark color="third"  class="ma-1 pa-1">
           <v-row align="center" >
             <v-col cols="5">
@@ -11,20 +11,13 @@
             </v-col>
 
 
-            <v-col cols="3" >
+            <v-col cols="4"  >
               <h2
-                class="mt-4 ml-n4 font-weight-regular hidden-xs-only"
+                class="mt-4 ml-n4 font-weight-regular"
                 style="text-align: center"
               >
                 {{ $t(card.title) }}
               </h2>
-
-              <h4
-                class="mt-4 ml-n4 font-weight-regular hidden-sm-and-up"
-                style="text-align: center"
-              >
-                {{ $t(card.title) }}
-              </h4>
 
               <p
                 class="mt-5 ml-n4 font-weight-black"
