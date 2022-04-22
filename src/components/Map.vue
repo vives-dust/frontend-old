@@ -1,5 +1,5 @@
 <template>
-  <v-card height="800" width="auto" justify="center">
+  <v-card :height="xs ? 800 : 300" width="auto" justify="center">
     <l-map ref="map" v-model:zoom="zoom" :center="[51.037861, 4.240528]">
       <l-tile-layer
         :url="url"
