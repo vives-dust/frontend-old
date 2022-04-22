@@ -1,6 +1,6 @@
 <template>
   <v-card rounded>
-    <v-carousel hide-delimiters :show-arrows="false" cycle :height="xs ? 100 : 300">
+    <v-carousel hide-delimiters :show-arrows="false" cycle :height="xs ? 150 : 300">
       <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
         <v-row class="title fill-height" align="center" justify="center">
           <div style="color: green" class="pa-2 w-50 text-no-wrap rounded-lg">

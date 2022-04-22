@@ -5,13 +5,18 @@
         <div>
           <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
-              
-                <v-btn color="fifth" v-bind="props" elevation="0" id="languageSelection" height="47px">
-                  <p v-if="this.$i18n.locale === 'en'">
-                    {{ this.items[0].code }} en
-                  </p>
-                  <p v-else>{{ this.items[1].code }} nl</p>
-                </v-btn>
+              <v-btn
+                color="fifth"
+                v-bind="props"
+                elevation="0"
+                id="languageSelection"
+                height="47px"
+              >
+                <p v-if="this.$i18n.locale === 'en'">
+                  {{ this.items[0].code }} en
+                </p>
+                <p v-else>{{ this.items[1].code }} nl</p>
+              </v-btn>
             </template>
             <v-list color="fifth">
               <v-list-item v-for="(item, index) in items" :key="index">
@@ -26,7 +31,7 @@
         </div>
       </v-col>
 
-      <v-col cols="10" class="text-center">
+      <v-col cols="11" class="text-center md-10">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" class="pr-n2">
             <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
@@ -42,7 +47,7 @@
           </v-tab>
         </v-tabs>
       </v-col>
-      <v-col cols="1"> </v-col>
+      <v-col cols="0" class="md-1"> </v-col>
     </v-row>
   </v-card>
 </template>
@@ -53,6 +58,7 @@ export default {
   data() {
     return {
       menu: false,
+      breakpoints: "",
       items: [
         {
           title: "\ud83c\uddfa\ud83c\uddf8 English",
@@ -80,5 +86,4 @@ export default {
 p {
   font-size: 17px;
 }
-
 </style>
