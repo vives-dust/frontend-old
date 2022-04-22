@@ -139,8 +139,6 @@
       </v-row>
     </v-container>
   </v-footer>
-
-  <v-footer color="fourth"> </v-footer>
 </template>
 
 <script>
