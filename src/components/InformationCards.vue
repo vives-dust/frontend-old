@@ -2,8 +2,7 @@
   <v-container fluid>
     <v-row dense justify="center">
       <v-col
-        cols="12"
-        sm="4"
+        cols="4"
         v-for="card in cards"
         :key="card.id"
         class="hidden-xs"

@@ -33,7 +33,7 @@
 
       <v-col cols="11" class="text-center" md="10">
         <v-tabs centered height="auto">
-          <v-tab value="Home" to="/" class="pr-n2">
+          <v-tab value="Home" to="/" exact class="pr-n2">
             <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
             {{ $t("navigationBar.home") }}
           </v-tab>

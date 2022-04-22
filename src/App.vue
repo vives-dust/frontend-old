@@ -16,4 +16,12 @@ export default {
   },
 };
 </script>
+<style>
+@media screen and (max-width: 700px) {
+  html {
+    scrollbar-width: none;
+  }
+}
+</style>
+
 
