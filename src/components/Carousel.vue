@@ -1,27 +1,31 @@
 <template>
   <v-card rounded>
-    <v-carousel hide-delimiters :show-arrows="false" cycle :height="xs ? 150 : 300">
-      <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src">
-        <v-row class="title fill-height" align="center" justify="center">
-          <div style="color: green" class="pa-2 w-50 text-no-wrap rounded-lg">
-            <h2>{{ item.title }}</h2>
-          </div>
-        </v-row>
+    <v-carousel
+      hide-delimiters
+      :show-arrows="false"
+      cycle
+      :height="xs ? 150 : 300"
+    >
+      <v-carousel-item v-for="(item, i) in items" :key="i" class="align-center">
+          <v-img
+            :src="item.src"
+            max-height=700
+            class=""
+          ></v-img>
       </v-carousel-item>
     </v-carousel>
   </v-card>
 </template>
 
 <script>
-import { useDisplay } from 'vuetify'
+import { useDisplay } from "vuetify";
 export default {
-
   name: "carouselVue",
-    setup () {
+  setup() {
     // Destructure only the keys we want to use
-    const { xs, mdAndUp } = useDisplay()
+    const { xs, mdAndUp } = useDisplay();
 
-    return { xs, mdAndUp }
+    return { xs, mdAndUp };
   },
   data() {
     return {
@@ -42,8 +46,6 @@ export default {
     };
   },
 };
-
-
 </script>
 
 <style>
