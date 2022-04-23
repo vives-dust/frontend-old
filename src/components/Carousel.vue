@@ -9,8 +9,7 @@
       <v-carousel-item v-for="(item, i) in items" :key="i" class="align-center">
           <v-img
             :src="item.src"
-            max-height=700
-            class=""
+            max-height=900
           ></v-img>
       </v-carousel-item>
     </v-carousel>

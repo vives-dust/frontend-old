@@ -1,5 +1,4 @@
 <template>
-  <v-container fluid>
     <v-row dense justify="center">
       <v-col
         cols="4"
@@ -46,7 +45,7 @@
           <v-row align="center" justify="center">
             <v-col cols="3" >
               <div>
-                <v-icon class="" size="40" :icon="$t(card.icon)" />
+                <v-icon  size="40" :icon="$t(card.icon)" />
               </div>
             </v-col>
 
@@ -70,7 +69,6 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
 </template>
 
 <script>
