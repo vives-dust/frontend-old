@@ -1,5 +1,5 @@
 <template>
-  <DoughnutChart :chartData="this.data" />
+  <DoughnutChart :chartData="this.data" :options="this.options" />
 </template>
 
 <script lang="ts">
@@ -12,6 +12,6 @@ Chart.register(...registerables);
 export default defineComponent({
   name: 'doughnutChart',
   components: { DoughnutChart },
-  props:["data"]
+  props:["data", "options"]
 });
 </script>

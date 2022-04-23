@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="8">
+    <v-col cols="11" sm="8">
       <p class="text-h1 text-center mt-15">
         {{ currentSensor.name }}
       </p>

@@ -1,17 +1,20 @@
 <template>
   <sensorPageTitle :currentSensor="this.currentSensor" />
   <v-row justify="center">
-    <v-col cols="8">
-      <singleMarkerMap :currentSensor="this.currentSensor" />
+    <v-col cols="11" sm="8">
+      <singleMarkerMap :currentSensor="this.currentSensor" :height="xs ? 250 : 300" />
       <p class="text-h2 text-left mt-15">Summary</p>
       <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5 py-5">
+      <v-card class="my-5 py-5" >
         <v-row justify="center">
-          <v-col cols="4">
-            <doughnutChart :data="doughnutChart1Data" />
+          <v-col cols="6" sm="4">
+            <doughnutChart class="hidden-sm-and-up" :data="doughnutChart1Data" :options="doughnutChart1Options"/>
+            <doughnutChart class="hidden-xs" :data="doughnutChart1Data"/>
+
           </v-col>
-          <v-col cols="4">
-            <doughnutChart :data="doughnutChart2Data" />
+          <v-col cols="6" sm="4">
+            <doughnutChart class="hidden-sm-and-up" :data="doughnutChart2Data" :options="doughnutChart2Options"/>
+            <doughnutChart class="hidden-xs" :data="doughnutChart1Data"/>
           </v-col>
         </v-row>
       </v-card>
@@ -35,6 +38,7 @@
 </template>
 
 <script>
+import { useDisplay } from "vuetify";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import doughnutChart from "@/components/DoughnutChart.vue";
 import lineChart from "@/components/LineChart.vue";
@@ -62,6 +66,12 @@ export default {
     },
   },
   computed: mapState(["pins"]),
+   setup() {
+    // Destructure only the keys we want to use
+    const { xs, mdAndUp } = useDisplay();
+
+    return { xs, mdAndUp };
+  },
   data() {
     return {
       id: "",
@@ -80,6 +90,20 @@ export default {
             ],
           },
         ],
+      },
+      doughnutChart1Options:{
+        plugins:{
+          legend:{
+            display: false
+          }
+        }
+      },
+      doughnutChart2Options:{
+        plugins:{
+          legend:{
+            display: false
+          }
+        }
       },
       doughnutChart2Data: {
         labels: ["january", "february", "march", "april", "may", "june"],
