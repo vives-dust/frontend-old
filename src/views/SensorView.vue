@@ -6,7 +6,6 @@
         :currentSensor="this.currentSensor"
         :height="xs ? 250 : 300"
       />
-      <weather-information />
       <p class="text-h2 text-left mt-15">Summary</p>
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5 py-5">
