@@ -2,19 +2,30 @@
   <sensorPageTitle :currentSensor="this.currentSensor" />
   <v-row justify="center">
     <v-col cols="11" sm="8">
-      <singleMarkerMap :currentSensor="this.currentSensor" :height="xs ? 250 : 300" />
+      <singleMarkerMap
+        :currentSensor="this.currentSensor"
+        :height="xs ? 250 : 300"
+      />
+      <weather-information />
       <p class="text-h2 text-left mt-15">Summary</p>
       <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5 py-5" >
+      <v-card class="my-5 py-5">
         <v-row justify="center">
           <v-col cols="6" sm="4">
-            <doughnutChart class="hidden-sm-and-up" :data="doughnutChart1Data" :options="doughnutChart1Options"/>
-            <doughnutChart class="hidden-xs" :data="doughnutChart1Data"/>
-
+            <doughnutChart
+              class="hidden-sm-and-up"
+              :data="doughnutChart1Data"
+              :options="doughnutChart1Options"
+            />
+            <doughnutChart class="hidden-xs" :data="doughnutChart1Data" />
           </v-col>
           <v-col cols="6" sm="4">
-            <doughnutChart class="hidden-sm-and-up" :data="doughnutChart2Data" :options="doughnutChart2Options"/>
-            <doughnutChart class="hidden-xs" :data="doughnutChart1Data"/>
+            <doughnutChart
+              class="hidden-sm-and-up"
+              :data="doughnutChart2Data"
+              :options="doughnutChart2Options"
+            />
+            <doughnutChart class="hidden-xs" :data="doughnutChart1Data" />
           </v-col>
         </v-row>
       </v-card>
@@ -39,6 +50,7 @@
 
 <script>
 import { useDisplay } from "vuetify";
+import weatherInformation from "@/components/Weather.vue";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import doughnutChart from "@/components/DoughnutChart.vue";
 import lineChart from "@/components/LineChart.vue";
@@ -51,6 +63,7 @@ export default {
     doughnutChart,
     lineChart,
     singleMarkerMap,
+    weatherInformation,
   },
   created() {
     this.id = this.$route.params.id;
@@ -61,12 +74,16 @@ export default {
       return this.pins.forEach((pin) => {
         if (pin.id == id) {
           this.currentSensor = pin;
+          this.$store.commit("change_currentlySelectedPin", {
+            currentlySelectedPin: this.currentSensor,
+          });
+          this.$store.dispatch("update_weather");
         }
       });
     },
   },
   computed: mapState(["pins"]),
-   setup() {
+  setup() {
     // Destructure only the keys we want to use
     const { xs, mdAndUp } = useDisplay();
 
@@ -91,19 +108,19 @@ export default {
           },
         ],
       },
-      doughnutChart1Options:{
-        plugins:{
-          legend:{
-            display: false
-          }
-        }
+      doughnutChart1Options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
       },
-      doughnutChart2Options:{
-        plugins:{
-          legend:{
-            display: false
-          }
-        }
+      doughnutChart2Options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
       },
       doughnutChart2Data: {
         labels: ["january", "february", "march", "april", "may", "june"],

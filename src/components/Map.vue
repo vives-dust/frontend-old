@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { useDisplay } from 'vuetify'
+import { useDisplay } from "vuetify";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LTooltip } from "@vue-leaflet/vue-leaflet";
 import { mapState } from "vuex";
@@ -47,6 +47,7 @@ export default {
   methods: {
     pinClicked(pinid) {
       this.$router.push({ name: "sensor", params: { id: pinid } });
+
     },
   },
   mounted() {

@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import { Weather } from "@/api/open_weather"
+
 
 export default createStore({
   state: {
@@ -28,12 +30,39 @@ export default createStore({
         y: 4.240528,
       },
     ],
+    currentlySelectedPin: {
+      id: 1,
+      name: "brugge station",
+      x: 51.037861,
+      y: 4.240528,
+    },
+    weather: ""
+
   },
   getters: {
+
   },
   mutations: {
+    change_currentlySelectedPin(state, payload) {
+      state.currentlySelectedPin = payload.currentlySelectedPin
+    },
+    change_weather(state, payload) {
+      state.weather = payload.weather
+    }
   },
   actions: {
+    update_weather({ commit, state }) {
+      Weather.get_current_weather(state.currentlySelectedPin.x, state.currentlySelectedPin.y)
+        .then((response: any) => {
+          console.log(response);
+          commit('change_weather', {
+            "weather": response.data
+          })
+        })
+        .catch((error: any) => {
+          console.log(error)
+        })
+    }
   },
   modules: {
   }
