@@ -4,10 +4,14 @@
     <v-col cols="11" sm="8">
       <singleMarkerMap
         :currentSensor="this.currentSensor"
-        :height="xs ? 250 : 300"
+        :height="xs ? 150 : 300"
       />
-      <p class="text-h2 text-left mt-15">Summary</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
+      <p class="text-h2 text-left mt-15 hidden-xs">Summary</p>
+      <p class="text-h2 text-left mt-3 hidden-sm-and-up">Summary</p>
+
+      <v-divider class="mb-10 mt-3 hidden-xs"></v-divider>
+      <v-divider class="mb-10 mt-3 hidden-sm-and-up"></v-divider>
+
       <v-card class="my-5 py-5">
         <v-row justify="center">
           <v-col cols="6" sm="4">
@@ -49,7 +53,6 @@
 
 <script>
 import { useDisplay } from "vuetify";
-import weatherInformation from "@/components/Weather.vue";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import doughnutChart from "@/components/DoughnutChart.vue";
 import lineChart from "@/components/LineChart.vue";
@@ -62,7 +65,6 @@ export default {
     doughnutChart,
     lineChart,
     singleMarkerMap,
-    weatherInformation,
   },
   created() {
     this.id = this.$route.params.id;

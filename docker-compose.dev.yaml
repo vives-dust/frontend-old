@@ -12,5 +12,5 @@ services:
       - ./src:/app/src
     ports:
       # Run dev server on host port 8080
-      - "8080:8080"
+      - "8090:8080"
     restart: "no"
