@@ -14,6 +14,9 @@ export default {
     NavigationBar,
     footerBar,
   },
+  created() {
+    this.$store.dispatch("get_devices");
+  },
 };
 </script>
 <style>
@@ -22,7 +25,8 @@ export default {
     scrollbar-width: none;
     overflow-x: clip;
   }
-  html,body{
+  html,
+  body {
     width: 100%;
     margin: 0;
     padding: 0;

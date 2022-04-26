@@ -78,7 +78,6 @@ export default {
           this.$store.commit("change_currentlySelectedPin", {
             currentlySelectedPin: this.currentSensor,
           });
-          this.$store.dispatch("update_weather");
         }
       });
     },

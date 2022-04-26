@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { Weather } from "@/api/open_weather"
+import { Backend } from '@/api/backend'
 
 
 export default createStore({
@@ -36,7 +36,10 @@ export default createStore({
       x: 51.037861,
       y: 4.240528,
     },
-    weather: ""
+    devices:{},
+    device:{
+      id:Number
+    }
 
   },
   getters: {
@@ -46,23 +49,36 @@ export default createStore({
     change_currentlySelectedPin(state, payload) {
       state.currentlySelectedPin = payload.currentlySelectedPin
     },
-    change_weather(state, payload) {
-      state.weather = payload.weather
+    change_devices(state,payload){
+      state.devices = payload.devices
+      console.log(state.devices)
     }
   },
   actions: {
-    update_weather({ commit, state }) {
-      Weather.get_current_weather(state.currentlySelectedPin.x, state.currentlySelectedPin.y)
+    get_devices({ commit, state }) {
+      Backend.get_devices()
         .then((response: any) => {
           console.log(response);
-          commit('change_weather', {
-            "weather": response.data
+          commit('change_devices', {
+            "devices": response.data.data
           })
         })
         .catch((error: any) => {
           console.log(error)
         })
-    }
+    },
+    get_device({ commit, state }) {
+      Backend.get_device(this.state.device.id)
+        .then((response: any) => {
+          console.log(response);
+          commit('change_devices', {
+            "devices": response.data
+          })
+        })
+        .catch((error: any) => {
+          console.log(error)
+        })
+    },
   },
   modules: {
   }

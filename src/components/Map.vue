@@ -7,11 +7,11 @@
         name="OpenStreetMap"
         :max-zoom="10"
       />
-      <template v-for="pin in pins" :key="pin.id">
-        <l-marker :lat-lng="[pin.x, pin.y]" @click="pinClicked(pin.id)">
+      <template v-for="(device,index) in devices" :key="index">
+        <l-marker :lat-lng="[device.location.latitude, device.location.longitude]" @click="pinClicked(device.id)">
           <l-tooltip>
-            Marker: {{ pin.id }} <br />
-            Placed in location {{ pin.x }}, {{ pin.y }}
+            Marker: {{ device.name }} <br />
+            Placed in location {{ device.location.latitude }}, {{ device.location.longitude }}
           </l-tooltip>
         </l-marker>
       </template>
@@ -53,7 +53,7 @@ export default {
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
   },
-  computed: mapState(["pins"]),
+  computed: mapState(["devices"]),
   setup() {
     // Destructure only the keys we want to use
     const { xs, mdAndUp } = useDisplay();
