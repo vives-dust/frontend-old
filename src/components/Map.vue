@@ -8,7 +8,7 @@
         :max-zoom="10"
       />
       <template v-for="(device,index) in devices" :key="index">
-        <l-marker :lat-lng="[device.location.latitude, device.location.longitude]" @click="pinClicked(device.id)">
+        <l-marker :lat-lng="[device.location.latitude, device.location.longitude]" @click="pinClicked(index)">
           <l-tooltip>
             Marker: {{ device.name }} <br />
             Placed in location {{ device.location.latitude }}, {{ device.location.longitude }}
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     pinClicked(pinid) {
-      this.$router.push({ name: "sensor", params: { id: pinid } });
+      this.$router.push({ name: "device", params: { id: pinid } });
 
     },
   },

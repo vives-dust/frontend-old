@@ -1,17 +1,16 @@
 <template>
   <v-card height="400" width="auto" justify="center">
-    <l-map ref="map" v-model:zoom="zoom" :center="[currentSensor.x, currentSensor.y]">
+    <l-map ref="map" v-model:zoom="zoom" :center="[currentDevice.location.latitude, currentDevice.location.longitude]">
       <l-tile-layer
         :url="url"
         layer-type="base"
         name="OpenStreetMap"
         :max-zoom="18"
       />
-      <l-marker :lat-lng="[currentSensor.x, currentSensor.y]">
+      <l-marker :lat-lng="[currentDevice.location.latitude, currentDevice.location.longitude]">
         <l-tooltip>
-          Name: {{ currentSensor.name }} <br />
-          Marker: {{ currentSensor.id }} <br />
-          Placed in location {{ currentSensor.x }}, {{ currentSensor.y }}
+          Name: {{ currentDevice.name }} <br />
+          Placed in location {{ currentDevice.x }}, {{ currentDevice.y }}
         </l-tooltip>
       </l-marker>
     </l-map>
@@ -29,7 +28,7 @@ export default {
     LMarker,
     LTooltip,
   },
-  props: ["currentSensor"],
+  props: ["currentDevice"],
   data() {
     return {
       zoom: 13,

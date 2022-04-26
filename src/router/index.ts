@@ -13,9 +13,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/sensor/:id',
-    name: 'sensor',
-    component: () => import('../views/SensorView.vue')
+    path: '/device/:id',
+    name: 'device',
+    component: () => import('../views/DeviceView.vue')
   }
   
 ]

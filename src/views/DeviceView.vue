@@ -1,9 +1,9 @@
 <template>
-  <sensorPageTitle :currentSensor="this.currentSensor" />
+  <sensorPageTitle :currentDevice="this.currentDevice" />
   <v-row justify="center">
     <v-col cols="11" sm="8">
       <singleMarkerMap
-        :currentSensor="this.currentSensor"
+        :currentDevice="this.currentDevice"
         :height="xs ? 150 : 300"
       />
       <p class="text-h2 text-left mt-15 hidden-xs">Summary</p>
@@ -59,7 +59,7 @@ import lineChart from "@/components/LineChart.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import { mapState } from "vuex";
 export default {
-  name: "sensorView",
+  name: "deviceView",
   components: {
     sensorPageTitle,
     doughnutChart,
@@ -67,22 +67,12 @@ export default {
     singleMarkerMap,
   },
   created() {
-    this.id = this.$route.params.id;
-    this.SearchForSensor(this.id);
+    this.$store.commit("change_currentlySelectedPin", {
+      currentlySelectedPin: this.devices[this.$route.params.id],
+    });
+    this.currentDevice = this.devices[this.$route.params.id]
   },
-  methods: {
-    SearchForSensor(id) {
-      return this.pins.forEach((pin) => {
-        if (pin.id == id) {
-          this.currentSensor = pin;
-          this.$store.commit("change_currentlySelectedPin", {
-            currentlySelectedPin: this.currentSensor,
-          });
-        }
-      });
-    },
-  },
-  computed: mapState(["pins"]),
+  computed: mapState(["devices"]),
   setup() {
     // Destructure only the keys we want to use
     const { xs, mdAndUp } = useDisplay();
@@ -91,8 +81,7 @@ export default {
   },
   data() {
     return {
-      id: "",
-      currentSensor: null,
+      currentDevice: null,
       doughnutChart1Data: {
         labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
         datasets: [
