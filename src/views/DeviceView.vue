@@ -1,37 +1,13 @@
 <template>
-  <sensorPageTitle :currentDevice="this.currentDevice" />
+  <sensorPageTitle :currentDevice="this.currentlySelectedPin" />
   <v-row justify="center">
     <v-col cols="11" sm="8">
       <singleMarkerMap
-        :currentDevice="this.currentDevice"
+        :currentDevice="this.currentlySelectedPin"
         :height="xs ? 150 : 300"
       />
-      <p class="text-h2 text-left mt-15 hidden-xs">Summary</p>
-      <p class="text-h2 text-left mt-3 hidden-sm-and-up">Summary</p>
+      <deviceValues class="my-5" />
 
-      <v-divider class="mb-10 mt-3 hidden-xs"></v-divider>
-      <v-divider class="mb-10 mt-3 hidden-sm-and-up"></v-divider>
-
-      <v-card class="my-5 py-5">
-        <v-row justify="center">
-          <v-col cols="6" sm="4">
-            <doughnutChart
-              class="hidden-sm-and-up"
-              :data="doughnutChart1Data"
-              :options="doughnutChart1Options"
-            />
-            <doughnutChart class="hidden-xs" :data="doughnutChart1Data" />
-          </v-col>
-          <v-col cols="6" sm="4">
-            <doughnutChart
-              class="hidden-sm-and-up"
-              :data="doughnutChart2Data"
-              :options="doughnutChart2Options"
-            />
-            <doughnutChart class="hidden-xs" :data="doughnutChart1Data" />
-          </v-col>
-        </v-row>
-      </v-card>
       <p class="text-h3 text-left mt-15">Humidity Sensors</p>
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
@@ -54,7 +30,7 @@
 <script>
 import { useDisplay } from "vuetify";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
-import doughnutChart from "@/components/DoughnutChart.vue";
+import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import lineChart from "@/components/LineChart.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import { mapState } from "vuex";
@@ -62,17 +38,22 @@ export default {
   name: "deviceView",
   components: {
     sensorPageTitle,
-    doughnutChart,
     lineChart,
     singleMarkerMap,
+    deviceValues,
   },
   created() {
     this.$store.commit("change_currentlySelectedPin", {
       currentlySelectedPin: this.devices[this.$route.params.id],
     });
-    this.currentDevice = this.devices[this.$route.params.id]
+    this.$store.dispatch("get_device");
+    this.device.sensors.forEach((sensor) => {
+      if (!this.names.includes(sensor.type)) {
+        this.names.push(sensor.type);
+      }
+    });
   },
-  computed: mapState(["devices"]),
+  computed: mapState(["devices", "currentlySelectedPin"]),
   setup() {
     // Destructure only the keys we want to use
     const { xs, mdAndUp } = useDisplay();
@@ -81,7 +62,6 @@ export default {
   },
   data() {
     return {
-      currentDevice: null,
       doughnutChart1Data: {
         labels: ["Paris", "Nîmes", "Toulon", "Perpignan", "Autre"],
         datasets: [

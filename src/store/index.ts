@@ -5,15 +5,13 @@ import { Backend } from '@/api/backend'
 export default createStore({
   state: {
     currentlySelectedPin: {
-      id: 1,
+      _id: 1,
       name: "brugge station",
       x: 51.037861,
       y: 4.240528,
     },
     devices:{},
-    device:{
-      id:Number
-    }
+    device:{}
 
   },
   getters: {
@@ -25,7 +23,10 @@ export default createStore({
     },
     change_devices(state,payload){
       state.devices = payload.devices
-      console.log(state.devices)
+    },
+    change_device(state,payload){
+      state.device = payload.device
+      console.log(state.device)
     }
   },
   actions: {
@@ -42,11 +43,10 @@ export default createStore({
         })
     },
     get_device({ commit, state }) {
-      Backend.get_device(this.state.device.id)
+      Backend.get_device(this.state.currentlySelectedPin._id)
         .then((response: any) => {
-          console.log(response);
-          commit('change_devices', {
-            "devices": response.data
+          commit('change_device', {
+            "device": response.data
           })
         })
         .catch((error: any) => {
