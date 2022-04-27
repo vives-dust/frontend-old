@@ -6,12 +6,9 @@ export default createStore({
   state: {
     currentlySelectedPin: {
       _id: 1,
-      name: "brugge station",
-      x: 51.037861,
-      y: 4.240528,
     },
-    devices:{},
-    device:{}
+    devices: {},
+    device: { "_id": "626699db4690ae738366373c", "name": "Prototype 1", "hardwareId": "eui-70b3d57ed0049f81", "description": "Our first prototype sensor", "location": { "latitude": 51.194154, "longitude": 3.21767, "height": 0 }, "sensors": [{ "field": "internalTemperature", "value": 23, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373d", "type": "temperature", "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_1", "value": 49444, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373e", "type": "moisture", "depth": -5, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_2", "value": 49915, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373f", "type": "moisture", "depth": -12, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_3", "value": 50007, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae7383663740", "type": "moisture", "depth": -18, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_4", "value": 50023, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae7383663741", "type": "moisture", "depth": -22, "deviceId": "626699db4690ae738366373c" }] }
 
   },
   getters: {
@@ -21,10 +18,10 @@ export default createStore({
     change_currentlySelectedPin(state, payload) {
       state.currentlySelectedPin = payload.currentlySelectedPin
     },
-    change_devices(state,payload){
+    change_devices(state, payload) {
       state.devices = payload.devices
     },
-    change_device(state,payload){
+    change_device(state, payload) {
       state.device = payload.device
       console.log(state.device)
     }
@@ -45,6 +42,8 @@ export default createStore({
     get_device({ commit, state }) {
       Backend.get_device(this.state.currentlySelectedPin._id)
         .then((response: any) => {
+          console.log("getting single device");
+
           commit('change_device', {
             "device": response.data
           })

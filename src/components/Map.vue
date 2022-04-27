@@ -11,6 +11,7 @@
         <l-marker :lat-lng="[device.location.latitude, device.location.longitude]" @click="pinClicked(index)">
           <l-tooltip>
             Marker: {{ device.name }} <br />
+            Description: {{device.description}} <br/>
             Placed in location {{ device.location.latitude }}, {{ device.location.longitude }}
           </l-tooltip>
         </l-marker>

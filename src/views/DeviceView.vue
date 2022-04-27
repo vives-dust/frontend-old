@@ -43,15 +43,11 @@ export default {
     deviceValues,
   },
   created() {
+    console.log('creating deviceview')
     this.$store.commit("change_currentlySelectedPin", {
       currentlySelectedPin: this.devices[this.$route.params.id],
     });
-    this.$store.dispatch("get_device");
-    this.device.sensors.forEach((sensor) => {
-      if (!this.names.includes(sensor.type)) {
-        this.names.push(sensor.type);
-      }
-    });
+      this.$store.dispatch("get_device");
   },
   computed: mapState(["devices", "currentlySelectedPin"]),
   setup() {
