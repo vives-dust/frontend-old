@@ -74,20 +74,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "deviceValues",
-  created() {
-    this.device.sensors.forEach((sensor) => {
-      if (!this.names.includes(sensor.type)) {
-        this.names.push(sensor.type);
-      }
-    });
-  },
   computed: mapState(["device"]),
-  data() {
-    return {
-      names: [],
-      values: [],
-    };
-  },
 };
 </script>
 

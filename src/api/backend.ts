@@ -15,6 +15,9 @@ const Backend:any = {
     get_device(id:number){
         console.log(`getting device with id ${id}`)
         return api.get(`/${this.resource}/${id}`)
+    },
+    get_periodeData(id:number,time:string){
+        return api.get(`/${this.resource}/${id}/?period=${time}`)
     }
 }
 

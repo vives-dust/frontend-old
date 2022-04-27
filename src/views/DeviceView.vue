@@ -49,7 +49,10 @@ export default {
     this.$store.commit("change_currentlySelectedPin", {
       currentlySelectedPin: this.devices[this.$route.params.id],
     });
+    
     this.$store.dispatch("get_device");
+    this.$store.dispatch("get_periodeData");
+
   },
   computed: mapState(["devices", "currentlySelectedPin"]),
   setup() {

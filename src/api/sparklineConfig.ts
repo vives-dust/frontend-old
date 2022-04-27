@@ -13,7 +13,7 @@ const SparklineConfig1: any = {
                     if (
                         !delayed
                     ) {
-                        delay = context.dataIndex * 100 + context.datasetIndex * 300;
+                        delay = context.dataIndex * 1 + context.datasetIndex * 300;
                     }
                     return delay;
                 },
