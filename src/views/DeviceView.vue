@@ -7,7 +7,8 @@
         :height="xs ? 150 : 300"
       />
       <deviceValues class="my-5" />
-      <sparkline-graph/>
+      <v-divider class="my-5"></v-divider>
+      <sparkline-graph />
 
       <!-- <p class="text-h3 text-left mt-15">Humidity Sensors</p>
       <v-divider class="mb-10 mt-3"></v-divider>
@@ -30,7 +31,7 @@
 
 <script>
 import { useDisplay } from "vuetify";
-import sparklineGraph from "@/components/sparkline.vue"
+import sparklineGraph from "@/components/sparkline.vue";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
@@ -41,14 +42,14 @@ export default {
     sensorPageTitle,
     singleMarkerMap,
     deviceValues,
-    sparklineGraph
+    sparklineGraph,
   },
   created() {
-    console.log('creating deviceview')
+    console.log("creating deviceview");
     this.$store.commit("change_currentlySelectedPin", {
       currentlySelectedPin: this.devices[this.$route.params.id],
     });
-      this.$store.dispatch("get_device");
+    this.$store.dispatch("get_device");
   },
   computed: mapState(["devices", "currentlySelectedPin"]),
   setup() {
@@ -103,7 +104,6 @@ export default {
           },
         ],
       },
-
 
       lineChart2Data: {
         labels: [

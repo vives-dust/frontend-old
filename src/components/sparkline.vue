@@ -1,6 +1,13 @@
 <template>
-  <v-card>
-    <LineChart :chartData="lineChartData" :options="options" />
+  <v-card color="fourth" class="mx-auto text-center" dark>
+    <v-card-text>
+      <div class="text-h4 font-weight-thin">moistureLevel3</div>
+    </v-card-text>
+
+    <v-divider></v-divider>
+    <v-sheet class="mx-3 my-3" color="rgba(0, 0, 0, .12)">
+      <LineChart :chartData="lineChartData" :options="options" />
+    </v-sheet>
   </v-card>
 </template> 
 
@@ -9,37 +16,13 @@ import SparklineConfig from "@/api/sparklineConfig.ts";
 import { LineChart } from "vue-chart-3";
 
 import { Chart, registerables } from "chart.js";
-
+var delayed;
 Chart.register(...registerables);
 export default {
   name: "sparklineGraph",
   components: { LineChart },
   data: () => ({
-    options: {
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      scales: {
-        x: {
-          grid: {
-            display: false,
-          },
-          ticks:{
-            display: false
-          }
-        },
-        y: {
-          grid: {
-            display: false,
-          },
-                    ticks:{
-            display: false
-          }
-        },
-      },
-    },
+    options: SparklineConfig.config.options,
     lineChartData: {
       labels: ["", "", "", "", "", "", ""],
 
