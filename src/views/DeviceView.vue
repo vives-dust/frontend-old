@@ -7,8 +7,9 @@
         :height="xs ? 150 : 300"
       />
       <deviceValues class="my-5" />
+      <sparkline-graph/>
 
-      <p class="text-h3 text-left mt-15">Humidity Sensors</p>
+      <!-- <p class="text-h3 text-left mt-15">Humidity Sensors</p>
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
         <lineChart :data="lineChart1Data" />
@@ -22,25 +23,25 @@
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
         <lineChart :data="lineChart3Data" />
-      </v-card>
+      </v-card> -->
     </v-col>
   </v-row>
 </template>
 
 <script>
 import { useDisplay } from "vuetify";
+import sparklineGraph from "@/components/sparkline.vue"
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
-import lineChart from "@/components/LineChart.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import { mapState } from "vuex";
 export default {
   name: "deviceView",
   components: {
     sensorPageTitle,
-    lineChart,
     singleMarkerMap,
     deviceValues,
+    sparklineGraph
   },
   created() {
     console.log('creating deviceview')
@@ -102,46 +103,7 @@ export default {
           },
         ],
       },
-      lineChart1Data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-        ],
-        datasets: [
-          {
-            label: "soil moisture level 1",
-            data: [40, 39, 10, 40, 39, 80, 100],
-            borderColor: "#E6AC1C",
-            backgroundColor: "#E6AC1C",
-            fill: false,
-            tension: 0.4,
-            pointHitRadius: 100,
-          },
-          {
-            label: "soil moisture level 2",
-            data: [80, 90, 70, 100, 70, 110, 60],
-            borderColor: "#49E658",
-            backgroundColor: "#49E658",
-            fill: false,
-            tension: 0.4,
-            pointHitRadius: 100,
-          },
-          {
-            label: "soil moisture level 3",
-            data: [150, 140, 130, 160, 150, 120, 150],
-            borderColor: "#E6B332",
-            backgroundColor: "#E6B332",
-            fill: false,
-            tension: 0.4,
-            pointHitRadius: 100,
-          },
-        ],
-      },
+
 
       lineChart2Data: {
         labels: [
