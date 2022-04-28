@@ -4,6 +4,8 @@ const SparklineConfig1: any = {
     config: {
         options: {
             events:[],
+            spanGaps: true,
+            pointRadius: 0,
             animation: {
                 onComplete: () => {
                     delayed = true;

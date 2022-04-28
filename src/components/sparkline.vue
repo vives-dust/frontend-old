@@ -25,11 +25,21 @@ export default {
     ...mapState(["timeData"]),
     lineChartData() {
       return {
-        labels: this.timeData.sensors.map((el) => el.field),
+        labels: this.timeData.sensors.map((el) => {
+              if (el.field == "moistureLevel_1") {
+                this.counter++;
+                return this.counter;
+              }
+              this.counter = 0
+            }),
 
         datasets: [
           {
-            data: this.timeData.sensors.map((el) => el.value),
+            data: this.timeData.sensors.map((el) => {
+              if (el.field == "moistureLevel_1") {
+                return el.value;
+              }
+            }),
             borderColor: "#E6AC1C",
             backgroundColor: "#E6AC1C",
             fill: false,
@@ -43,6 +53,7 @@ export default {
   data: () => ({
     loaded: false,
     options: SparklineConfig.config.options,
+    counter: 0
   }),
   watch: {
     timeData() {
