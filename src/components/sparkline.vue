@@ -1,13 +1,16 @@
 <template>
-  <v-card v-if="loaded" color="fourth" class="mx-auto text-center" dark>
+  <v-card v-if="loaded" color="white" class="mx-auto text-center" dark>
     <v-card-text color="primary">
       <p class="text-h4 red--text" style="color: '#E6AC1C'">moistureLevel3</p>
     </v-card-text>
+    <v-card-actions>
+      <v-select v-model="select" :items="selectTime" label="Select time" solo hide-details single-line prepend-icon="mdi:mdi-chart-timeline-variant-shimmer" @update:modelValue="ChartTimeChanged"></v-select>
+    </v-card-actions>
 
     <v-divider></v-divider>
-    <v-sheet class="mx-3 my-3" color="rgba(0, 0, 0, .12)">
+    <v-card class="mx-3 my-3">
       <LineChart :chart-data="lineChartData" :options="options" />
-    </v-sheet>
+    </v-card>
   </v-card>
 </template> 
 
@@ -19,18 +22,22 @@ import { mapState } from "vuex";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 export default {
-  name: "sparklineGraph",
+  name: "sparklineGraph", 
   components: { LineChart },
   methods: {
+    ChartTimeChanged(){
+      this.$store.commit('change_time',{
+        time: this.select
+      })
+      this.$store.dispatch('get_periodeData')
+    },
     calcMovingAvg(number) {
       this.counter++;
       this.sum += number;
-      console.log("counter = ", this.counter);
-      console.log("sum = ", this.sum);
-      if (this.counter == 20) {
+      if (this.counter == 5) {
         return this.sum / this.counter;
       }
-      if (this.counter == 21) {
+      if (this.counter == 6) {
         this.counter = 0;
         this.sum = 0;
       }
@@ -43,8 +50,7 @@ export default {
         labels: this.timeData.sensors.map((el) => {
           if (el.field == "moistureLevel_1") {
             return el.field;
-          }
-          else if (el.field == "moistureLevel_2") {
+          } else if (el.field == "moistureLevel_2") {
             return el.field;
           } else if (el.field == "moistureLevel_3") {
             return el.field;
@@ -57,14 +63,13 @@ export default {
           {
             data: this.timeData.sensors.map((el) => {
               if (el.field == "moistureLevel_1") {
-                console.log(this.data)
-                return this.calcMovingAvg(el.value)
+                return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: "#DB4630",
             backgroundColor: "#DB4630",
             fill: false,
-            tension: 0.3,
+            tension: 0.4,
             borderWidth: 12,
           },
           {
@@ -100,7 +105,7 @@ export default {
             borderColor: "#2000DB",
             backgroundColor: "#2000DB",
             fill: false,
-            tension: 0.2,
+            tension: 0.4,
             borderWidth: 15,
           },
         ],
@@ -112,6 +117,8 @@ export default {
     options: SparklineConfig.config.options,
     counter: 0,
     sum: 0,
+    selectTime: ["1h", "24h", "7d", "31d", "1j", "all"],
+    select: "1h"
   }),
   watch: {
     timeData() {

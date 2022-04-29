@@ -29,6 +29,7 @@ export default createStore({
       state.timeData = payload.timeData
     },
     change_time(state, payload) {
+      console.log("timeChanged")
       state.time = payload.time
     }
   },
