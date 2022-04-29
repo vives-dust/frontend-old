@@ -1,10 +1,30 @@
 <template>
   <v-card v-if="loaded" color="white" class="mx-auto text-center" dark>
-    <v-card-text color="primary">
-      <p class="text-h4 red--text" style="color: '#E6AC1C'">moistureLevel3</p>
-    </v-card-text>
+    <v-row justify="center" class="mx-3 my-3">
+      <v-col cols="auto">
+        <p class="text-h4" style="color: #db4630">moistureLevel1</p>
+      </v-col>
+      <v-col cols="auto">
+        <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
+      </v-col >
+      <v-col cols="auto">
+        <p class="text-h4" style="color: #00e078">moistureLevel3</p>
+      </v-col>
+      <v-col cols="auto">
+        <p class="text-h4" style="color: #2000db">moistureLevel4</p>
+      </v-col>
+    </v-row>
     <v-card-actions>
-      <v-select v-model="select" :items="selectTime" label="Select time" solo hide-details single-line prepend-icon="mdi:mdi-chart-timeline-variant-shimmer" @update:modelValue="ChartTimeChanged"></v-select>
+      <v-select
+        v-model="select"
+        :items="selectTime"
+        label="Select time"
+        solo
+        hide-details
+        single-line
+        prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
+        @update:modelValue="ChartTimeChanged"
+      ></v-select>
     </v-card-actions>
 
     <v-divider></v-divider>
@@ -22,14 +42,14 @@ import { mapState } from "vuex";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 export default {
-  name: "sparklineGraph", 
+  name: "sparklineGraph",
   components: { LineChart },
   methods: {
-    ChartTimeChanged(){
-      this.$store.commit('change_time',{
-        time: this.select
-      })
-      this.$store.dispatch('get_periodeData')
+    ChartTimeChanged() {
+      this.$store.commit("change_time", {
+        time: this.select,
+      });
+      this.$store.dispatch("get_periodeData");
     },
     calcMovingAvg(number) {
       this.counter++;
@@ -117,8 +137,8 @@ export default {
     options: SparklineConfig.config.options,
     counter: 0,
     sum: 0,
-    selectTime: ["1h", "24h", "7d", "31d", "1j", "all"],
-    select: "1h"
+    selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
+    select: "1h",
   }),
   watch: {
     timeData() {
