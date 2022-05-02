@@ -51,7 +51,6 @@ export default {
     sparklineGraph,
   },
   created() {
-    console.log("creating deviceview");
     this.$store.commit("change_currentlySelectedPin", {
       currentlySelectedPin: this.devices[this.$route.params.id],
     });

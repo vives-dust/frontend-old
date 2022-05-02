@@ -56,7 +56,9 @@
     class="mx-auto text-center hidden-sm-and-up"
     dark
   >
-    <LineChart :chart-data="lineChartData" :options="options" />
+    <v-card elevation="0" dense @click="SparklineClicked"
+      ><LineChart :chart-data="lineChartData" :options="options"
+    /></v-card>
     <v-card-actions>
       <v-select
         v-model="select"
@@ -156,7 +158,7 @@ export default {
             backgroundColor: "#DB4630",
             fill: false,
             tension: 0.4,
-            borderWidth: 12,
+            borderWidth: 10,
           },
           {
             data: this.timeData.sensors.map((el) => {
@@ -168,7 +170,7 @@ export default {
             backgroundColor: "#E0C400",
             fill: false,
             tension: 0.4,
-            borderWidth: 15,
+            borderWidth: 10,
           },
           {
             data: this.timeData.sensors.map((el) => {
@@ -180,7 +182,7 @@ export default {
             backgroundColor: "#00E078",
             fill: false,
             tension: 0.4,
-            borderWidth: 15,
+            borderWidth: 10,
           },
           {
             data: this.timeData.sensors.map((el) => {
@@ -192,7 +194,7 @@ export default {
             backgroundColor: "#2000DB",
             fill: false,
             tension: 0.4,
-            borderWidth: 15,
+            borderWidth: 10,
           },
         ],
       };

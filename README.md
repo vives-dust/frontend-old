@@ -65,3 +65,9 @@ Using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor ch
 
 Felix Falk as his bachelor thesis.
 
+
+Ontwikkelen van een Vue frontend applicatie voor het DUST sensor platform.
+
+Ontwikkelen van een web-applicatie voor het DUST sensor platform.
+
+Uitwerking van een Vue web-applicatie voor het DUST sensor platform.
