@@ -41,7 +41,13 @@
     </v-card-actions>
 
     <v-divider></v-divider>
-    <LineChart :chart-data="lineChartData" :options="options" />
+    <v-card elevation="0" dense @click="SparklineClicked">
+      <LineChart
+        :chart-data="lineChartData"
+        :options="options"
+        @click="SparklineClicked"
+      />
+    </v-card>
   </v-card>
 
   <v-card
@@ -99,6 +105,12 @@ export default {
   name: "sparklineGraph",
   components: { LineChart },
   methods: {
+    SparklineClicked() {
+      this.$router.push({
+        name: "sensors",
+        params: { id: this.$route.params.id },
+      });
+    },
     ChartTimeChanged() {
       this.$store.commit("change_time", {
         time: this.select,
