@@ -1,7 +1,7 @@
 # dust-frontend
-The frontend of the dust project.
+The front-end of the dust project.
 This project was made to give an overview and show all dust devices that are planted in the ground.
-This frontend also gives a summeray of the sensors that are connected to a device. 
+This front-end also gives a summary of the sensors that are connected to a device. 
 And can display all values for each sensor if wished.
 
 ## Staging server
@@ -12,12 +12,12 @@ The staging server for this project can be found [here](https://scintillating-ho
 
 ## Run this project
 
-How to run is described here, don't forget to accually use this frontend that the backend coming with this project is requiered and needs to be running on the host machine.
+How to run is described here, don't forget to acually use this front-end that the back-end coming with this project is required and needs to be running on the host machine.
 
 ### Docker-compose
 
 Docker and docker-compose files are available in the directory.
-Just execute the following for the development version and the frontend will be online on port [8090](http://localhost:8090/)
+Just execute the following for the development version and the front-end will be online on port [8090](http://localhost:8090/)
 
 ```bash
 docker-compose -f docker-compose.dev.yaml up
@@ -50,16 +50,16 @@ npm run build
 
 ## Collor pallet
 
-The Color pallet was chosen with: [Adobe collor-wheel](https://color.adobe.com/create/color-wheel)
+The Color pallet was chosen with: [Adobe color-wheel](https://color.adobe.com/create/color-wheel)
 
 
 ## Libraries
 
 [Vue3](https://vuejs.org/)
 
-using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor charts.
+Using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor charts.
 
-[helper for charts.js](https://www.chartjs.org/docs/3.0.2/charts/line.html)
+[Helper for charts.js](https://www.chartjs.org/docs/3.0.2/charts/line.html)
 
 ## Made by
 

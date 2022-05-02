@@ -2,16 +2,24 @@
   <v-card v-if="loaded" color="white" class="mx-auto text-center" dark>
     <v-row justify="center" class="mx-3 my-3">
       <v-col cols="auto">
-        <p class="text-h4" style="color: #db4630">moistureLevel1</p>
+        <v-card class="px-3 py-3" elevation="5">
+          <p class="text-h4" style="color: #db4630">moistureLevel1</p>
+        </v-card>
       </v-col>
       <v-col cols="auto">
-        <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
-      </v-col >
-      <v-col cols="auto">
-        <p class="text-h4" style="color: #00e078">moistureLevel3</p>
+        <v-card class="px-3 py-3" elevation="5">
+          <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
+        </v-card>
       </v-col>
       <v-col cols="auto">
-        <p class="text-h4" style="color: #2000db">moistureLevel4</p>
+        <v-card class="px-3 py-3" elevation="5">
+          <p class="text-h4" style="color: #00e078">moistureLevel3</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card class="px-3 py-3" elevation="5">
+          <p class="text-h4" style="color: #2000db">moistureLevel4</p>
+        </v-card>
       </v-col>
     </v-row>
     <v-card-actions>
