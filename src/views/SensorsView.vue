@@ -27,13 +27,15 @@
       <p class="text-h3 text-left mt-15">Humidity Sensors</p>
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
-        <lineChart :data="lineChartData" />
+        <lineChart :data="linechartDataMoisture" />
       </v-card>
-      <p class="text-h3 text-left mt-15">Temperature sensor</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5">
-        <lineChart :data="lineChartData" />
-      </v-card>
+      <div v-for="(data,index) in linechartDataNonMoisture.dataset" :key="index">
+        <p class="text-h3 text-left mt-15">nothing</p>
+        <v-divider class="mb-10 mt-3"></v-divider>
+        <v-card class="my-5">
+          <lineChart :data="linechartDataNonMoisture" />
+        </v-card>
+      </div>
     </v-col>
   </v-row>
   <p class="text-h1"></p>
@@ -52,6 +54,15 @@ export default {
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     select: "1h",
     loaded: false,
+
+    linechartDataNonMoisture: {
+      labels: [],
+      datasets: [],                   //this needs to be inside of an array to add to diffrent graphs in the v-for loop
+    },
+    linechartDataMoisture: {
+      labels: [],
+      datasets: [],
+    },
   }),
   methods: {
     ChartTimeChanged() {
@@ -59,6 +70,43 @@ export default {
         time: this.select,
       });
       this.$store.dispatch("get_periodeData");
+    },
+    CreateSensorData() {
+      this.device.sensors.forEach((sensor) => {
+        console.log(sensor.field);
+        if (sensor.field.includes("moistureLevel")) {
+          this.linechartDataMoisture.datasets.push({
+            data: this.timeData.sensors.map((el) => {
+              if (el.field == sensor.field) {
+                this.linechartDataMoisture.labels.push(el.time);
+                return el.value;
+              }
+            }),
+            borderColor: "#DB4630",
+            backgroundColor: "#DB4630",
+            fill: false,
+            tension: 0.4,
+            borderWidth: 10,
+            label: sensor.field,
+          });
+        } else {
+          console.log("else aangeroepen");
+          this.linechartDataNonMoisture.datasets.push({
+            data: this.timeData.sensors.map((el) => {
+              if (el.field == sensor.field) {
+                this.linechartDataNonMoisture.labels.push(el.time);
+                return el.value;
+              }
+            }),
+            borderColor: "#DB4630",
+            backgroundColor: "#DB4630",
+            fill: false,
+            tension: 0.4,
+            borderWidth: 10,
+            label: sensor.field,
+          });
+        }
+      });
     },
   },
   created() {
@@ -68,86 +116,17 @@ export default {
 
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
+    this.dataSetNonMoisture = [];
   },
   computed: {
-    ...mapState(["timeData","devices"]),
-    lineChartData() {
-      return {
-        labels: this.timeData.sensors.map((el) => {
-          if (el.field == "moistureLevel_1") {
-            return el.time;
-          } else if (el.field == "moistureLevel_2") {
-            return el.time;
-          } else if (el.field == "moistureLevel_3") {
-            return el.time;
-          } else if (el.field == "moistureLevel_4") {
-            return el.time;
-          }
-        }),
-
-        datasets: [
-          {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == "moistureLevel_1") {
-                return el.value;
-              }
-            }),
-            borderColor: "#DB4630",
-            backgroundColor: "#DB4630",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: "moistureLevel_",
-          },
-          {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == "moistureLevel_2") {
-                return el.value;
-              }
-            }),
-            borderColor: "#E0C400",
-            backgroundColor: "#E0C400",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: "moistureLevel_2",
-
-          },
-          {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == "moistureLevel_3") {
-                return el.value;
-              }
-            }),
-            borderColor: "#00E078",
-            backgroundColor: "#00E078",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: "moistureLevel_2",
-
-          },
-          {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == "moistureLevel_4") {
-                return el.value;
-              }
-            }),
-            borderColor: "#2000DB",
-            backgroundColor: "#2000DB",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: "moistureLevel_2",
-
-          },
-        ],
-      };
-    },
+    ...mapState(["timeData", "devices", "device"]),
   },
   watch: {
     timeData() {
       this.loaded = true;
+      this.dataSetNonMoisture = [];
+      this.dataSetMoisture = [];
+      this.CreateSensorData();
     },
   },
 };

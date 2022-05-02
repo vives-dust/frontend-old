@@ -49,7 +49,7 @@ export default createStore({
       Backend.get_device(state.currentlySelectedPin._id)
         .then((response: any) => {
           
-
+          console.log('device', response.data)
           commit('change_device', {
             "device": response.data
           })
