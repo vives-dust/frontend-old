@@ -6,8 +6,14 @@
         :currentDevice="this.currentlySelectedPin"
         :height="xs ? 150 : 300"
       />
-      <deviceValues class="my-5" />
-      <v-divider class="my-5"></v-divider>
+      <deviceValues class="my-5 hidden-xs" />
+      <v-divider class="my-5 hidden-xs"></v-divider>
+
+
+      <deviceValues class="my-1 hidden-sm-and-up" />
+      <v-divider class="my-1 hidden-sm-and-up"></v-divider>
+
+
       <sparkline-graph />
 
       <!-- <p class="text-h3 text-left mt-15">Humidity Sensors</p>

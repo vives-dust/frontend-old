@@ -4,11 +4,11 @@
       <p class="text-h1 text-center mt-15 hidden-xs">
         {{ currentDevice.name }}
       </p>
-      <p class="text-h3 text-center mt-2 hidden-sm-and-up" style="font-size: 30px;">
+      <p class="text-h3 text-center mt-1 hidden-sm-and-up" style="font-size: 30px;">
         {{ currentDevice.name }}
       </p>
       <v-divider class="mb-10 mt-3 hidden-xs"></v-divider>
-      <v-divider class="mb-3 mt-3 hidden-sm-and-up"></v-divider>
+      <v-divider class="mb-1 mt-1  hidden-sm-and-up"></v-divider>
 
     </v-col>
   </v-row>

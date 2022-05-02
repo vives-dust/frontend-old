@@ -1,5 +1,10 @@
 <template>
-  <v-card v-if="loaded" color="white" class="mx-auto text-center" dark>
+  <v-card
+    v-if="loaded"
+    color="white"
+    class="mx-auto text-center hidden-xs"
+    dark
+  >
     <v-row justify="center" class="mx-3 my-3">
       <v-col cols="auto">
         <v-card class="px-3 py-3" elevation="5">
@@ -36,9 +41,50 @@
     </v-card-actions>
 
     <v-divider></v-divider>
-    <v-card class="mx-3 my-3">
-      <LineChart :chart-data="lineChartData" :options="options" />
-    </v-card>
+    <LineChart :chart-data="lineChartData" :options="options" />
+  </v-card>
+
+  <v-card
+    v-if="loaded"
+    color="white"
+    class="mx-auto text-center hidden-sm-and-up"
+    dark
+  >
+    <LineChart :chart-data="lineChartData" :options="options" />
+    <v-card-actions>
+      <v-select
+        v-model="select"
+        :items="selectTime"
+        label="Select time"
+        solo
+        hide-details
+        single-line
+        prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
+        @update:modelValue="ChartTimeChanged"
+      ></v-select>
+    </v-card-actions>
+    <v-row justify="center" class="mx-1 my-1">
+      <v-col cols="auto">
+        <v-card class="px-3 py-3" elevation="5">
+          <p style="color: #db4630">moistureLevel1</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card class="px-3 py-3" elevation="5">
+          <p style="color: #e0c400">moistureLevel2</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card class="px-3 py-3" elevation="5">
+          <p style="color: #00e078">moistureLevel3</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card class="px-3 py-3" elevation="5">
+          <p style="color: #2000db">moistureLevel4</p>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-card>
 </template> 
 
