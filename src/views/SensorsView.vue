@@ -33,7 +33,7 @@
         v-for="(data, index) in linechartDataNonMoisture.datasets"
         :key="index"
       >
-        <p class="text-h3 text-left mt-15">{{data.label}}</p>
+        <p class="text-h3 text-left mt-15">{{ data.label }}</p>
         <v-divider class="mb-10 mt-3"></v-divider>
         <v-card class="my-5">
           <lineChart :data="linechartDataNonMoisture" />
@@ -58,6 +58,7 @@ export default {
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     select: "1h",
     loaded: false,
+    colors: [],
 
     linechartDataNonMoisture: {
       labels: [],
@@ -76,10 +77,15 @@ export default {
       this.$store.dispatch("get_periodeData");
     },
     CreateSensorData() {
+      this.linechartDataMoisture.labels = [];
+      this.linechartDataNonMoisture.labels = [];
       for (let index = 0; index < this.device.sensors.length; index++) {
         if (this.device.sensors[index].field.includes("moistureLevel")) {
-          if(this.linechartDataMoisture.datasets.findIndex(element => element == undefined) == -1){
-
+          if (
+            this.linechartDataMoisture.datasets.findIndex(
+              (element) => element == undefined
+            ) == -1
+          ) {
             this.linechartDataMoisture.datasets[index] = {
               data: this.timeData.sensors.map((el) => {
                 if (el.field == this.device.sensors[index].field) {
@@ -87,24 +93,27 @@ export default {
                   return el.value;
                 }
               }),
-              borderColor: "#DB4630",
-              backgroundColor: "#DB4630",
+              borderColor: this.colors[index],
+              backgroundColor: this.colors[index],
               fill: false,
               tension: 0.4,
               borderWidth: 10,
               label: this.device.sensors[index].field,
             };
-          }
-          else{
-            this.linechartDataMoisture.datasets[this.linechartDataMoisture.datasets.findIndex(element => element == undefined)] = {
+          } else {
+            this.linechartDataMoisture.datasets[
+              this.linechartDataMoisture.datasets.findIndex(
+                (element) => element == undefined
+              )
+            ] = {
               data: this.timeData.sensors.map((el) => {
                 if (el.field == this.device.sensors[index].field) {
                   this.linechartDataMoisture.labels.push(el.time);
                   return el.value;
                 }
               }),
-              borderColor: "#DB4630",
-              backgroundColor: "#DB4630",
+              borderColor: this.colors[index],
+              backgroundColor: this.colors[index],
               fill: false,
               tension: 0.4,
               borderWidth: 10,
@@ -112,44 +121,48 @@ export default {
             };
           }
         } else {
-
-           if(this.linechartDataMoisture.datasets.findIndex(element => element == undefined) == -1){
-
+          if (
+            this.linechartDataMoisture.datasets.findIndex(
+              (element) => element == undefined
+            ) == -1
+          ) {
             this.linechartDataNonMoisture.datasets[index] = {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == this.device.sensors[index].field) {
-                this.linechartDataNonMoisture.labels.push(el.time);
-                return el.value;
-              }
-            }),
-            borderColor: "#DB4630",
-            backgroundColor: "#DB4630",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: this.device.sensors[index].field,
-          };
+              data: this.timeData.sensors.map((el) => {
+                if (el.field == this.device.sensors[index].field) {
+                  this.linechartDataNonMoisture.labels.push(el.time);
+                  return el.value;
+                }
+              }),
+              borderColor: this.colors[index],
+              backgroundColor: this.colors[index],
+              fill: false,
+              tension: 0.4,
+              borderWidth: 10,
+              label: this.device.sensors[index].field,
+            };
+          } else {
+            this.linechartDataNonMoisture.datasets[
+              this.linechartDataMoisture.datasets.findIndex(
+                (element) => element == undefined
+              )
+            ] = {
+              data: this.timeData.sensors.map((el) => {
+                if (el.field == this.device.sensors[index].field) {
+                  this.linechartDataNonMoisture.labels.push(el.time);
+                  return el.value;
+                }
+              }),
+              borderColor: this.colors[index],
+              backgroundColor: this.colors[index],
+              fill: false,
+              tension: 0.4,
+              borderWidth: 10,
+              label: this.device.sensors[index].field,
+            };
           }
-          else{
-            this.linechartDataNonMoisture.datasets[this.linechartDataMoisture.datasets.findIndex(element => element == undefined)] = {
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == this.device.sensors[index].field) {
-                this.linechartDataNonMoisture.labels.push(el.time);
-                return el.value;
-              }
-            }),
-            borderColor: "#DB4630",
-            backgroundColor: "#DB4630",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: this.device.sensors[index].field,
-          };
-          }
-          
         }
       }
-      console.log(this.linechartDataNonMoisture , "LineChartDataNonMoisture");
+      console.log(this.linechartDataNonMoisture, "LineChartDataNonMoisture");
     },
   },
   created() {
@@ -161,6 +174,10 @@ export default {
     this.$store.dispatch("get_periodeData");
     this.dataSetNonMoisture = [];
     this.select = this.$route.params.time;
+    this.device.sensors.forEach((element) => {
+      let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      this.colors.push(color)
+    });
   },
   computed: {
     ...mapState(["timeData", "devices", "device"]),
