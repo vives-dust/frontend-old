@@ -30,10 +30,10 @@
         <lineChart :data="linechartDataMoisture" />
       </v-card>
       <div
-        v-for="(data, index) in linechartDataNonMoisture.dataset"
+        v-for="(data, index) in linechartDataNonMoisture.datasets"
         :key="index"
       >
-        <p class="text-h3 text-left mt-15">nothing</p>
+        <p class="text-h3 text-left mt-15">{{data.label}}</p>
         <v-divider class="mb-10 mt-3"></v-divider>
         <v-card class="my-5">
           <lineChart :data="linechartDataNonMoisture" />
@@ -56,7 +56,7 @@ export default {
 
   data: () => ({
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
-    select: '1h',
+    select: "1h",
     loaded: false,
 
     linechartDataNonMoisture: {
@@ -76,28 +76,48 @@ export default {
       this.$store.dispatch("get_periodeData");
     },
     CreateSensorData() {
-      this.device.sensors.forEach((sensor) => {
-        console.log(sensor.field);
-        if (sensor.field.includes("moistureLevel")) {
-          this.linechartDataMoisture.datasets.push({
-            data: this.timeData.sensors.map((el) => {
-              if (el.field == sensor.field) {
-                this.linechartDataMoisture.labels.push(el.time);
-                return el.value;
-              }
-            }),
-            borderColor: "#DB4630",
-            backgroundColor: "#DB4630",
-            fill: false,
-            tension: 0.4,
-            borderWidth: 10,
-            label: sensor.field,
-          });
+      for (let index = 0; index < this.device.sensors.length; index++) {
+        if (this.device.sensors[index].field.includes("moistureLevel")) {
+          if(this.linechartDataMoisture.datasets.findIndex(element => element == undefined) == -1){
+
+            this.linechartDataMoisture.datasets[index] = {
+              data: this.timeData.sensors.map((el) => {
+                if (el.field == this.device.sensors[index].field) {
+                  this.linechartDataMoisture.labels.push(el.time);
+                  return el.value;
+                }
+              }),
+              borderColor: "#DB4630",
+              backgroundColor: "#DB4630",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 10,
+              label: this.device.sensors[index].field,
+            };
+          }
+          else{
+            this.linechartDataMoisture.datasets[this.linechartDataMoisture.datasets.findIndex(element => element == undefined)] = {
+              data: this.timeData.sensors.map((el) => {
+                if (el.field == this.device.sensors[index].field) {
+                  this.linechartDataMoisture.labels.push(el.time);
+                  return el.value;
+                }
+              }),
+              borderColor: "#DB4630",
+              backgroundColor: "#DB4630",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 10,
+              label: this.device.sensors[index].field,
+            };
+          }
         } else {
-          console.log("else aangeroepen");
-          this.linechartDataNonMoisture.datasets.push({
+
+           if(this.linechartDataMoisture.datasets.findIndex(element => element == undefined) == -1){
+
+            this.linechartDataNonMoisture.datasets[index] = {
             data: this.timeData.sensors.map((el) => {
-              if (el.field == sensor.field) {
+              if (el.field == this.device.sensors[index].field) {
                 this.linechartDataNonMoisture.labels.push(el.time);
                 return el.value;
               }
@@ -107,10 +127,29 @@ export default {
             fill: false,
             tension: 0.4,
             borderWidth: 10,
-            label: sensor.field,
-          });
+            label: this.device.sensors[index].field,
+          };
+          }
+          else{
+            this.linechartDataNonMoisture.datasets[this.linechartDataMoisture.datasets.findIndex(element => element == undefined)] = {
+            data: this.timeData.sensors.map((el) => {
+              if (el.field == this.device.sensors[index].field) {
+                this.linechartDataNonMoisture.labels.push(el.time);
+                return el.value;
+              }
+            }),
+            borderColor: "#DB4630",
+            backgroundColor: "#DB4630",
+            fill: false,
+            tension: 0.4,
+            borderWidth: 10,
+            label: this.device.sensors[index].field,
+          };
+          }
+          
         }
-      });
+      }
+      console.log(this.linechartDataNonMoisture , "LineChartDataNonMoisture");
     },
   },
   created() {
@@ -121,7 +160,7 @@ export default {
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
     this.dataSetNonMoisture = [];
-    this.select = this.$route.params.time
+    this.select = this.$route.params.time;
   },
   computed: {
     ...mapState(["timeData", "devices", "device"]),
