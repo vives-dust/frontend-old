@@ -110,7 +110,7 @@ export default {
     SparklineClicked() {
       this.$router.push({
         name: "sensors",
-        params: { id: this.$route.params.id },
+        params: { id: this.$route.params.id, time: this.select },
       });
     },
     ChartTimeChanged() {

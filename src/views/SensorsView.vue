@@ -29,7 +29,10 @@
       <v-card class="my-5">
         <lineChart :data="linechartDataMoisture" />
       </v-card>
-      <div v-for="(data,index) in linechartDataNonMoisture.dataset" :key="index">
+      <div
+        v-for="(data, index) in linechartDataNonMoisture.dataset"
+        :key="index"
+      >
         <p class="text-h3 text-left mt-15">nothing</p>
         <v-divider class="mb-10 mt-3"></v-divider>
         <v-card class="my-5">
@@ -50,14 +53,15 @@ export default {
   components: {
     lineChart,
   },
+
   data: () => ({
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
-    select: "1h",
+    select: '1h',
     loaded: false,
 
     linechartDataNonMoisture: {
       labels: [],
-      datasets: [],                   //this needs to be inside of an array to add to diffrent graphs in the v-for loop
+      datasets: [], //this needs to be inside of an array to add to diffrent graphs in the v-for loop
     },
     linechartDataMoisture: {
       labels: [],
@@ -117,6 +121,7 @@ export default {
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
     this.dataSetNonMoisture = [];
+    this.select = this.$route.params.time
   },
   computed: {
     ...mapState(["timeData", "devices", "device"]),

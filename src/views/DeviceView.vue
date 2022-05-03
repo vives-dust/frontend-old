@@ -3,7 +3,6 @@
   <v-row justify="center">
     <v-col cols="11" sm="8">
       <singleMarkerMap
-        :currentDevice="this.currentlySelectedPin"
         :height="xs ? 150 : 300"
       />
       <deviceValues class="my-5 hidden-xs" />
@@ -15,22 +14,6 @@
 
 
       <sparkline-graph />
-
-      <!-- <p class="text-h3 text-left mt-15">Humidity Sensors</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5">
-        <lineChart :data="lineChart1Data" />
-      </v-card>
-      <p class="text-h3 text-left mt-15">Temperature sensor</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5">
-        <lineChart :data="lineChart2Data" />
-      </v-card>
-      <p class="text-h3 text-left mt-15">Light sensor</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5">
-        <lineChart :data="lineChart3Data" />
-      </v-card> -->
     </v-col>
   </v-row>
 </template>

@@ -16,7 +16,7 @@
       >
         <l-tooltip>
           Name: {{ device.name }} <br />
-          Description: {{ device.description }} <br/>
+          Description: {{ device.description }} <br />
           Placed in location {{ device.location.latitude }},
           {{ device.location.longitude }}
         </l-tooltip>
