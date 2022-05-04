@@ -151,6 +151,9 @@ export default {
                   this.linechartDataNonMoisture.labels.push(el.time);
                   return el.value;
                 }
+                else{
+                  delete this.data[el]
+                }
               }),
               borderColor: this.colors[index],
               backgroundColor: this.colors[index],
@@ -173,10 +176,10 @@ export default {
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
     this.dataSetNonMoisture = [];
-    this.select = this.$route.params.time;
+    this.select = this.$route.query.time;
     this.device.sensors.forEach((element) => {
       let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-      this.colors.push(color)
+      this.colors.push(color);
     });
   },
   computed: {

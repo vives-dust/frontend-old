@@ -22,7 +22,7 @@ const LineChartConfig: any = {
             scales: {
                 x: {
                     ticks: {
-                        autoSkipPadding: 30
+                        autoSkipPadding: 0
                     }
                 }
             }
