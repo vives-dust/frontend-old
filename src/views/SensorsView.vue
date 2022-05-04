@@ -207,8 +207,8 @@ export default {
   watch: {
     timeData() {
       this.loaded = true;
-      this.dataSetNonMoisture = [];
-      this.dataSetMoisture = [];
+      this.linechartDataNonMoisture.datasets = [];
+      this.linechartDataMoisture.datasets = [];
       this.CreateSensorData();
     },
   },
