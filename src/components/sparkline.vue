@@ -1,54 +1,71 @@
 <template>
-  <v-card
+  <v-container
     v-if="loaded"
     color="white"
     class="mx-auto text-center hidden-xs"
     dark
   >
-    <v-row justify="center" class="mx-3 my-3">
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p class="text-h4" style="color: #db4630">moistureLevel1</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p class="text-h4" style="color: #00e078">moistureLevel3</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p class="text-h4" style="color: #2000db">moistureLevel4</p>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-card-actions>
-      <v-select
-        v-model="select"
-        :items="selectTime"
-        label="Select time"
-        solo
-        hide-details
-        single-line
-        prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-        @update:modelValue="ChartTimeChanged"
-      ></v-select>
-    </v-card-actions>
-
-    <v-divider></v-divider>
-    <v-card elevation="0" dense @click="SparklineClicked">
+    <v-card elevation="0" dense class="my-3" @click="SparklineClicked">
       <LineChart
         :chart-data="lineChartData"
         :options="options"
         @click="SparklineClicked"
       />
     </v-card>
-  </v-card>
+    <v-select
+      v-model="select"
+      :items="selectTime"
+      label="Select time"
+      solo
+      hide-details
+      single-line
+      class="my-3"
+      prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
+      @update:modelValue="ChartTimeChanged"
+    ></v-select>
+    <v-row justify="center" class="mx-3 my-3">
+      <v-col cols="auto">
+        <v-card
+          class="px-3 py-3"
+          elevation="5"
+          @mouseenter="MouseOver(1)"
+          @mouseleave="MouseLeave"
+        >
+          <p class="text-h4" style="color: #db4630">moistureLevel1</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card
+          class="px-3 py-3"
+          elevation="5"
+          @mouseenter="MouseOver(2)"
+          @mouseleave="MouseLeave"
+        >
+          <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card
+          class="px-3 py-3"
+          elevation="5"
+          @mouseenter="MouseOver(3)"
+          @mouseleave="MouseLeave"
+        >
+          <p class="text-h4" style="color: #00e078">moistureLevel3</p>
+        </v-card>
+      </v-col>
+      <v-col cols="auto">
+        <v-card
+          class="px-3 py-3"
+          elevation="5"
+          @mouseenter="MouseOver(4)"
+          @mouseleave="MouseLeave"
+        >
+          <p class="text-h4" style="color: #2000db">moistureLevel4</p>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 
   <v-card
     v-if="loaded"
@@ -107,11 +124,40 @@ export default {
   name: "sparklineGraph",
   components: { LineChart },
   methods: {
+    MouseOver(line) {
+      if (line == 1) {
+        this.color1 = "rgb(219, 70, 48,1)";
+        this.color2 = "rgb(224, 196, 0, 0.1)";
+        this.color3 = "rgb(0, 224, 120, 0.1)";
+        this.color4 = "rgb(32, 0, 219, 0.1)";
+      } else if (line == 2) {
+        this.color1 = "rgb(219, 70, 48,0.1)";
+        this.color2 = "rgb(224, 196, 0, 1)";
+        this.color3 = "rgb(0, 224, 120, 0.1)";
+        this.color4 = "rgb(32, 0, 219, 0.1)";
+      } else if (line == 3) {
+        this.color1 = "rgb(219, 70, 48,0.1)";
+        this.color2 = "rgb(224, 196, 0, 0.1)";
+        this.color3 = "rgb(0, 224, 120, 1)";
+        this.color4 = "rgb(32, 0, 219, 0.1)";
+      } else if (line == 4) {
+        this.color1 = "rgb(219, 70, 48,0.1)";
+        this.color2 = "rgb(224, 196, 0, 0.1)";
+        this.color3 = "rgb(0, 224, 120, 0.1)";
+        this.color4 = "rgb(32, 0, 219, 1)";
+      }
+    },
+    MouseLeave() {
+      this.color1 = "rgb(219, 70, 48)";
+      this.color2 = "rgb(224, 196)";
+      this.color3 = "rgb(0, 224, 120)";
+      this.color4 = "rgb(32, 0, 219)";
+    },
     SparklineClicked() {
       this.$router.push({
         name: "sensors",
-        params: { id: this.$route.params.id},
-        query: { time: this.select }  
+        params: { id: this.$route.params.id },
+        query: { time: this.select },
       });
     },
     ChartTimeChanged() {
@@ -155,8 +201,8 @@ export default {
                 return this.calcMovingAvg(el.value);
               }
             }),
-            borderColor: "#DB4630",
-            backgroundColor: "#DB4630",
+            borderColor: this.color1,
+            backgroundColor: this.color1,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
@@ -167,8 +213,8 @@ export default {
                 return this.calcMovingAvg(el.value);
               }
             }),
-            borderColor: "#E0C400",
-            backgroundColor: "#E0C400",
+            borderColor: this.color2,
+            backgroundColor: this.color2,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
@@ -179,8 +225,8 @@ export default {
                 return this.calcMovingAvg(el.value);
               }
             }),
-            borderColor: "#00E078",
-            backgroundColor: "#00E078",
+            borderColor: this.color3,
+            backgroundColor: this.color3,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
@@ -191,8 +237,8 @@ export default {
                 return this.calcMovingAvg(el.value);
               }
             }),
-            borderColor: "#2000DB",
-            backgroundColor: "#2000DB",
+            borderColor: this.color4,
+            backgroundColor: this.color4,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
@@ -208,6 +254,10 @@ export default {
     sum: 0,
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     select: "1h",
+    color1: "rgb(219, 70, 48)",
+    color2: "rgb(224, 196, 0)",
+    color3: "rgb(0, 224, 120)",
+    color4: "rgb(32, 0, 219)",
   }),
   watch: {
     timeData() {

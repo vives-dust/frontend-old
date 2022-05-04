@@ -7,18 +7,7 @@ const SparklineConfig1: any = {
             spanGaps: true,
             pointRadius: 0,
             animation: {
-                onComplete: () => {
-                    delayed = true;
-                },
-                delay: (context:any) => {
-                    let delay = 0;
-                    if (
-                        !delayed
-                    ) {
-                        delay = context.dataIndex * 1 + context.datasetIndex * 300;
-                    }
-                    return delay;
-                },
+                duration:0
             },
             plugins: {
                 legend: {
