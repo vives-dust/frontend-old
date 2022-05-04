@@ -78,12 +78,22 @@ export default {
     },
     CreateDataMoisture(index) {
       return {
-        data: this.timeData.sensors.map((el) => {
-          if (el.field == this.device.sensors[index].field) {
-            this.linechartDataMoisture.labels.push(el.time);
-            return el.value;
-          }
-        }),
+        data: this.timeData.sensors
+          .map((el) => {
+            if (el.field == this.device.sensors[index].field) {
+              if (
+                !this.linechartDataMoisture.labels.find(
+                  (element) => element == el.time
+                )
+              ) {
+                this.linechartDataMoisture.labels.push(el.time);
+              }
+              return el.value;
+            }
+          })
+          .filter((el) => {
+            return el != undefined;
+          }),
         borderColor: this.colors[index],
         backgroundColor: this.colors[index],
         fill: false,
@@ -94,12 +104,22 @@ export default {
     },
     CreateDataNonMoisture(index) {
       return {
-        data: this.timeData.sensors.map((el) => {
-          if (el.field == this.device.sensors[index].field) {
-            this.linechartDataNonMoisture.labels.push(el.time);
-            return el.value;
-          }
-        }),
+        data: this.timeData.sensors
+          .map((el) => {
+            if (el.field == this.device.sensors[index].field) {
+              if (
+                !this.linechartDataMoisture.labels.find(
+                  (element) => element == el.time
+                )
+              ) {
+                this.linechartDataNonMoisture.labels.push(el.time);
+              }
+              return el.value;
+            }
+          })
+          .filter((el) => {
+            return el != undefined;
+          }),
         borderColor: this.colors[index],
         backgroundColor: this.colors[index],
         fill: false,
@@ -141,11 +161,11 @@ export default {
               this.linechartDataMoisture.datasets.findIndex(
                 (element) => element == undefined
               )
-            ] = this.CreateDataNonMoisture(index)
+            ] = this.CreateDataNonMoisture(index);
           }
         }
       }
-      console.log(this.linechartDataNonMoisture, "LineChartDataNonMoisture");
+      console.log(this.linechartDataMoisture, "LineChartDataNonMoisture");
     },
   },
   created() {

@@ -61,6 +61,10 @@ Using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor ch
 
 [Helper for charts.js](https://www.chartjs.org/docs/3.0.2/charts/line.html)
 
+## Tests in vue using jest with typescript
+
+[unit-tests-in-jest](https://alexjover.com/blog/write-the-first-vue-js-component-unit-test-in-jest/)
+
 ## Made by
 
 Felix Falk as his bachelor thesis.

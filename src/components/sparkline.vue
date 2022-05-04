@@ -111,7 +111,7 @@ export default {
       this.$router.push({
         name: "sensors",
         params: { id: this.$route.params.id},
-        query: { time: this.select }
+        query: { time: this.select }  
       });
     },
     ChartTimeChanged() {
