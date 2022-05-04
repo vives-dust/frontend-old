@@ -98,7 +98,7 @@ export default {
         backgroundColor: this.colors[index],
         fill: false,
         tension: 0.4,
-        borderWidth: 10,
+        borderWidth: 5,
         label: this.device.sensors[index].field,
       };
     },
@@ -124,7 +124,7 @@ export default {
         backgroundColor: this.colors[index],
         fill: false,
         tension: 0.4,
-        borderWidth: 10,
+        borderWidth: 5,
         label: this.device.sensors[index].field,
       };
     },
