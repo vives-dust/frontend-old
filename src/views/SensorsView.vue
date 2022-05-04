@@ -76,6 +76,39 @@ export default {
       });
       this.$store.dispatch("get_periodeData");
     },
+    CreateDataMoisture(index) {
+      return {
+        data: this.timeData.sensors.map((el) => {
+          if (el.field == this.device.sensors[index].field) {
+            this.linechartDataMoisture.labels.push(el.time);
+            return el.value;
+          }
+        }),
+        borderColor: this.colors[index],
+        backgroundColor: this.colors[index],
+        fill: false,
+        tension: 0.4,
+        borderWidth: 10,
+        label: this.device.sensors[index].field,
+      };
+    },
+    CreateDataNonMoisture(index) {
+      return {
+        data: this.timeData.sensors.map((el) => {
+          if (el.field == this.device.sensors[index].field) {
+            this.linechartDataNonMoisture.labels.push(el.time);
+            return el.value;
+          }
+        }),
+        borderColor: this.colors[index],
+        backgroundColor: this.colors[index],
+        fill: false,
+        tension: 0.4,
+        borderWidth: 10,
+        label: this.device.sensors[index].field,
+      };
+    },
+
     CreateSensorData() {
       this.linechartDataMoisture.labels = [];
       this.linechartDataNonMoisture.labels = [];
@@ -86,39 +119,14 @@ export default {
               (element) => element == undefined
             ) == -1
           ) {
-            this.linechartDataMoisture.datasets[index] = {
-              data: this.timeData.sensors.map((el) => {
-                if (el.field == this.device.sensors[index].field) {
-                  this.linechartDataMoisture.labels.push(el.time);
-                  return el.value;
-                }
-              }),
-              borderColor: this.colors[index],
-              backgroundColor: this.colors[index],
-              fill: false,
-              tension: 0.4,
-              borderWidth: 10,
-              label: this.device.sensors[index].field,
-            };
+            this.linechartDataMoisture.datasets[index] =
+              this.CreateDataMoisture(index);
           } else {
             this.linechartDataMoisture.datasets[
               this.linechartDataMoisture.datasets.findIndex(
                 (element) => element == undefined
               )
-            ] = {
-              data: this.timeData.sensors.map((el) => {
-                if (el.field == this.device.sensors[index].field) {
-                  this.linechartDataMoisture.labels.push(el.time);
-                  return el.value;
-                }
-              }),
-              borderColor: this.colors[index],
-              backgroundColor: this.colors[index],
-              fill: false,
-              tension: 0.4,
-              borderWidth: 10,
-              label: this.device.sensors[index].field,
-            };
+            ] = this.CreateDataMoisture(index);
           }
         } else {
           if (
@@ -126,42 +134,14 @@ export default {
               (element) => element == undefined
             ) == -1
           ) {
-            this.linechartDataNonMoisture.datasets[index] = {
-              data: this.timeData.sensors.map((el) => {
-                if (el.field == this.device.sensors[index].field) {
-                  this.linechartDataNonMoisture.labels.push(el.time);
-                  return el.value;
-                }
-              }),
-              borderColor: this.colors[index],
-              backgroundColor: this.colors[index],
-              fill: false,
-              tension: 0.4,
-              borderWidth: 10,
-              label: this.device.sensors[index].field,
-            };
+            this.linechartDataNonMoisture.datasets[index] =
+              this.CreateDataNonMoisture(index);
           } else {
             this.linechartDataNonMoisture.datasets[
               this.linechartDataMoisture.datasets.findIndex(
                 (element) => element == undefined
               )
-            ] = {
-              data: this.timeData.sensors.map((el) => {
-                if (el.field == this.device.sensors[index].field) {
-                  this.linechartDataNonMoisture.labels.push(el.time);
-                  return el.value;
-                }
-                else{
-                  delete this.data[el]
-                }
-              }),
-              borderColor: this.colors[index],
-              backgroundColor: this.colors[index],
-              fill: false,
-              tension: 0.4,
-              borderWidth: 10,
-              label: this.device.sensors[index].field,
-            };
+            ] = this.CreateDataNonMoisture(index)
           }
         }
       }
