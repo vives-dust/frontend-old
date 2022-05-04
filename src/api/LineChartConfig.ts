@@ -21,10 +21,19 @@ const LineChartConfig: any = {
             },
             scales: {
                 x: {
+                    grid:{
+                        offset: true
+                    },
                     ticks: {
-                        autoSkipPadding: 0
+                        autoSkipPadding: 15
                     }
+                },
+                y:{
+                    grid:{
+                        offset: true
+                    },
                 }
+                
             }
         }
     }
