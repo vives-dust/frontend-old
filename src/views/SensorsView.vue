@@ -59,6 +59,7 @@ export default {
     select: "1h",
     loaded: false,
     colors: [],
+    formatedTime: "",
 
     linechartDataNonMoisture: {
       labels: [],
@@ -70,6 +71,22 @@ export default {
     },
   }),
   methods: {
+    FormatTime(time) {
+      let dateObject = new Date(time);
+      if (this.select == "1h") {
+        this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
+      } else if (this.select == "24h") {
+        this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
+      } else if (this.select == "7d") {
+        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()} - ${dateObject.getHours()}h`;
+      } else if (this.select == "31d") {
+        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()} - ${dateObject.getHours()}h`;
+      } else if (this.select == "1y") {
+        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
+      } else {
+        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
+      }
+    },
     ChartTimeChanged() {
       this.$store.commit("change_time", {
         time: this.select,
@@ -81,12 +98,13 @@ export default {
         data: this.timeData.sensors
           .map((el) => {
             if (el.field == this.device.sensors[index].field) {
+              this.FormatTime(el.time);
               if (
                 !this.linechartDataMoisture.labels.find(
-                  (element) => element == el.time
+                  (element) => element == this.formatedTime
                 )
               ) {
-                this.linechartDataMoisture.labels.push(el.time);
+                this.linechartDataMoisture.labels.push(this.formatedTime);
               }
               return el.value;
             }
@@ -107,12 +125,13 @@ export default {
         data: this.timeData.sensors
           .map((el) => {
             if (el.field == this.device.sensors[index].field) {
+              this.FormatTime(el.time);
               if (
                 !this.linechartDataMoisture.labels.find(
-                  (element) => element == el.time
+                  (element) => element == this.formatedTime
                 )
               ) {
-                this.linechartDataNonMoisture.labels.push(el.time);
+                this.linechartDataNonMoisture.labels.push(this.formatedTime);
               }
               return el.value;
             }
@@ -177,7 +196,7 @@ export default {
     this.$store.dispatch("get_periodeData");
     this.dataSetNonMoisture = [];
     this.select = this.$route.query.time;
-    this.device.sensors.forEach((element) => {
+    this.device.sensors.forEach(() => {
       let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
       this.colors.push(color);
     });
