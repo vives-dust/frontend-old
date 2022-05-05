@@ -2,7 +2,7 @@
   <v-card color="fourth" height="auto">
     <v-row align="center" no-gutters>
       <v-col cols="1" class="text-left">
-        <div>
+        <div >
           <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
               <v-btn
@@ -19,7 +19,7 @@
               </v-btn>
             </template>
             <v-list color="fourth">
-              <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item v-for="(item, index) in items" :key="index" >
                 <v-list-item-title>
                   <v-btn color="fourth" @click="selectLanguage(item.lang)">
                     {{ item.title }}

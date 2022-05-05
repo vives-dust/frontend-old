@@ -36,7 +36,7 @@
         <p class="text-h3 text-left mt-15">{{ data.label }}</p>
         <v-divider class="mb-10 mt-3"></v-divider>
         <v-card class="my-5">
-          <lineChart :data="linechartDataNonMoisture" />
+          <lineChart :data="CombineNoneMoistureData(index)" />
         </v-card>
       </div>
     </v-col>
@@ -60,7 +60,6 @@ export default {
     loaded: false,
     colors: [],
     formatedTime: "",
-
     linechartDataNonMoisture: {
       labels: [],
       datasets: [], //this needs to be inside of an array to add to diffrent graphs in the v-for loop
@@ -86,6 +85,12 @@ export default {
       } else {
         this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
       }
+    },
+    CombineNoneMoistureData(index) {
+      return {
+        labels: this.linechartDataNonMoisture.labels,
+        datasets: [this.linechartDataNonMoisture.datasets[index]],
+      };
     },
     ChartTimeChanged() {
       this.$store.commit("change_time", {
