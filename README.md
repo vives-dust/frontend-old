@@ -1,4 +1,4 @@
-# dust-frontend
+# Ontwikkelen van een web-applicatie voor het DUST sensor platform.
 The front-end of the dust project.
 This project was made to give an overview and show all dust devices that are planted in the ground.
 This front-end also gives a summary of the sensors that are connected to a device. 
@@ -68,10 +68,3 @@ Using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor ch
 ## Made by
 
 Felix Falk as his bachelor thesis.
-
-
-Ontwikkelen van een Vue frontend applicatie voor het DUST sensor platform.
-
-Ontwikkelen van een web-applicatie voor het DUST sensor platform.
-
-Uitwerking van een Vue web-applicatie voor het DUST sensor platform.
