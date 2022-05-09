@@ -52,8 +52,10 @@
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "NavigationBar",
   data() {
     return {
@@ -74,12 +76,12 @@ export default {
     };
   },
   methods: {
-    selectLanguage(language) {
+    selectLanguage(language:string) {
       this.$i18n.locale = language;
       this.menu = false;
     },
   },
-};
+});
 </script>
 
 <style>

@@ -18,14 +18,16 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
 import { useDisplay } from "vuetify";
 import sparklineGraph from "@/components/sparkline.vue";
 import sensorPageTitle from "@/components/SensorPageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import { mapState } from "vuex";
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "deviceView",
   components: {
     sensorPageTitle,
@@ -35,7 +37,7 @@ export default {
   },
   created() {
     this.$store.commit("change_currentlySelectedPin", {
-      currentlySelectedPin: this.devices[this.$route.params.id],
+      currentlySelectedPin: this.devices[this.$route.params.id[0]], //params.id apparently returns an array, not a number.
     });
     
     this.$store.dispatch("get_device");
@@ -49,7 +51,7 @@ export default {
 
     return { xs, mdAndUp };
   },
-};
+});
 </script>
 
 <style>

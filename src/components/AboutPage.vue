@@ -126,7 +126,7 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
 import { useDisplay } from "vuetify";
 export default {
   name: "aboutPage",

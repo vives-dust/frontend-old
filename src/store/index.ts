@@ -1,8 +1,9 @@
 import { createStore } from 'vuex'
 import { Backend } from '@/api/backend'
 
+export type State = { currentlySelectedPin: object,devices:object, device:object,time:string,timeData:object}
 
-export default createStore({
+export const store = createStore({  
   state: {
     currentlySelectedPin: {
       _id: 1,

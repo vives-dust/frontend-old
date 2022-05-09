@@ -44,11 +44,11 @@
   <p class="text-h1"></p>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from "vuex";
 import lineChart from "@/components/LineChart.vue";
-
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "sensorsViews",
   components: {
     lineChart,
@@ -58,19 +58,19 @@ export default {
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     select: "1h",
     loaded: false,
-    colors: [],
+    colors: [] as any[],
     formatedTime: "",
     linechartDataNonMoisture: {
-      labels: [],
-      datasets: [], //this needs to be inside of an array to add to diffrent graphs in the v-for loop
+      labels: [] as any[],
+      datasets: [] as any[],           //might still cause problems
     },
     linechartDataMoisture: {
-      labels: [],
-      datasets: [],
+      labels: [] as any[],
+      datasets: [] as any[],
     },
   }),
   methods: {
-    FormatTime(time) {
+    FormatTime(time:string) {
       let dateObject = new Date(time);
       if (this.select == "1h") {
         this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
@@ -86,7 +86,7 @@ export default {
         this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
       }
     },
-    CombineNoneMoistureData(index) {
+    CombineNoneMoistureData(index:number) {
       return {
         labels: this.linechartDataNonMoisture.labels,
         datasets: [this.linechartDataNonMoisture.datasets[index]],
@@ -98,10 +98,10 @@ export default {
       });
       this.$store.dispatch("get_periodeData");
     },
-    CreateDataMoisture(index) {
+    CreateDataMoisture(index:number) {
       return {
         data: this.timeData.sensors
-          .map((el) => {
+          .map((el:any) => {
             if (el.field == this.device.sensors[index].field) {
               this.FormatTime(el.time);
               if (
@@ -114,7 +114,7 @@ export default {
               return el.value;
             }
           })
-          .filter((el) => {
+          .filter((el:any) => {
             return el != undefined;
           }),
         borderColor: this.colors[index],
@@ -125,10 +125,10 @@ export default {
         label: this.device.sensors[index].field,
       };
     },
-    CreateDataNonMoisture(index) {
+    CreateDataNonMoisture(index:number) {
       return {
         data: this.timeData.sensors
-          .map((el) => {
+          .map((el:any) => {
             if (el.field == this.device.sensors[index].field) {
               this.FormatTime(el.time);
               if (
@@ -141,7 +141,7 @@ export default {
               return el.value;
             }
           })
-          .filter((el) => {
+          .filter((el:any) => {
             return el != undefined;
           }),
         borderColor: this.colors[index],
@@ -194,13 +194,12 @@ export default {
   },
   created() {
     this.$store.commit("change_currentlySelectedPin", {
-      currentlySelectedPin: this.devices[this.$route.params.id],
+      currentlySelectedPin: this.devices[this.$route.params.id[0]], //somehow params.id returns a string array.
     });
 
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
-    this.dataSetNonMoisture = [];
-    this.select = this.$route.query.time;
+    this.select = this.$route.query.time!.toString();
     this.device.sensors.forEach(() => {
       let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
       this.colors.push(color);
@@ -217,7 +216,7 @@ export default {
       this.CreateSensorData();
     },
   },
-};
+});
 </script>
 
 <style>

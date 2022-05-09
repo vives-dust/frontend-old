@@ -64,9 +64,10 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from "vuex";
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "weatherInformation",
   data() {
     return {
@@ -80,7 +81,7 @@ export default {
     },
   },
   computed: mapState(["weather"]),
-};
+});
 </script>
 
 <style>

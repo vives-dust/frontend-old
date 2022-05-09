@@ -16,7 +16,7 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { useDisplay } from "vuetify";
 export default {
   name: "carouselVue",

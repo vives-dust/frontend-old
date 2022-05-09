@@ -11,7 +11,7 @@
   </v-row>
 </template>
 
-<script>
+<script lang="ts">
 import carouselVue from "@/components/Carousel.vue";
 import mapVue from "@/components/Map.vue";
 import informationCards from "@/components/InformationCards.vue";

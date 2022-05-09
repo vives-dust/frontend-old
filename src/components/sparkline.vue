@@ -113,18 +113,19 @@
   </v-card>
 </template> 
 
-<script>
-import SparklineConfig from "@/api/sparklineConfig.ts";
+<script lang="ts">
+import SparklineConfig from "@/api/sparklineConfig";
 import { LineChart } from "vue-chart-3";
 import { mapState } from "vuex";
 
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "sparklineGraph",
   components: { LineChart },
   methods: {
-    MouseOver(line) {
+    MouseOver(line:number) {
       if (line == 1) {
         this.color1 = "rgb(219, 70, 48,1)";
         this.color2 = "rgb(224, 196, 0, 0.1)";
@@ -166,7 +167,7 @@ export default {
       });
       this.$store.dispatch("get_periodeData");
     },
-    calcMovingAvg(number) {
+    calcMovingAvg(number:number) {
       this.counter++;
       this.sum += number;
       if (this.counter == 5) {
@@ -182,7 +183,7 @@ export default {
     ...mapState(["timeData"]),
     lineChartData() {
       return {
-        labels: this.timeData.sensors.map((el) => {
+        labels: this.timeData.sensors.map((el:any) => {
           if (el.field == "moistureLevel_1") {
             return el.field;
           } else if (el.field == "moistureLevel_2") {
@@ -196,7 +197,7 @@ export default {
 
         datasets: [
           {
-            data: this.timeData.sensors.map((el) => {
+            data: this.timeData.sensors.map((el:any) => {
               if (el.field == "moistureLevel_1") {
                 return this.calcMovingAvg(el.value);
               }
@@ -208,7 +209,7 @@ export default {
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el) => {
+            data: this.timeData.sensors.map((el:any) => {
               if (el.field == "moistureLevel_2") {
                 return this.calcMovingAvg(el.value);
               }
@@ -220,7 +221,7 @@ export default {
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el) => {
+            data: this.timeData.sensors.map((el:any) => {
               if (el.field == "moistureLevel_3") {
                 return this.calcMovingAvg(el.value);
               }
@@ -232,7 +233,7 @@ export default {
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el) => {
+            data: this.timeData.sensors.map((el:any) => {
               if (el.field == "moistureLevel_4") {
                 return this.calcMovingAvg(el.value);
               }
@@ -264,7 +265,7 @@ export default {
       this.loaded = true;
     },
   },
-};
+});
 </script>
 
 <style>

@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
     ],
     "paths": {
       "@/*": [
@@ -34,9 +34,11 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/test/name.test.ts"  ],
+    "src/test/name.test.ts"
+  ],
+  "files": [
+    "./src/shims-vue.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
