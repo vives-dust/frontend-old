@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <navigation-bar />
+    <navigation-bar class="sticky"/>
     <router-view />
     <footerBar />
   </v-app>
@@ -33,6 +33,7 @@ export default {
     overflow-x: hidden;
   }
 }
+
 </style>
 
 

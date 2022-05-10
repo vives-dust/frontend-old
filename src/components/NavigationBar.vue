@@ -1,5 +1,5 @@
 <template>
-  <v-card color="fourth" height="auto">
+  <v-card color="fourth" height="auto" width="100%" fixed app style='z-index:20001;'>
     <v-row align="center" no-gutters>
       <v-col cols="2" class="text-left">
         <div>

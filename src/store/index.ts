@@ -36,7 +36,6 @@ export const store = createStore({
     },
     change_showSelect(state, payload) {
       state.showSelect = payload.showSelect
-      console.log("show select changed to: ", payload.showSelect)
     },
   },
   actions: {
@@ -54,8 +53,6 @@ export const store = createStore({
     get_device({ commit, state }) {
       Backend.get_device(state.currentlySelectedPin._id)
         .then((response: any) => {
-          
-          console.log('device', response.data)
           commit('change_device', {
             "device": response.data
           })
@@ -68,7 +65,6 @@ export const store = createStore({
     get_periodeData({ commit, state }) {
       Backend.get_periodeData(state.currentlySelectedPin._id,state.time)
         .then((response: any) => {
-          console.log(response.data)
           commit('change_timeData', {
             "timeData": response.data
           })

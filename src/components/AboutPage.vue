@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="mt-8">
     <v-col cols="11" sm="8">
 
       <div class="text-center mt-5">
