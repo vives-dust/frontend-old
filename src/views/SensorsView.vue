@@ -13,17 +13,6 @@
       <v-divider class="mb-10 mt-3 hidden-xs"></v-divider>
       <v-divider class="mb-1 mt-1 hidden-sm-and-up"></v-divider>
 
-      <v-select
-        v-model="select"
-        :items="selectTime"
-        label="Select time"
-        solo
-        hide-details
-        single-line
-        prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-        @update:modelValue="ChartTimeChanged"
-      ></v-select>
-
       <p class="text-h3 text-left mt-15">Humidity Sensors</p>
       <v-divider class="mb-10 mt-3"></v-divider>
       <v-card class="my-5">
