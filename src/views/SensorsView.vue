@@ -62,7 +62,7 @@ export default defineComponent({
     formatedTime: "",
     linechartDataNonMoisture: {
       labels: [] as any[],
-      datasets: [] as any[],           //might still cause problems
+      datasets: [] as any[], //might still cause problems
     },
     linechartDataMoisture: {
       labels: [] as any[],
@@ -70,23 +70,23 @@ export default defineComponent({
     },
   }),
   methods: {
-    FormatTime(time:string) {
+    FormatTime(time: string) {
       let dateObject = new Date(time);
       if (this.select == "1h") {
         this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.select == "24h") {
         this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.select == "7d") {
-        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()} - ${dateObject.getHours()}h`;
+        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.select == "31d") {
-        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()} - ${dateObject.getHours()}h`;
+        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.select == "1y") {
-        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
+        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       } else {
-        this.formatedTime = `${dateObject.getDate()}/${dateObject.getMonth()}/${dateObject.getFullYear()}`;
+        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       }
     },
-    CombineNoneMoistureData(index:number) {
+    CombineNoneMoistureData(index: number) {
       return {
         labels: this.linechartDataNonMoisture.labels,
         datasets: [this.linechartDataNonMoisture.datasets[index]],
@@ -98,10 +98,10 @@ export default defineComponent({
       });
       this.$store.dispatch("get_periodeData");
     },
-    CreateDataMoisture(index:number) {
+    CreateDataMoisture(index: number) {
       return {
         data: this.timeData.sensors
-          .map((el:any) => {
+          .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
               this.FormatTime(el.time);
               if (
@@ -114,7 +114,7 @@ export default defineComponent({
               return el.value;
             }
           })
-          .filter((el:any) => {
+          .filter((el: any) => {
             return el != undefined;
           }),
         borderColor: this.colors[index],
@@ -125,10 +125,10 @@ export default defineComponent({
         label: this.device.sensors[index].field,
       };
     },
-    CreateDataNonMoisture(index:number) {
+    CreateDataNonMoisture(index: number) {
       return {
         data: this.timeData.sensors
-          .map((el:any) => {
+          .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
               this.FormatTime(el.time);
               if (
@@ -141,7 +141,7 @@ export default defineComponent({
               return el.value;
             }
           })
-          .filter((el:any) => {
+          .filter((el: any) => {
             return el != undefined;
           }),
         borderColor: this.colors[index],

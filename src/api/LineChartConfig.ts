@@ -1,5 +1,5 @@
 let delayed: boolean;
-const LineChartConfig: any = {
+const LineChartConfig = {
 
     config: {
         options: {

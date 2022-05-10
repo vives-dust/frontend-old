@@ -1,5 +1,5 @@
-let delayed:boolean;
-const SparklineConfig1: any = {
+
+const SparklineConfig1 = {
     
     config: {
         options: {

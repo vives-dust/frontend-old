@@ -9,7 +9,6 @@
 <script>
 import NavigationBar from "@/components/NavigationBar.vue";
 import footerBar from "@/components/Footer.vue";
-import { defineComponent } from 'vue';
 export default {
   components: {
     NavigationBar,
