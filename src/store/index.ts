@@ -36,6 +36,7 @@ export const store = createStore({
     },
     change_showSelect(state, payload) {
       state.showSelect = payload.showSelect
+      console.log("show select changed to: ", payload.showSelect)
     },
   },
   actions: {

@@ -1,7 +1,7 @@
 <template>
   <v-card color="fourth" height="auto">
     <v-row align="center" no-gutters>
-      <v-col cols="3" class="text-left">
+      <v-col cols="2" class="text-left">
         <div>
           <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
@@ -31,7 +31,7 @@
         </div>
       </v-col>
 
-      <v-col cols="11" class="text-center" md="6">
+      <v-col cols="11" class="text-center" md="8">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" exact class="pr-n2">
             <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
@@ -47,7 +47,7 @@
           </v-tab>
         </v-tabs>
       </v-col>
-      <v-col cols="0" md="3">
+      <v-col cols="0" md="2">
         <v-select
           v-model="select"
           :items="selectTime"
@@ -56,7 +56,8 @@
           hide-details
           single-line
           @update:modelValue="ChartTimeChanged"
-          :v-show="showSelect"
+          v-show="showSelect"
+          prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
           class="my-n5"
         ></v-select>
       </v-col>
