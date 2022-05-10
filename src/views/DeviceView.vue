@@ -21,7 +21,7 @@
 <script lang="ts">
 import { useDisplay } from "vuetify";
 import sparklineGraph from "@/components/sparkline.vue";
-import sensorPageTitle from "@/components/SensorPageTitle.vue";
+import sensorPageTitle from "@/components/DevicePageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import { mapState } from "vuex";

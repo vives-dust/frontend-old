@@ -1,7 +1,7 @@
 <template>
-  <v-card color="fourth" height="auto" width="100%" fixed app style='z-index:20001;'>
+  <v-card color="fourth" height="auto" width="100%" fixed app style='z-index:20001;' rounded="0">
     <v-row align="center" no-gutters>
-      <v-col cols="2" class="text-left">
+      <v-col cols="2" md="2" class="text-left">
         <div>
           <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
@@ -31,7 +31,7 @@
         </div>
       </v-col>
 
-      <v-col cols="11" class="text-center" md="8">
+      <v-col cols="8" class="text-center hidden-xs" md="8">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" exact class="pr-n2">
             <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
@@ -47,7 +47,30 @@
           </v-tab>
         </v-tabs>
       </v-col>
-      <v-col cols="0" md="2">
+
+       <v-col cols="8" class="text-center hidden-sm-and-up" md="8">
+        <v-tabs centered height="auto">
+          <v-tab value="Home" to="/" exact class="pr-n2">
+            <v-icon size="25" class="mr-1 ml-n3" icon="mdi:mdi-home" />
+            {{ $t("navigationBar.home") }}
+          </v-tab>
+          <v-divider vertical class="mx-1 my-2"></v-divider>
+          <v-tab value="About" to="/about"
+            ><v-icon
+              size="25"
+              class="mr-1 ml-n3"
+              icon="mdi:mdi-information"
+            />{{ $t("navigationBar.about") }}
+          </v-tab>
+        </v-tabs>
+      </v-col>
+
+
+
+
+
+
+      <v-col cols="2" md="2" v-show="showSelect" class="text-center"  >
         <v-select
           v-model="select"
           :items="selectTime"
@@ -56,10 +79,22 @@
           hide-details
           single-line
           @update:modelValue="ChartTimeChanged"
-          v-show="showSelect"
+          
           prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-          class="my-n5"
+          class="my-n5 hidden-xs"
         ></v-select>
+
+
+        <v-select
+          v-model="select"
+          :items="selectTime"
+          label="Select time"
+          solo
+          hide-details
+          single-line
+          @update:modelValue="ChartTimeChanged"
+          class="my-n5 hidden-sm-and-up"
+        ></v-select>  
       </v-col>
     </v-row>
   </v-card>
