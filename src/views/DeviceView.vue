@@ -42,6 +42,9 @@ export default defineComponent({
     
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
+    this.$store.commit("change_showSelect",{
+      showSelect: true
+    })
 
   },
   computed: mapState(["devices", "currentlySelectedPin"]),

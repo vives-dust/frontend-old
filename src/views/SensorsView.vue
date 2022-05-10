@@ -204,6 +204,9 @@ export default defineComponent({
       let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
       this.colors.push(color);
     });
+    this.$store.commit("change_showSelect", {
+      showSelect: true,
+    });
   },
   computed: {
     ...mapState(["timeData", "devices", "device"]),

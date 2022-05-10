@@ -12,17 +12,7 @@
         @click="SparklineClicked"
       />
     </v-card>
-    <v-select
-      v-model="select"
-      :items="selectTime"
-      label="Select time"
-      solo
-      hide-details
-      single-line
-      class="my-3"
-      prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-      @update:modelValue="ChartTimeChanged"
-    ></v-select>
+   
     <v-row justify="center" class="mx-3 my-3">
       <v-col cols="auto">
         <v-card
@@ -76,18 +66,6 @@
     <v-card elevation="0" dense @click="SparklineClicked"
       ><LineChart :chart-data="lineChartData" :options="options"
     /></v-card>
-    <v-card-actions>
-      <v-select
-        v-model="select"
-        :items="selectTime"
-        label="Select time"
-        solo
-        hide-details
-        single-line
-        prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-        @update:modelValue="ChartTimeChanged"
-      ></v-select>
-    </v-card-actions>
     <v-row justify="center" class="mx-1 my-1">
       <v-col cols="auto">
         <v-card class="px-3 py-3" elevation="5">
@@ -150,7 +128,7 @@ export default defineComponent({
     },
     MouseLeave() {
       this.color1 = "rgb(219, 70, 48)";
-      this.color2 = "rgb(224, 196)";
+      this.color2 = "rgb(224, 196, 0)";
       this.color3 = "rgb(0, 224, 120)";
       this.color4 = "rgb(32, 0, 219)";
     },
@@ -158,15 +136,10 @@ export default defineComponent({
       this.$router.push({
         name: "sensors",
         params: { id: this.$route.params.id },
-        query: { time: this.select },
+        query: { time: this.$store.state.time },
       });
     },
-    ChartTimeChanged() {
-      this.$store.commit("change_time", {
-        time: this.select,
-      });
-      this.$store.dispatch("get_periodeData");
-    },
+    
     calcMovingAvg(number:number) {
       this.counter++;
       this.sum += number;
@@ -253,8 +226,6 @@ export default defineComponent({
     options: SparklineConfig.config.options,
     counter: 0,
     sum: 0,
-    selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
-    select: "1h",
     color1: "rgb(219, 70, 48)",
     color2: "rgb(224, 196, 0)",
     color3: "rgb(0, 224, 120)",
