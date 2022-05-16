@@ -1,5 +1,13 @@
 <template>
-  <v-card color="fourth" height="auto" width="100%" fixed app style='z-index:20001;' rounded="0">
+  <v-card
+    color="fourth"
+    height="auto"
+    width="100%"
+    fixed
+    app
+    style="z-index: 20001"
+    rounded="0"
+  >
     <v-row align="center" no-gutters>
       <v-col cols="2" md="2" class="text-left">
         <div>
@@ -48,7 +56,7 @@
         </v-tabs>
       </v-col>
 
-       <v-col cols="8" class="text-center hidden-sm-and-up" md="8">
+      <v-col cols="8" class="text-center hidden-sm-and-up" md="8">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" exact class="pr-n2">
             <v-icon size="25" class="mr-1 ml-n3" icon="mdi:mdi-home" />
@@ -65,13 +73,11 @@
         </v-tabs>
       </v-col>
 
-
-
-
-
-
-      <v-col cols="2" md="2" v-show="showSelect" class="text-center"  >
+      <v-col cols="2" md="2" v-show="showSelect">
         <v-select
+          density="compact"
+          color="third"
+          
           v-model="select"
           :items="selectTime"
           label="Select time"
@@ -79,22 +85,22 @@
           hide-details
           single-line
           @update:modelValue="ChartTimeChanged"
-          
           prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-          class="my-n5 hidden-xs"
+          class="hidden-xs"
         ></v-select>
 
-
         <v-select
+          density="compact"
           v-model="select"
           :items="selectTime"
           label="Select time"
           solo
+          
           hide-details
           single-line
           @update:modelValue="ChartTimeChanged"
-          class="my-n5 hidden-sm-and-up"
-        ></v-select>  
+          class="alighn-center hidden-sm-and-up"
+        ></v-select>
       </v-col>
     </v-row>
   </v-card>
@@ -128,6 +134,9 @@ export default defineComponent({
       ],
     };
   },
+  created() {
+    this.select = this.$store.state.time;
+  },
   methods: {
     selectLanguage(language: string) {
       this.$i18n.locale = language;
@@ -146,5 +155,10 @@ export default defineComponent({
 <style>
 p {
   font-size: 17px;
+}
+.v-select__selection,
+.v-select__selection--comma,
+.v-select.v-text-field input {
+  color: var(--v-primary-base);
 }
 </style>

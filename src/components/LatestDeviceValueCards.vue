@@ -15,7 +15,13 @@
             icon="mdi:mdi-thermometer "
             v-if="sensor.type == 'temperature'"
           />
-          <p v-if="sensor.type == 'temperature'">{{ sensor.value }} &deg;C</p>
+          <h1
+            v-if="sensor.type == 'temperature'"
+            class="font-weight-bold"
+
+          >
+            {{ sensor.value }} &deg;C
+          </h1>
 
           <v-icon
             class="mr-8"
@@ -29,8 +35,11 @@
             icon="mdi:mdi-tailwind"
             v-if="sensor.type == 'pressure'"
           />
-
-          <p v-if="sensor.type != 'temperature'">{{ sensor.value }}</p>
+          <h1
+            v-if="sensor.type != 'temperature'"
+          >
+            {{ sensor.value }}
+          </h1>
         </v-card-text>
       </v-card>
     </v-col>
@@ -42,7 +51,9 @@
       cols="6"
     >
       <v-card color="third" class="mx-n2 my-n2">
-        <v-card-title class="ml-n3 mb-n6 mt-n2"> {{ sensor.field }} </v-card-title>
+        <v-card-title class="ml-n3 mb-n6 mt-n2">
+          {{ sensor.field }}
+        </v-card-title>
         <v-card-text class="d-inline-flex align-center">
           <v-icon
             size="45"

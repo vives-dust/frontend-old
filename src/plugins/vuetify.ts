@@ -38,9 +38,13 @@ export default createVuetify({
   },
   theme: {
     defaultTheme: 'myCustomTheme',
+    options: {
+      customProperties: true
+    },
     themes: {
       myCustomTheme,
     }
   },
+
 }
 )

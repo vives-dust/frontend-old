@@ -5,26 +5,36 @@
         Sensors of device {{ this.$route.params.id }}
       </p>
       <p
-        class="text-h3 text-center mt-1 hidden-sm-and-up"
+        class="text-h3 text-center mt-15 hidden-sm-and-up"
         style="font-size: 30px"
       >
-        Sensors of device {{ this.$route.params.id }}
+        device {{ this.$route.params.id }}
       </p>
       <v-divider class="mb-10 mt-3 hidden-xs"></v-divider>
       <v-divider class="mb-1 mt-1 hidden-sm-and-up"></v-divider>
 
-      <p class="text-h3 text-left mt-15">Humidity Sensors</p>
-      <v-divider class="mb-10 mt-3"></v-divider>
-      <v-card class="my-5">
+      <p class="text-h3 text-left mt-15 hidden-xs">Humidity Sensors</p>
+      <p class="text-h4 text-left mt-2 hidden-sm-and-up">Humidity Sensors</p>
+
+      <v-card class="my-5 hidden-xs">
+        <lineChart :data="linechartDataMoisture" />
+      </v-card>
+
+      <v-card class="my-2 hidden-sm-and-up">
         <lineChart :data="linechartDataMoisture" />
       </v-card>
       <div
         v-for="(data, index) in linechartDataNonMoisture.datasets"
         :key="index"
       >
-        <p class="text-h3 text-left mt-15">{{ data.label }}</p>
-        <v-divider class="mb-10 mt-3"></v-divider>
-        <v-card class="my-5">
+        <p class="text-h3 text-left mt-15 hidden-xs">{{ data.label }}</p>
+        <p class="text-h4 text-left mt-3 hidden-sm-and-up">{{ data.label }}</p>
+
+        <v-card class="my-5 hidden-xs">
+          <lineChart :data="CombineNoneMoistureData(index)" />
+        </v-card>
+
+        <v-card class="my-2  hidden-sm-and-up">
           <lineChart :data="CombineNoneMoistureData(index)" />
         </v-card>
       </div>
@@ -45,7 +55,7 @@ export default defineComponent({
 
   data: () => ({
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
-    select: "1h",
+    select: "7d",
     loaded: false,
     colors: [] as any[],
     formatedTime: "",
@@ -196,6 +206,7 @@ export default defineComponent({
     this.$store.commit("change_showSelect", {
       showSelect: true,
     });
+    
   },
   computed: {
     ...mapState(["timeData", "devices", "device"]),
