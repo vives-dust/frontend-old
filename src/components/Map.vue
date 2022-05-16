@@ -1,6 +1,6 @@
 <template>
   <v-card :height="xs ? 300 : 800" width="auto" justify="center">
-    <l-map ref="map" v-model:zoom="zoom" :center="[51.037861, 4.240528]" @ready="handleMapSetup" :max-zoom="15">
+    <l-map ref="map" v-model:zoom="zoom" :center="[51.037861, 4.240528]"  :max-zoom="15">
       <l-tile-layer
         :url="url"
         layer-type="base"
