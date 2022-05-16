@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <aboutPage />
+    <p>test</p>
   </div>
 </template>
 

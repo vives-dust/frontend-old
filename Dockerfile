@@ -7,7 +7,7 @@ COPY package*.json .
 FROM base as development-stage
 RUN npm install
 COPY . .
-CMD ["npm", "run", "serve"]
+CMD ["npm", "run", "serve", "--production"]
 
 # Build Stage
 FROM base as build-stage

@@ -36,7 +36,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/test/name.test.ts"
-  ],
+, "src/service-worker.js"  ],
   "files": [
     "./src/shims-vue.d.ts"
   ],
