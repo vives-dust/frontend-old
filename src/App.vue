@@ -1,8 +1,15 @@
 <template>
   <v-app>
-    <navigation-bar class="sticky"/>
+    <navigation-bar class="sticky" />
     <router-view />
     <footerBar />
+    <v-snackbar v-model="updateAvailable">
+      {{ text }}
+
+      <template v-slot:actions>
+        <v-btn color="blue" variant="text" @click="Update"> Close </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -14,8 +21,33 @@ export default {
     NavigationBar,
     footerBar,
   },
+  data: () => ({
+    registration: null,
+    updateAvailable: false,
+    isRefreshing: false,
+  }),
   created() {
     this.$store.dispatch("get_devices");
+    document.addEventListener("swupdatefound", this.updateTheApp, {
+      once: true,
+    });
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (this.isRefreshing) return;
+      this.isRefreshing = true;
+      window.location.reload();
+    });
+  },
+  methods: {
+    updateTheApp(e) {
+      this.registration = e.detail;
+      this.updateAvailable = true;
+    },
+    update() {
+      this.updateAvailable = false;
+      if (this.registration || this.registration.waiting) {
+        this.registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      }
+    },
   },
 };
 </script>
@@ -33,7 +65,6 @@ export default {
     overflow-x: hidden;
   }
 }
-
 </style>
 
 
