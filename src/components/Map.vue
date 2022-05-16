@@ -27,12 +27,7 @@
 import { useDisplay } from "vuetify";
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LTooltip } from "@vue-leaflet/vue-leaflet";
-import { Map, Marker,  } from "leaflet"; //needed by markercluster
 import { mapState } from "vuex";
-
-import { MarkerClusterGroup } from "leaflet.markercluster";
-import "leaflet.markercluster/dist/MarkerCluster.css";
-import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 export default {
   name: "mapVue",
   components: {
@@ -58,23 +53,6 @@ export default {
     pinClicked(pinid) {
       this.$router.push({ name: "device", params: { id: pinid } });
     },
-    // async handleMapSetup() {
-      
-    //   this.siteMarkersGroup = new MarkerClusterGroup();
-    //   this.$refs.map.leafletObject.addLayer(this.siteMarkersGroup);
-    //   await this.$nextTick();
-    //   // `sites` is an array of objects with some coordinates.
-    //   this.siteMarkersGroup.addLayers(
-    //     this.devices.map((s) => {
-    //       const options = { title: s.name, clickable: true, draggable: false };
-    //       console.log(this.$refs.map,"MAP")
-    //       return this.$refs.map.leafletObject.marker(
-    //         s.location,
-    //         options
-    //       ).bindPopup(this.funcBuildingHTMLStringForPopup(s));
-    //     })
-    //   );
-    // },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
