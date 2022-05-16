@@ -58,23 +58,23 @@ export default {
     pinClicked(pinid) {
       this.$router.push({ name: "device", params: { id: pinid } });
     },
-    async handleMapSetup() {
+    // async handleMapSetup() {
       
-      this.siteMarkersGroup = new MarkerClusterGroup();
-      this.$refs.map.leafletObject.addLayer(this.siteMarkersGroup);
-      await this.$nextTick();
-      // `sites` is an array of objects with some coordinates.
-      this.siteMarkersGroup.addLayers(
-        this.devices.map((s) => {
-          const options = { title: s.name, clickable: true, draggable: false };
-          console.log(this.$refs.map,"MAP")
-          return this.$refs.map.leafletObject.marker(
-            s.location,
-            options
-          ).bindPopup(this.funcBuildingHTMLStringForPopup(s));
-        })
-      );
-    },
+    //   this.siteMarkersGroup = new MarkerClusterGroup();
+    //   this.$refs.map.leafletObject.addLayer(this.siteMarkersGroup);
+    //   await this.$nextTick();
+    //   // `sites` is an array of objects with some coordinates.
+    //   this.siteMarkersGroup.addLayers(
+    //     this.devices.map((s) => {
+    //       const options = { title: s.name, clickable: true, draggable: false };
+    //       console.log(this.$refs.map,"MAP")
+    //       return this.$refs.map.leafletObject.marker(
+    //         s.location,
+    //         options
+    //       ).bindPopup(this.funcBuildingHTMLStringForPopup(s));
+    //     })
+    //   );
+    // },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;
