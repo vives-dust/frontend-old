@@ -74,33 +74,31 @@
       </v-col>
 
       <v-col cols="2" md="2" v-show="showSelect">
-        <v-select
-          density="compact"
-          color="third"
-          
-          v-model="select"
-          :items="selectTime"
-          label="Select time"
-          solo
-          hide-details
-          single-line
-          @update:modelValue="ChartTimeChanged"
-          prepend-icon="mdi:mdi-chart-timeline-variant-shimmer"
-          class="hidden-xs"
-        ></v-select>
+        <v-card elevation="0" color="primary" class="mr-3">
+            <v-select
+              density="compact"
+              v-model="select"
+              :items="selectTime"
+              label="Select time"
+              solo
+              hide-details
+              single-line
+              @update:modelValue="ChartTimeChanged"
+              class="hidden-xs"
+            ></v-select>
 
-        <v-select
-          density="compact"
-          v-model="select"
-          :items="selectTime"
-          label="Select time"
-          solo
-          
-          hide-details
-          single-line
-          @update:modelValue="ChartTimeChanged"
-          class="alighn-center hidden-sm-and-up"
-        ></v-select>
+          <v-select
+            density="compact"
+            v-model="select"
+            :items="selectTime"
+            label="Select time"
+            solo
+            hide-details
+            single-line
+            @update:modelValue="ChartTimeChanged"
+            class="alighn-center hidden-sm-and-up"
+          ></v-select>
+        </v-card>
       </v-col>
     </v-row>
   </v-card>
@@ -155,10 +153,5 @@ export default defineComponent({
 <style>
 p {
   font-size: 17px;
-}
-.v-select__selection,
-.v-select__selection--comma,
-.v-select.v-text-field input {
-  color: var(--v-primary-base);
 }
 </style>
