@@ -1,23 +1,4 @@
 <template>
-  <v-row justify="center" class="mt-8">
-    <v-col cols="11" sm="8">
-
-      <div class="text-center mt-5">
-        <v-card elevation="2" shaped :height="xs ? 150 : 300" width="auto">
-          <v-img
-            src="../assets/vlaanderen1.jpg"
-            :height="xs ? 150 : 300"
-            width="auto"
-          ></v-img>
-          <!-- All picture are under the creative common license -->
-        </v-card>
-
-        <p class="text-h5 text-justify mt-5 mb-16">
-          {{ $t("aboutPage.introduction") }}
-        </p>
-      </div>
-    </v-col>
-  </v-row>
 
   <v-row justify="center" class="hidden-xs">
     <v-col cols="1"> </v-col>
