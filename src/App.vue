@@ -4,10 +4,10 @@
     <router-view />
     <footerBar />
     <v-snackbar v-model="updateAvailable">
-      {{ text }}
+       <p> Update available - Please update</p> 
 
       <template v-slot:actions>
-        <v-btn color="blue" variant="text" @click="Update"> Close </v-btn>
+        <v-btn color="blue" variant="text" @click="Update"> Update </v-btn>
       </template>
     </v-snackbar>
   </v-app>
@@ -42,7 +42,7 @@ export default {
       this.registration = e.detail;
       this.updateAvailable = true;
     },
-    update() {
+    Update() {
       this.updateAvailable = false;
       if (this.registration || this.registration.waiting) {
         this.registration.waiting.postMessage({ type: "SKIP_WAITING" });
