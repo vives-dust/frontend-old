@@ -68,3 +68,51 @@ Using [chart.js](https://vue-chart-3.netlify.app/guide/usage/) for the sensor ch
 ## Made by
 
 Felix Falk as his bachelor thesis.
+
+
+
+
+
+
+
+
+
+
+diverders overal weg: verschillende achtergrond kleuren, sections -> wit = belangrijkst
+v-row, v-col colors
+
+
+sensorpage foto moet foto van sensor worden
+
+carousel weg, neutrale foto in plaats.
+
+sensor page:
+Groene foto op sensor page bovenaan
+trendline van boven map in een card steken.
+sybool van card groot links. Titel kleiner rechts vanboven, met card subtitles. => dashborden: click on cards -> detaille graphics
+knoppen kleiner
+trend voledige pagina gebruiken
+1. dashbord
+
+
+opties voor device page:
+10cellen totaal
+grafieken eronder onder andere section
+op een kaart klicken = scrollen naar beneden
+groen is te bombastisch
+
+
+meer sensoren toevoegen.
+
+
+latetst device valuecards propere namen met een map, en key and value toevoegen
+
+- paaragraaf onderstaande kaart toont lijst met alle beschikbare sensoren.
+- information card uit store halen
+
+- carousel voledige breedte
+
+
+
+
+
