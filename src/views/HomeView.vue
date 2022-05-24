@@ -12,10 +12,8 @@
   </v-row>
   <v-row justify="center">
     <v-col cols="11" sm="10">
-      <!-- <carouselVue class="mt-16" /> -->
       <mapVue class="mt-5 mb-10 hidden-xs" />
       <mapVue class="mt-2 mb-2 hidden-sm-and-up" />
-
     </v-col>
   </v-row>
   <v-row
