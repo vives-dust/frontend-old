@@ -4,11 +4,11 @@
 
       <div class="text-center mt-5">
         <v-card elevation="2" shaped :height="xs ? 150 : 300" width="auto">
-          <v-img
+          <!-- <v-img
             src="../assets/vlaanderen1.jpg"
             :height="xs ? 150 : 300"
             width="auto"
-          ></v-img>
+          ></v-img> -->
           <!-- All picture are under the creative common license -->
         </v-card>
 
@@ -35,7 +35,7 @@
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
         <v-card height="500" v-bind="props" :elevation="isHovering ? 16 : 2">
-          <v-img height="130" src="../assets/bier2.jpg"> </v-img>
+          <!-- <v-img height="130" src="../assets/bier2.jpg"> </v-img> -->
           <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
           <p class="ml-3">
             {{ $t("aboutPage.card2.text") }}
@@ -46,7 +46,7 @@
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
         <v-card height="500" v-bind="props" :elevation="isHovering ? 16 : 2">
-          <v-img height="130" src="../assets/vlaanderen1.jpg"> </v-img>
+          <!-- <v-img height="130" src="../assets/vlaanderen1.jpg"> </v-img> -->
           <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
           <p class="ml-3">
             {{ $t("aboutPage.card3.text") }}
@@ -87,7 +87,7 @@
     <v-col cols="11">
       <v-card height="400">
         <v-card height="150" elevation="0">
-          <v-img height="strech" src="../assets/bier2.jpg"> </v-img>
+          <!-- <v-img height="strech" src="../assets/bier2.jpg"> </v-img> -->
         </v-card>
         <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
         <p class="ml-3">
@@ -101,7 +101,7 @@
     <v-col cols="11">
       <v-card height="400">
         <v-card height="150" elevation="0">
-          <v-img height="strech" src="../assets/vlaanderen1.jpg"> </v-img>
+          <!-- <v-img height="strech" src="../assets/vlaanderen1.jpg"> </v-img> -->
         </v-card>
         <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
         <p class="ml-3">

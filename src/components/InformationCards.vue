@@ -1,12 +1,12 @@
 <template>
-    <v-row dense justify="center">
+    <v-row  justify="center">
       <v-col
         cols="4"
         v-for="card in cards"
         :key="card.id"
         class="hidden-xs"
       >
-        <v-card dark color="third" class="ma-1 pa-1">
+        <v-card dark color="third" class="mx-1 mb-1 pa-1">
           <v-row align="center">
             <v-col cols="5">
               <div>

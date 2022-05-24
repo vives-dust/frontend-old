@@ -9,6 +9,7 @@ const myCustomTheme = {
   dark: false,
   colors: {
     background: '#FFFFFF',
+    backgroundShift: '#CDCDCD',
     surface: '#FFFFFF',
     primary: '#00FAE9',
     secondary: '#28C6FA',
