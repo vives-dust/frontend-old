@@ -1,9 +1,9 @@
 import { createStore } from 'vuex'
 import { Backend } from '@/api/backend'
 
-export type State = { currentlySelectedPin: object,devices:object, device:object,time:string,timeData:object}
+export type State = { currentlySelectedPin: object, devices: object, device: object, time: string, timeData: object }
 
-export const store = createStore({  
+export const store = createStore({
   state: {
     currentlySelectedPin: {
       _id: 1,
@@ -11,7 +11,7 @@ export const store = createStore({
     devices: {},
     device: { "_id": "626699db4690ae738366373c", "name": "Prototype 1", "hardwareId": "eui-70b3d57ed0049f81", "description": "Our first prototype sensor", "location": { "latitude": 51.194154, "longitude": 3.21767, "height": 0 }, "sensors": [{ "field": "internalTemperature", "value": 23, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373d", "type": "temperature", "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_1", "value": 49444, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373e", "type": "moisture", "depth": -5, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_2", "value": 49915, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae738366373f", "type": "moisture", "depth": -12, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_3", "value": 50007, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae7383663740", "type": "moisture", "depth": -18, "deviceId": "626699db4690ae738366373c" }, { "field": "moistureLevel_4", "value": 50023, "time": "2022-04-26T12:40:39.303Z", "_id": "626699db4690ae7383663741", "type": "moisture", "depth": -22, "deviceId": "626699db4690ae738366373c" }] },
     time: '7d',
-    timeData:{},
+    timeData: {},
     showSelect: false
   },
   getters: {
@@ -45,7 +45,7 @@ export const store = createStore({
           commit('change_devices', {
             "devices": response.data.data
           })
-          
+
         })
         .catch((error: any) => {
           console.log(error)
@@ -64,7 +64,7 @@ export const store = createStore({
     },
 
     get_periodeData({ commit, state }) {
-      Backend.get_periodeData(state.currentlySelectedPin._id,state.time)
+      Backend.get_periodeData(state.currentlySelectedPin._id, state.time)
         .then((response: any) => {
           commit('change_timeData', {
             "timeData": response.data

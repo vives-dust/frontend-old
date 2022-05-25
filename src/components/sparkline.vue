@@ -2,8 +2,9 @@
   <v-container
     v-if="loaded"
     color="white"
-    class="mx-auto text-center hidden-xs"
+    class="mx-auto mt-13 text-center hidden-xs"
     dark
+
   >
     <v-card elevation="0" dense class="my-3" @click="SparklineClicked">
       <LineChart
@@ -12,52 +13,59 @@
         @click="SparklineClicked"
       />
     </v-card>
-   
-    <v-row justify="center" class="mx-3 my-3">
+    <!-- THIS CODE ADDS CUSTOM LABELS TO THE SPARKLINE -->
+    <!-- <v-row justify="center">
       <v-col cols="auto">
         <v-card
-          class="px-3 py-3"
+          class="px-3 py-1"
           elevation="5"
           @mouseenter="MouseOver(1)"
           @mouseleave="MouseLeave"
         >
-          <p class="text-h4" style="color: #db4630">moistureLevel1</p>
+          <p style="color: #db4630; font-size: 130 %">moistureLevel1</p>
         </v-card>
       </v-col>
       <v-col cols="auto">
         <v-card
-          class="px-3 py-3"
+          class="px-3 py-1"
           elevation="5"
           @mouseenter="MouseOver(2)"
           @mouseleave="MouseLeave"
         >
-          <p class="text-h4" style="color: #e0c400">moistureLevel2</p>
+          <p  style="color: #e0c400; font-size: 130  %">
+            moistureLevel2
+          </p>
         </v-card>
       </v-col>
       <v-col cols="auto">
         <v-card
-          class="px-3 py-3"
+          class="px-3 py-1"
           elevation="5"
           @mouseenter="MouseOver(3)"
           @mouseleave="MouseLeave"
         >
-          <p class="text-h4" style="color: #00e078">moistureLevel3</p>
+          <p  style="color: #00e078; font-size: 130 %">
+            moistureLevel3
+          </p>
         </v-card>
       </v-col>
       <v-col cols="auto">
         <v-card
-          class="px-3 py-3"
+          class="px-3 py-1"
           elevation="5"
           @mouseenter="MouseOver(4)"
           @mouseleave="MouseLeave"
         >
-          <p class="text-h4" style="color: #2000db">moistureLevel4</p>
+          <p   style="color: #2000db; font-size: 130 %">
+            moistureLevel4
+          </p>
         </v-card>
       </v-col>
-    </v-row>
+    </v-row> -->
   </v-container>
 
-  <v-card
+  
+  <!-- <v-card
     v-if="loaded"
     color="white"
     class="mx-auto text-center hidden-sm-and-up"
@@ -88,11 +96,11 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-card>
+  </v-card> -->
 </template> 
 
 <script lang="ts">
-import SparklineConfig from "@/api/sparklineConfig";
+import SparklineConfig from "@/source/sparklineConfig";
 import { LineChart } from "vue-chart-3";
 import { mapState } from "vuex";
 
@@ -103,7 +111,7 @@ export default defineComponent({
   name: "sparklineGraph",
   components: { LineChart },
   methods: {
-    MouseOver(line:number) {
+    MouseOver(line: number) {
       if (line == 1) {
         this.color1 = "rgb(219, 70, 48,1)";
         this.color2 = "rgb(224, 196, 0, 0.1)";
@@ -139,8 +147,8 @@ export default defineComponent({
         query: { time: this.$store.state.time },
       });
     },
-    
-    calcMovingAvg(number:number) {
+
+    calcMovingAvg(number: number) {
       this.counter++;
       this.sum += number;
       if (this.counter == 5) {
@@ -156,7 +164,7 @@ export default defineComponent({
     ...mapState(["timeData"]),
     lineChartData() {
       return {
-        labels: this.timeData.sensors.map((el:any) => {
+        labels: this.timeData.sensors.map((el: any) => {
           if (el.field == "moistureLevel_1") {
             return el.field;
           } else if (el.field == "moistureLevel_2") {
@@ -170,11 +178,12 @@ export default defineComponent({
 
         datasets: [
           {
-            data: this.timeData.sensors.map((el:any) => {
+            data: this.timeData.sensors.map((el: any) => {
               if (el.field == "moistureLevel_1") {
                 return this.calcMovingAvg(el.value);
               }
             }),
+            label: "Moisture level one",
             borderColor: this.color1,
             backgroundColor: this.color1,
             fill: false,
@@ -182,36 +191,39 @@ export default defineComponent({
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el:any) => {
+            data: this.timeData.sensors.map((el: any) => {
               if (el.field == "moistureLevel_2") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color2,
+            label: "Moisture level two",
             backgroundColor: this.color2,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el:any) => {
+            data: this.timeData.sensors.map((el: any) => {
               if (el.field == "moistureLevel_3") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color3,
+            label: "Moisture level three",
             backgroundColor: this.color3,
             fill: false,
             tension: 0.4,
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors.map((el:any) => {
+            data: this.timeData.sensors.map((el: any) => {
               if (el.field == "moistureLevel_4") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color4,
+            label: "Moisture level four",
             backgroundColor: this.color4,
             fill: false,
             tension: 0.4,

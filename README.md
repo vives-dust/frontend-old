@@ -114,5 +114,7 @@ latetst device valuecards propere namen met een map, en key and value toevoegen
 
 
 
+soilmodle id 
 
+    "_id": "628df567f89e057e7888918c",
 

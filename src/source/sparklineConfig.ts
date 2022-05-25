@@ -11,7 +11,7 @@ const SparklineConfig1 = {
             },
             plugins: {
                 legend: {
-                    display: false,
+                    display: true,
                 },
             },
             scales: {

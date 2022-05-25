@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue';
 import { LineChart } from 'vue-chart-3';
 import { Chart, registerables } from "chart.js";
-import LineChartConfig from '@/api/LineChartConfig'
+import LineChartConfig from '@/source/LineChartConfig'
 
 Chart.register(...registerables);
 
