@@ -7,7 +7,7 @@
       </v-row>
     </v-col>
   </v-row>
-  <v-row justify="center" no-gutters style="background-color: rgb(var(--v-theme-backgroundShift), 0.5)">
+  <v-row justify="center" no-gutters style="background-color: rgb(var(--v-theme-backgroundShift), 0.2)">
     <v-col cols="11" sm="8">
       <deviceValues class="my-5 hidden-xs" />
     </v-col>
@@ -20,6 +20,13 @@
     </v-col>
   </v-row>
 
+
+
+  <v-row>
+    <v-col>
+      <sensor-data/>
+    </v-col>
+  </v-row>
   <!-- <v-divider class="my-1 hidden-sm-and-up"></v-divider> -->
 
   <!-- <v-row justify="center" class="my-3">
@@ -35,6 +42,7 @@ import sparklineGraph from "@/components/sparkline.vue";
 import sensorPageTitle from "@/components/DevicePageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
+import sensorData from "@/components/SensorData.vue"
 import { mapState } from "vuex";
 import { defineComponent } from "vue";
 
@@ -43,6 +51,7 @@ export default defineComponent({
   components: {
     // sensorPageTitle,
     deviceValues,
+    sensorData,
     sparklineGraph,
   },
   created() {

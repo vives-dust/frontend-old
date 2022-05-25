@@ -6,8 +6,8 @@
       cols="4"
       class="hidden-xs"
     >
-      <v-card color="white" class="my-3" height="130">
-        <v-row>
+      <v-card color="white" class="my-3" height="170">
+        <v-row align="center">
           <v-col cols="3">
             <v-icon
               class="mr-8"
@@ -61,33 +61,31 @@
       cols="4"
       class="hidden-xs"
     >
-      <v-card color="white" height="130" rounded>
-        <p v-if="card[0] != 'picture' && card[1] != 'name' && card[0] !='map'">
-          {{ card[0] }}
-        </p>
-        <p v-if="card[0] != 'picture' && card[1] != 'name' && card[0] !='map'">
-          {{ card[1] }}
-        </p>
-
-        <v-row v-if="card[1] == 'name'" no-gutters justify="center">
-          <v-col>
-            <h1>{{ card[0] }}</h1>
-          </v-col>
+      <v-card color="white" height="170" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
+        <v-row justify="center" no-gutters>
+          <h1 >
+            {{ card[0] }}
+          </h1>
+          <h2 >
+            {{ card[1] }}
+          </h2>
         </v-row>
-
+      </v-card>
+      <v-card>
         <v-row
           justify="center"
           align="center"
+          class="d-flex"
           no-gutters
           v-if="card[0] == 'picture'"
         >
           <v-col>
-            <v-img src="@/assets/sensor.jpg" cover max-height="130"></v-img>
+            <v-img src="@/assets/sensor.jpg" cover max-height="170"></v-img>
           </v-col>
         </v-row>
 
         <v-row v-if="card[0] == 'map'" no-gutters justify="center">
-          <v-col> <singleMarkerMap height="130" /> </v-col>
+          <v-col> <singleMarkerMap height="170" /> </v-col>
         </v-row>
       </v-card>
     </v-col>
@@ -136,7 +134,6 @@
 import { mapState } from "vuex";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 
-
 export default {
   name: "deviceValues",
   computed: mapState(["device"]),
@@ -144,7 +141,7 @@ export default {
     return {
       extraCards: [
         ["picture"],
-        [this.$store.state.device.name, "name"],
+        [this.$store.state.device.name, this.$store.state.device.description],
         ["map"],
       ],
     };
