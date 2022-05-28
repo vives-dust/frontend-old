@@ -28,8 +28,10 @@
         </v-card>
       </div>
     </v-col>
+    
   </v-row>
-  <p class="text-h1"></p>
+  <v-layout class="mb-15"></v-layout>
+
 </template>
 
 <script lang="ts">

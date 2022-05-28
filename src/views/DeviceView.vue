@@ -8,25 +8,22 @@
       cover
     ></v-img>
   </v-card>
-  <v-layout class="my-15"></v-layout>
+  <v-layout class="mt-15"></v-layout>
   <v-row justify="center">
     <v-col cols="11" sm="8" class="my-15">
       <v-row>
-        
         <sparkline-graph />
-
       </v-row>
     </v-col>
   </v-row>
   <v-row
     justify="center"
     no-gutters
-    
     style="background-color: rgb(var(--v-theme-backgroundShift), 0.2)"
   >
     <v-col cols="11" sm="8">
-      <p class="text-h3 text-left hidden-xs mt-16 mb-4" >Realtime meetingen</p>
-      <deviceValues class=" mb-16 hidden-xs" />
+      <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime meetingen</p>
+      <deviceValues class="mb-16 hidden-xs" />
     </v-col>
   </v-row>
   <!-- <v-divider class="my-5 hidden-xs"></v-divider> -->
