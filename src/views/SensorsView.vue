@@ -16,7 +16,7 @@
       <p class="text-h3 text-left mt-15 hidden-xs">Humidity Sensors</p>
       <p class="text-h4 text-left mt-2 hidden-sm-and-up">Humidity Sensors</p>
 
-      <v-card class="my-5 hidden-xs">
+      <v-card class="my-5 hidden-xs">f
         <lineChart :data="linechartDataMoisture" />
       </v-card>
 
