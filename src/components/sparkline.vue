@@ -1,4 +1,5 @@
 <template>
+
   <p class="text-h3 text-left hidden-xs" v-if="loaded">Trendline bodem-vochtigheid</p>
   <v-container
     v-if="loaded"
