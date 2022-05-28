@@ -6,11 +6,11 @@
         :key="card.id"
         class="hidden-xs"
       >
-        <v-card dark color="third" class="mx-1 mb-1 pa-1">
+        <v-card dark color="white" class="pa-1">
           <v-row align="center">
             <v-col cols="5">
               <div>
-                <v-icon class="ml-8" size="80" :icon="$t(card.icon)" />
+                <v-icon class="ml-8" size="80" color="third" :icon="$t(card.icon)" />
               </div>
             </v-col>
 

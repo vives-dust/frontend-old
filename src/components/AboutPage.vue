@@ -1,18 +1,35 @@
 <template>
-  <v-row justify="center" class="mt-8">
+  <v-card elevation="5">
+    <v-img
+      class="mt-10"
+      src="../assets/trees.jpg"
+      :height="xs ? 150 : 400"
+      cover
+    >
+      <v-row class="text-center" justify="center">
+        <v-col cols="12">
+          <v-container class="mt-16">
+            <h1
+              class="text-h2 font-weight-bold mb-4 mt-12"
+              style="color: white"
+            >
+              DUST
+            </h1>
+
+            <h4 class="text-h4 font-weight-thin" style="color: white">
+              Why do nature a favor
+            </h4>
+          </v-container>
+        </v-col>
+      </v-row></v-img
+    >
+  </v-card>
+  <v-row justify="center">
     <v-col cols="11" sm="8">
+      <div class="text-center">
+        <!-- All picture are under the creative common license -->
 
-      <div class="text-center mt-5">
-        <v-card elevation="2" rounded :height="xs ? 150 : 300">
-          <v-img
-            src="../assets/trees.jpg"
-            :height="xs ? 150 : 300"
-            cover
-          ></v-img>
-          <!-- All picture are under the creative common license -->
-        </v-card>
-
-        <p class="text-h5 text-justify mt-5 mb-16">
+        <p class="text-h5 text-justify mt-15 mb-16">
           {{ $t("aboutPage.introduction") }}
         </p>
       </div>
