@@ -1,6 +1,40 @@
 <template>
   <v-row justify="center" class="text-center mb-2">
     <v-col
+      v-for="(card, index) in extraCards"
+      :key="index"
+      cols="4"
+      class="hidden-xs"
+    >
+      <v-card color="third" height="170" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
+        <v-row justify="center" no-gutters>
+          <h1 style="color: white">
+            {{ card[0] }}
+          </h1>
+          <h2 style="color: white">
+            {{ card[1] }}
+          </h2>
+        </v-row>
+      </v-card>
+      <!-- <v-card>
+        <v-row
+          justify="center"
+          align="center"
+          class="d-flex"
+          no-gutters
+          v-if="card[0] == 'picture'"
+        >
+          <v-col>
+            <v-img src="@/assets/sensor.jpg" cover max-height="170"></v-img>
+          </v-col>
+        </v-row>
+
+        <v-row v-if="card[0] == 'map'" no-gutters justify="center">
+          <v-col> <singleMarkerMap height="170" /> </v-col>
+        </v-row>
+      </v-card> -->
+    </v-col>
+    <v-col
       v-for="sensor in device.sensors"
       :key="sensor._id"
       cols="4"
@@ -55,40 +89,6 @@
       </v-card>
     </v-col>
 
-    <v-col
-      v-for="(card, index) in extraCards"
-      :key="index"
-      cols="4"
-      class="hidden-xs"
-    >
-      <v-card color="white" height="170" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
-        <v-row justify="center" no-gutters>
-          <h1 >
-            {{ card[0] }}
-          </h1>
-          <h2 >
-            {{ card[1] }}
-          </h2>
-        </v-row>
-      </v-card>
-      <v-card>
-        <v-row
-          justify="center"
-          align="center"
-          class="d-flex"
-          no-gutters
-          v-if="card[0] == 'picture'"
-        >
-          <v-col>
-            <v-img src="@/assets/sensor.jpg" cover max-height="170"></v-img>
-          </v-col>
-        </v-row>
-
-        <v-row v-if="card[0] == 'map'" no-gutters justify="center">
-          <v-col> <singleMarkerMap height="170" /> </v-col>
-        </v-row>
-      </v-card>
-    </v-col>
 
     <v-col
       class="hidden-sm-and-up"
@@ -132,7 +132,6 @@
 
 <script>
 import { mapState } from "vuex";
-import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 
 export default {
   name: "deviceValues",
@@ -140,14 +139,11 @@ export default {
   data() {
     return {
       extraCards: [
-        ["picture"],
-        [this.$store.state.device.name, this.$store.state.device.description],
-        ["map"],
+        [this.$store.state.device.name, this.$store.state.device.description]
       ],
     };
   },
   components: {
-    singleMarkerMap,
   },
 };
 </script>

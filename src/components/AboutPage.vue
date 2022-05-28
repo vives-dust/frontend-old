@@ -28,15 +28,15 @@
     <v-col cols="11" sm="8">
       <div class="text-center">
         <!-- All picture are under the creative common license -->
-
-        <p class="text-h5 text-justify mt-15 mb-16">
+        <v-layout class="my-15"></v-layout>
+        <p class="text-h5 text-justify mt-15 mb-5">
           {{ $t("aboutPage.introduction") }}
         </p>
       </div>
     </v-col>
   </v-row>
 
-  <v-row justify="center" class="hidden-xs">
+  <v-row justify="center" class="hidden-xs mb-15">
     <v-col cols="1"> </v-col>
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
@@ -130,7 +130,7 @@
 
   <v-row justify="center" class="hidden-sm-and-up">
     <v-col cols="11">
-      <v-card height="400">
+      <v-card height="400"  >
         <v-card height="150" elevation="0">
           <v-img height="strech " src="../assets/VIVES_Logo.png"> </v-img>
         </v-card>

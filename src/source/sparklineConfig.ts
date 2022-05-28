@@ -13,6 +13,7 @@ const SparklineConfig1 = {
                 legend: {
                     display: true,
                 },
+                
             },
             scales: {
                 x: {

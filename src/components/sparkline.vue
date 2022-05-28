@@ -1,17 +1,13 @@
 <template>
+  <p class="text-h3 text-left hidden-xs" v-if="loaded">Trendline bodem-vochtigheid</p>
   <v-container
     v-if="loaded"
-    color="white"
-    class="mx-auto mt-13 text-center hidden-xs"
+    color="blue"
+    class="mx-auto text-center hidden-xs"
     dark
-
   >
-    <v-card elevation="0" dense class="my-3" @click="SparklineClicked">
-      <LineChart
-        :chart-data="lineChartData"
-        :options="options"
-        @click="SparklineClicked"
-      />
+    <v-card elevation="0">
+      <LineChart :chart-data="lineChartData" :options="options" />
     </v-card>
     <!-- THIS CODE ADDS CUSTOM LABELS TO THE SPARKLINE -->
     <!-- <v-row justify="center">
@@ -64,7 +60,6 @@
     </v-row> -->
   </v-container>
 
-  
   <!-- <v-card
     v-if="loaded"
     color="white"

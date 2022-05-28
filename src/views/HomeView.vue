@@ -41,10 +41,8 @@
     class="py-15"
   >
     <v-col cols="11" sm="10">
-      <v-layout class="my-0"></v-layout>
 
       <informationCards />
-      <v-layout class="my-0"></v-layout>
 
     </v-col>
   </v-row>
