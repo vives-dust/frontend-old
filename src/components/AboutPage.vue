@@ -3,12 +3,12 @@
     <v-col cols="11" sm="8">
 
       <div class="text-center mt-5">
-        <v-card elevation="2" shaped :height="xs ? 150 : 300" width="auto">
-          <!-- <v-img
-            src="../assets/vlaanderen1.jpg"
+        <v-card elevation="2" rounded :height="xs ? 150 : 300">
+          <v-img
+            src="../assets/trees.jpg"
             :height="xs ? 150 : 300"
-            width="auto"
-          ></v-img> -->
+            cover
+          ></v-img>
           <!-- All picture are under the creative common license -->
         </v-card>
 
@@ -35,7 +35,7 @@
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
         <v-card height="500" v-bind="props" :elevation="isHovering ? 16 : 2">
-          <!-- <v-img height="130" src="../assets/bier2.jpg"> </v-img> -->
+          <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
           <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
           <p class="ml-3">
             {{ $t("aboutPage.card2.text") }}
@@ -46,7 +46,7 @@
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
         <v-card height="500" v-bind="props" :elevation="isHovering ? 16 : 2">
-          <!-- <v-img height="130" src="../assets/vlaanderen1.jpg"> </v-img> -->
+          <v-img height="130" src="../assets/VIVES_Logo.png"> </v-img>
           <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
           <p class="ml-3">
             {{ $t("aboutPage.card3.text") }}
@@ -57,7 +57,7 @@
     <v-col cols="2" md="2">
       <v-hover v-slot="{ isHovering, props }">
         <v-card height="500" v-bind="props" :elevation="isHovering ? 16 : 2">
-          <v-img height="130" src="../assets/VIVES_Logo.png"> </v-img>
+          <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
           <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
           <p class="ml-3">
             {{ $t("aboutPage.card4.text") }}
