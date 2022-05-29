@@ -11,7 +11,7 @@
     <v-row align="center" no-gutters>
       <v-col cols="2" md="2" class="text-left">
         <div>
-          <v-menu v-model="menu" transition="slide-x-transition" >
+          <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
               <v-btn
                 color="fourth"
@@ -26,10 +26,16 @@
                 <p v-else>{{ this.items[1].code }} nl</p>
               </v-btn>
             </template>
-            <v-list active bg-color="fourth" variant="plain" density="comfortable" elevation="10" >
+            <v-list
+              active
+              bg-color="fourth"
+              variant="plain"
+              density="comfortable"
+              elevation="10"
+            >
               <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
-                  <v-btn color="fourth" @click="selectLanguage(item.lang)" >
+                  <v-btn color="fourth" @click="selectLanguage(item.lang)">
                     {{ item.title }}
                   </v-btn>
                 </v-list-item-title>
@@ -74,19 +80,7 @@
       </v-col>
 
       <v-col cols="2" md="2" v-show="showSelect">
-        <v-card elevation="0" color="primary" class="mr-3">
-            <v-select
-              density="compact"
-              v-model="select"
-              :items="selectTime"
-              label="Select time"
-              solo
-              hide-details
-              single-line
-              @update:modelValue="ChartTimeChanged"
-              class="hidden-xs"
-            ></v-select>
-
+        <v-card elevation="0" color="primary" class="mr-3 hidden-xs">
           <v-select
             density="compact"
             v-model="select"
@@ -96,8 +90,25 @@
             hide-details
             single-line
             @update:modelValue="ChartTimeChanged"
-            class="alighn-center hidden-sm-and-up"
           ></v-select>
+        </v-card>
+
+        <v-card elevation="0" color="primary" class="hidden-sm-and-up">
+          <v-select
+            density="compact"
+            v-model="select"
+            :items="selectTime"
+            label="Select time"
+            solo
+            hide-details
+            single-line
+            @update:modelValue="ChartTimeChanged" 
+            height="15"
+          >
+          <v-selection-control>
+            
+          </v-selection-control>
+          </v-select>
         </v-card>
       </v-col>
     </v-row>

@@ -1,6 +1,6 @@
 <template>
 
-  <p class="text-h3 text-left hidden-xs" v-if="loaded">Trendline bodem-vochtigheid</p>
+  <p class="text-h3 text-left " v-if="loaded">Trendline bodem-vochtigheid</p>
   <v-container
     v-if="loaded"
     color="blue"
@@ -10,89 +10,20 @@
     <v-card elevation="0">
       <LineChart :chart-data="lineChartData" :options="options" />
     </v-card>
-    <!-- THIS CODE ADDS CUSTOM LABELS TO THE SPARKLINE -->
-    <!-- <v-row justify="center">
-      <v-col cols="auto">
-        <v-card
-          class="px-3 py-1"
-          elevation="5"
-          @mouseenter="MouseOver(1)"
-          @mouseleave="MouseLeave"
-        >
-          <p style="color: #db4630; font-size: 130 %">moistureLevel1</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card
-          class="px-3 py-1"
-          elevation="5"
-          @mouseenter="MouseOver(2)"
-          @mouseleave="MouseLeave"
-        >
-          <p  style="color: #e0c400; font-size: 130  %">
-            moistureLevel2
-          </p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card
-          class="px-3 py-1"
-          elevation="5"
-          @mouseenter="MouseOver(3)"
-          @mouseleave="MouseLeave"
-        >
-          <p  style="color: #00e078; font-size: 130 %">
-            moistureLevel3
-          </p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card
-          class="px-3 py-1"
-          elevation="5"
-          @mouseenter="MouseOver(4)"
-          @mouseleave="MouseLeave"
-        >
-          <p   style="color: #2000db; font-size: 130 %">
-            moistureLevel4
-          </p>
-        </v-card>
-      </v-col>
-    </v-row> -->
   </v-container>
 
-  <!-- <v-card
+  <!-- MOBILE -->
+  <v-container
     v-if="loaded"
-    color="white"
+    color="blue"
     class="mx-auto text-center hidden-sm-and-up"
     dark
   >
-    <v-card elevation="0" dense @click="SparklineClicked"
-      ><LineChart :chart-data="lineChartData" :options="options"
-    /></v-card>
-    <v-row justify="center" class="mx-1 my-1">
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p style="color: #db4630">moistureLevel1</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p style="color: #e0c400">moistureLevel2</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p style="color: #00e078">moistureLevel3</p>
-        </v-card>
-      </v-col>
-      <v-col cols="auto">
-        <v-card class="px-3 py-3" elevation="5">
-          <p style="color: #2000db">moistureLevel4</p>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-card> -->
+    <v-card elevation="0">
+      <LineChart :chart-data="lineChartData" :options="options" />
+    </v-card>
+  </v-container>
+
 </template> 
 
 <script lang="ts">

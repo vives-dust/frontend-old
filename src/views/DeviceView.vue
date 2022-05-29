@@ -8,14 +8,23 @@
       cover
     ></v-img>
   </v-card>
-  <v-layout class="mt-15"></v-layout>
-  <v-row justify="center">
+  <v-layout class="mt-15 hidden-xs"></v-layout>
+  <v-row justify="center hidden-xs">
     <v-col cols="11" sm="8" class="my-15">
       <v-row>
         <sparkline-graph />
       </v-row>
     </v-col>
   </v-row>
+  <!-- MOBILE -->
+  <v-row justify="center hidden-sm-and-up">
+    <v-col cols="11" sm="8" class="my-10">
+      <v-row>
+        <sparkline-graph />
+      </v-row>
+    </v-col>
+  </v-row>
+
   <v-row
     justify="center"
     no-gutters
