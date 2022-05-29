@@ -1,8 +1,25 @@
 <template>
   <v-row>
-    <v-col cols="11" sm="12">
-      <v-card elevation="5" class="hidden-sm-and-up">
-        <v-img src="@/assets/nature.jpg" height="150" cover />
+    <v-col cols="12" >
+      <v-card elevation="5" class="hidden-sm-and-up mt-10">
+        <v-img src="@/assets/nature.jpg" height="150" cover>
+          <v-row class="text-center" justify="center">
+            <v-col cols="12">
+              <v-container>
+                <h1
+                  class="text-h2 font-weight-bold mb-4 mt-1 "
+                  style="color: white"
+                >
+                  DUST
+                </h1>
+
+                <h4 class="text-h4 font-weight-thin" style="color: white">
+                  Do nature a favor
+                </h4>
+              </v-container>
+            </v-col>
+          </v-row>
+        </v-img>
       </v-card>
 
       <v-card elevation="5" class="hidden-xs mt-10">
@@ -27,14 +44,24 @@
       </v-card>
     </v-col>
   </v-row>
-  <v-row justify="center">
-    <v-col cols="11" sm="10">
+  <v-row justify="center" class="hidden-xs">
+    <v-col cols="10" >
       <v-layout class="my-15"></v-layout>
       <mapVue class="my-15 hidden-xs" />
       <mapVue class="mt-2 mb-2 hidden-sm-and-up" />
       <v-layout class="my-15"></v-layout>
     </v-col>
   </v-row>
+  <!-- MOBILE -->
+  <v-row justify="center" class="hidden-sm-and-up">
+    <v-col cols="11" >
+      <v-layout class="my-5"></v-layout>
+      <mapVue class="my-15 hidden-xs" />
+      <mapVue class="mt-2 mb-2 hidden-sm-and-up" />
+      <v-layout class="my-5"></v-layout>
+    </v-col>
+  </v-row>
+
   <v-row
     justify="center"
     style="background: rgb(var(--v-theme-backgroundShift), 0.2)"
