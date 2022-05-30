@@ -1,6 +1,6 @@
 <template>
 
-  <p class="text-h3 text-left " v-if="loaded">Trendline bodem-vochtigheid</p>
+  <p class="text-h3 text-left hidden-xs" v-if="loaded">Trendline bodem-vochtigheid</p>
   <v-container
     v-if="loaded"
     color="blue"
@@ -13,6 +13,8 @@
   </v-container>
 
   <!-- MOBILE -->
+  <p class="text-left hidden-sm-and-up" style="font-size: 30px;" v-if="loaded">Trendline bodem-vochtigheid</p>
+
   <v-container
     v-if="loaded"
     color="blue"

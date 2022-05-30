@@ -34,29 +34,29 @@
     },
     "cards": {
         "card1": {
-            "title": "Naam",
-            "subtitle": "foo",
+            "title": "City's",
+            "subtitle": "7",
             "icon": "mdi:mdi-home-city"
         },
         "card2": {
-            "title": "Steden",
-            "subtitle": "Bar",
+            "title": "Devices",
+            "subtitle": "9",
             "icon": "mdi:mdi-bus-articulated-front"
         },
         "card3": {
-            "title": "Projecten",
-            "subtitle": "0",
+            "title": "developers",
+            "subtitle": "3",
             "icon": "mdi:mdi-bottle-wine-outline"
         },
         "card4": {
-            "title": "Eigenaars",
-            "subtitle": "24",
+            "title": "Sponsors",
+            "subtitle": "0",
             "icon": "mdi:mdi-card-text"
         },
         "card5": {
-            "title": "Binnenstad",
-            "subtitle": "Castle",
-            "icon": "mdi:mdi-castle"
+            "title": "git-hub-stars",
+            "subtitle": "0",
+            "icon": "mdi:mdi-star"
         }
     },
     "navigationBar": {

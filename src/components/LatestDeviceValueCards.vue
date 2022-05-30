@@ -12,7 +12,7 @@
             {{ card[0] }}
           </h1>
           <h2 style="color: white">
-            {{ card[1] }}
+            {{ card[1] }} 
           </h2>
         </v-row>
       </v-card>
@@ -88,7 +88,24 @@
         </v-row>
       </v-card>
     </v-col>
-
+    
+    <v-col
+      v-for="(card, index) in extraCards"
+      :key="index"
+      cols="6"
+      class="hidden-sm-and-up"
+    >
+      <v-card color="third" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
+        <v-row justify="center" no-gutters>
+          <h1 style="color: white; font-size: 20px">
+            {{ card[0] }}
+          </h1>
+          <h1 style="color: white; font-size: 20px">
+            {{ card[1] }}
+          </h1>
+        </v-row>
+      </v-card>
+    </v-col>
 
     <v-col
       class="hidden-sm-and-up"
@@ -96,6 +113,7 @@
       :key="sensor._id"
       cols="6"
     >
+    
       <v-card class="mx-n2 my-1" color="white">
         <v-row justify="center" align="center">
           <v-col cols="3">
