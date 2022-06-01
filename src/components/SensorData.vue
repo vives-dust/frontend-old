@@ -140,7 +140,7 @@ export default defineComponent({
       this.linechartDataMoisture.labels = [];
       this.linechartDataNonMoisture.labels = [];
       for (let index = 0; index < this.device.sensors.length; index++) {
-        if (this.device.sensors[index].field.includes("moistureLevel")) {
+        if (this.device.sensors[index].field.includes("Moisture")) {
           if (
             this.linechartDataMoisture.datasets.findIndex(
               (element) => element == undefined

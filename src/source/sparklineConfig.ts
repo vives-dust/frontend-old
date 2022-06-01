@@ -17,7 +17,7 @@ const SparklineConfig1 = {
             },
             scales: {
                 x: {
-                    stacked: true,  
+                    stacked: false,  
                     
                     grid: {
                         display: false,
@@ -28,7 +28,7 @@ const SparklineConfig1 = {
                     },
                 },
                 y: {
-                    stacked: true,  
+                    stacked: false,  
                     grid: {
                         display: false,
                         drawBorder: false,

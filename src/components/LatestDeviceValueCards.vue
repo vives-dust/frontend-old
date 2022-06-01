@@ -8,7 +8,7 @@
     >
       <v-card color="third" height="170" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
         <v-row justify="center" no-gutters>
-          <h1 style="color: white">
+          <h1 style="color: white; font-size: 40px">
             {{ card[0] }}
           </h1>
           <h2 style="color: white">

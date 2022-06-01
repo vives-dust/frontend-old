@@ -94,13 +94,13 @@ export default defineComponent({
     lineChartData() {
       return {
         labels: this.timeData.sensors.map((el: any) => {
-          if (el.field == "moistureLevel_1") {
+          if (el.field == "Moisture Level 1") {
             return el.field;
-          } else if (el.field == "moistureLevel_2") {
+          } else if (el.field == "Moisture Level 2") {
             return el.field;
-          } else if (el.field == "moistureLevel_3") {
+          } else if (el.field == "Moisture Level 3") {
             return el.field;
-          } else if (el.field == "moistureLevel_4") {
+          } else if (el.field == "Moisture Level 4") {
             return el.field;
           }
         }),
@@ -108,11 +108,11 @@ export default defineComponent({
         datasets: [
           {
             data: this.timeData.sensors.map((el: any) => {
-              if (el.field == "moistureLevel_1") {
+              if (el.field == "Moisture Level 1") {
                 return this.calcMovingAvg(el.value);
               }
             }),
-            label: "Moisture level one",
+            label: "Moisture level 1",
             borderColor: this.color1,
             backgroundColor: this.color1,
             fill: false,
@@ -121,12 +121,12 @@ export default defineComponent({
           },
           {
             data: this.timeData.sensors.map((el: any) => {
-              if (el.field == "moistureLevel_2") {
+              if (el.field == "Moisture Level 2") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color2,
-            label: "Moisture level two",
+            label: "Moisture level 2",
             backgroundColor: this.color2,
             fill: false,
             tension: 0.4,
@@ -134,12 +134,12 @@ export default defineComponent({
           },
           {
             data: this.timeData.sensors.map((el: any) => {
-              if (el.field == "moistureLevel_3") {
+              if (el.field == "Moisture Level 3") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color3,
-            label: "Moisture level three",
+            label: "Moisture level 3",
             backgroundColor: this.color3,
             fill: false,
             tension: 0.4,
@@ -147,12 +147,12 @@ export default defineComponent({
           },
           {
             data: this.timeData.sensors.map((el: any) => {
-              if (el.field == "moistureLevel_4") {
+              if (el.field == "Moisture Level 4") {
                 return this.calcMovingAvg(el.value);
               }
             }),
             borderColor: this.color4,
-            label: "Moisture level four",
+            label: "Moisture level 4",
             backgroundColor: this.color4,
             fill: false,
             tension: 0.4,

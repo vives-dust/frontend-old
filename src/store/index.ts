@@ -54,6 +54,7 @@ export const store = createStore({
     get_device({ commit, state }) {
       Backend.get_device(state.currentlySelectedPin._id)
         .then((response: any) => {
+          replaceFieldValues(response.data)
           commit('change_device', {
             "device": response.data
           })
@@ -66,6 +67,8 @@ export const store = createStore({
     get_periodeData({ commit, state }) {
       Backend.get_periodeData(state.currentlySelectedPin._id, state.time)
         .then((response: any) => {
+          replaceFieldValues(response.data)
+
           commit('change_timeData', {
             "timeData": response.data
           })
@@ -78,3 +81,25 @@ export const store = createStore({
   modules: {
   }
 })
+
+function replaceFieldValues(device: any) {
+  device.sensors.forEach((sensor: any, index: number) => {
+    if (sensor.field == "internalTemperature") {
+      device.sensors[index].field = "Internal Temperature"
+    }
+    else if (sensor.field == "moistureLevel_1") {
+      device.sensors[index].field = "Moisture Level 1"
+
+    }
+    else if (sensor.field == "moistureLevel_2") {
+      device.sensors[index].field = "Moisture Level 2"
+
+    } else if (sensor.field == "moistureLevel_3") {
+      device.sensors[index].field = "Moisture Level 3"
+
+    } else if (sensor.field == "moistureLevel_4") {
+      device.sensors[index].field = "Moisture Level 4"
+
+    }
+  });
+}
