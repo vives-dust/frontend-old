@@ -1,7 +1,6 @@
 <template>
   <v-row justify="center" v-if="loaded">
     <v-col cols="11" sm="8">
-
       <p class="text-h3 text-left mt-15 hidden-xs">Humidity Sensors</p>
       <p class="text-h4 text-left mt-2 hidden-sm-and-up">Humidity Sensors</p>
 
@@ -23,15 +22,13 @@
           <lineChart :data="CombineNoneMoistureData(index)" />
         </v-card>
 
-        <v-card class="my-2  hidden-sm-and-up">
+        <v-card class="my-2 hidden-sm-and-up">
           <lineChart :data="CombineNoneMoistureData(index)" />
         </v-card>
       </div>
     </v-col>
-    
   </v-row>
   <v-layout class="mb-15"></v-layout>
-
 </template>
 
 <script lang="ts">
@@ -48,7 +45,6 @@ export default defineComponent({
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     loaded: false,
     colors: [] as any[],
-    formatedTime: "",
     linechartDataNonMoisture: {
       labels: [] as any[],
       datasets: [] as any[],
@@ -62,17 +58,17 @@ export default defineComponent({
     FormatTime(time: string) {
       let dateObject = new Date(time);
       if (this.time == "1h") {
-        this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
+        return `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.time == "24h") {
-        this.formatedTime = `${dateObject.getHours()}:${dateObject.getMinutes()}`;
+        return `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.time == "7d") {
-        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "31d") {
-        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "1y") {
-        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       } else {
-        this.formatedTime = `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       }
     },
     CombineNoneMoistureData(index: number) {
@@ -86,13 +82,15 @@ export default defineComponent({
         data: this.timeData.sensors
           .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
-              this.FormatTime(el.time);
+              let formatedTime = this.FormatTime(el.time);
+                
               if (
                 !this.linechartDataMoisture.labels.find(
-                  (element) => element == this.formatedTime
+                  (element) => element == formatedTime
                 )
               ) {
-                this.linechartDataMoisture.labels.push(this.formatedTime);
+                console.log("pushing to formatedtime")
+                this.linechartDataMoisture.labels.push(formatedTime);
               }
               return el.value;
             }
@@ -113,13 +111,13 @@ export default defineComponent({
         data: this.timeData.sensors
           .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
-              this.FormatTime(el.time);
+              let formatedTime = this.FormatTime(el.time);
               if (
                 !this.linechartDataMoisture.labels.find(
-                  (element) => element == this.formatedTime
+                  (element) => element == formatedTime
                 )
               ) {
-                this.linechartDataNonMoisture.labels.push(this.formatedTime);
+                this.linechartDataNonMoisture.labels.push(formatedTime);
               }
               return el.value;
             }
@@ -189,12 +187,10 @@ export default defineComponent({
     this.$store.commit("change_showSelect", {
       showSelect: true,
     });
-    
   },
   computed: {
-    ...mapState(["timeData", "devices", "device"]),
+    ...mapState(["timeData", "devices", "device", "time"]),
   },
-  props:['time'],
   watch: {
     timeData() {
       this.loaded = true;
