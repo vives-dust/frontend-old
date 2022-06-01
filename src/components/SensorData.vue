@@ -83,13 +83,12 @@ export default defineComponent({
           .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
               let formatedTime = this.FormatTime(el.time);
-                
+
               if (
                 !this.linechartDataMoisture.labels.find(
                   (element) => element == formatedTime
                 )
               ) {
-                console.log("pushing to formatedtime")
                 this.linechartDataMoisture.labels.push(formatedTime);
               }
               return el.value;
@@ -144,8 +143,9 @@ export default defineComponent({
               (element) => element == undefined
             ) == -1
           ) {
-            this.linechartDataMoisture.datasets[index] =
-              this.CreateDataMoisture(index);
+            this.linechartDataMoisture.datasets.push(
+              this.CreateDataMoisture(index)
+            );
           } else {
             this.linechartDataMoisture.datasets[
               this.linechartDataMoisture.datasets.findIndex(
@@ -170,14 +170,9 @@ export default defineComponent({
           }
         }
       }
-      console.log(this.linechartDataMoisture, "LineChartDataNonMoisture");
     },
   },
   created() {
-    this.$store.commit("change_currentlySelectedPin", {
-      currentlySelectedPin: this.devices[this.$route.params.id[0]], //somehow params.id returns a string array.
-    });
-
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
     this.device.sensors.forEach(() => {
