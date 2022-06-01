@@ -12,6 +12,9 @@ const SparklineConfig1 = {
             plugins: {
                 legend: {
                     display: true,
+                    labels:{
+                        padding: 20
+                    }
                 },
                 
             },
