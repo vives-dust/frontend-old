@@ -8,7 +8,7 @@
     style="z-index: 20001"
     rounded="0"
   >
-    <v-row align="center" no-gutters>
+    <v-row no-gutters>
       <v-col cols="2" md="2" class="text-left">
         <div>
           <v-menu v-model="menu" transition="slide-x-transition">
@@ -82,6 +82,7 @@
       <v-col cols="2" md="2" v-show="showSelect">
         <v-card elevation="0" color="primary" class="mr-3 hidden-xs">
           <v-select
+            
             density="compact"
             v-model="select"
             :items="selectTime"
@@ -102,14 +103,21 @@
             solo
             hide-details
             single-line
-            @update:modelValue="ChartTimeChanged" 
+            @update:modelValue="ChartTimeChanged"
             height="15"
           >
-          <v-selection-control>
-            
-          </v-selection-control>
+            <v-selection-control> </v-selection-control>
           </v-select>
         </v-card>
+      </v-col>
+      <v-col v-show="!showSelect" cols="1"></v-col>
+      <v-col v-show="!showSelect" class="text-right" cols="1">
+        <v-img
+          class="my-1 ml-15"
+          src="@/assets/LogoFelix_1.png"
+          max-height="40 "
+           
+        ></v-img>
       </v-col>
     </v-row>
   </v-card>
