@@ -3,7 +3,7 @@
   <v-card elevation="5">
     <v-img
       class="mt-10"
-      src="@/assets/sensor.jpg"
+      src="@/assets/panorama-nature_1920.jpg"
       :height="xs ? 150 : 400"
       cover
     ></v-img>

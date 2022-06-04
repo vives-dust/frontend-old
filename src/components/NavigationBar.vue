@@ -110,8 +110,8 @@
           </v-select>
         </v-card>
       </v-col>
-      <v-col v-show="!showSelect" cols="1"></v-col>
-      <v-col v-show="!showSelect" class="text-right" cols="1">
+      <v-col v-show="!showSelect" cols="1" class="hidden-xs"></v-col>
+      <v-col v-show="!showSelect" class="text-right hidden-xs" cols="1">
         <v-img
           class="my-1 ml-15"
           src="@/assets/LogoFelix_1.png"
@@ -119,6 +119,12 @@
            
         ></v-img>
       </v-col>
+        <v-img
+          class="mr-1 mt-1 text-right hidden-sm-and-up"
+          src="@/assets/LogoFelix_1.png"
+          max-height="40"
+           
+        ></v-img>
     </v-row>
   </v-card>
 </template>

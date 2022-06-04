@@ -1,13 +1,13 @@
 <template>
   <v-row>
-    <v-col cols="12" >
+    <v-col cols="12">
       <v-card elevation="5" class="hidden-sm-and-up mt-10">
         <v-img src="@/assets/nature.jpg" height="150" cover>
           <v-row class="text-center" justify="center">
             <v-col cols="12">
               <v-container>
                 <h1
-                  class="text-h2 font-weight-bold mb-4 mt-1 "
+                  class="text-h2 font-weight-bold mb-4 mt-1"
                   style="color: white"
                 >
                   DUST
@@ -45,19 +45,35 @@
     </v-col>
   </v-row>
   <v-row justify="center" class="hidden-xs">
-    <v-col cols="10" >
-      <v-layout class="my-15"></v-layout>
-      <mapVue class="my-15 hidden-xs" />
-      <mapVue class="mt-2 mb-2 hidden-sm-and-up" />
+    <v-col cols="10">
+      <v-layout class="my-10"></v-layout>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <mapVue class="my-15" />
       <v-layout class="my-15"></v-layout>
     </v-col>
   </v-row>
   <!-- MOBILE -->
   <v-row justify="center" class="hidden-sm-and-up">
-    <v-col cols="11" >
-      <v-layout class="my-5"></v-layout>
-      <mapVue class="my-15 hidden-xs" />
-      <mapVue class="mt-2 mb-2 hidden-sm-and-up" />
+    <v-col cols="11">
+      <v-layout class="my-2"></v-layout>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <mapVue class="mt-2 mb-2" />
       <v-layout class="my-5"></v-layout>
     </v-col>
   </v-row>
@@ -68,9 +84,7 @@
     class="py-15"
   >
     <v-col cols="11" sm="10">
-
       <informationCards />
-
     </v-col>
   </v-row>
 </template>
