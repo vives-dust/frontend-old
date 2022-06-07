@@ -78,6 +78,56 @@ export default defineComponent({
         query: { time: this.$store.state.time },
       });
     },
+    calculateDataMoisture1() {
+      this.timeData.sensors.forEach((sensor: any) => {
+        if (sensor.field == "Moisture Level 1") {
+          if (this.counter0 > 5) {
+            this.counter0 = 0;
+            this.sum0 = 0;
+          } else {
+            this.counter0++;
+            this.sum0 += sensor.value;
+            if (this.counter0 == 5) {
+              this.data0.push(this.sum0 / this.counter0);
+              this.labels.push(sensor.time);
+            }
+          }
+        } else if (sensor.field == "Moisture Level 2") {
+          if (this.counter1 > 5) {
+            this.counter1 = 0;
+            this.sum1 = 0;
+          } else {
+            this.counter1++;
+            this.sum1 += sensor.value;
+            if (this.counter1 == 5) {
+              this.data1.push(this.sum1 / this.counter1);
+            }
+          }
+        } else if (sensor.field == "Moisture Level 3") {
+          if (this.counter2 > 5) {
+            this.counter2 = 0;
+            this.sum2 = 0;
+          } else {
+            this.counter2++;
+            this.sum2 += sensor.value;
+            if (this.counter2 == 5) {
+              this.data2.push(this.sum2 / this.counter2);
+            }
+          }
+        } else if (sensor.field == "Moisture Level 4") {
+          if (this.counter3 > 5) {
+            this.counter3 = 0;
+            this.sum3 = 0;
+          } else {
+            this.counter3++;
+            this.sum3 += sensor.value;
+            if (this.counter3 == 5) {
+              this.data3.push(this.sum3 / this.counter3);
+            }
+          }
+        }
+      });
+    },
 
     // calcMovingAvg(number: number) {
     //   this.counter++;
@@ -110,32 +160,7 @@ export default defineComponent({
 
         datasets: [
           {
-            data: this.timeData.sensors
-              .filter((sensor: any) => {
-                if (sensor.field != "Moisture Level 1") {
-                  return false;
-                }
-                if (this.counter0 > 6) {
-                  this.counter0 = 0;
-                  this.sum0 = 0;
-                }
-                this.counter0++;
-                this.sum0 += sensor.value;
-                console.log(this.sum0, "sum");
-                console.log(this.counter0, "counter");
-
-                if (this.counter0 != 6) {
-                  
-                  return false;
-                }
-                console.log("returning true");
-                return true;
-              })
-              .map((el: any) => {
-                this.labels.push(el.time);
-                console.log(this.sum0, "sum in map");
-                return this.sum0 / this.counter0;
-              }),
+            data: this.data0,
             label: "Moisture level 1",
             borderColor: this.color1,
             backgroundColor: this.color1,
@@ -144,26 +169,7 @@ export default defineComponent({
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors
-              .filter((sensor: any) => {
-                if (sensor.field != "Moisture Level 2") {
-                  return false;
-                }
-                return true;
-              })
-              .map((el: any) => {
-                if (el.field == "Moisture Level 2") {
-                  if (this.counter1 > 5) {
-                    this.counter1 = 0;
-                    this.sum1 = 0;
-                  }
-                  this.counter1++;
-                  this.sum1 += el.value;
-                  if (this.counter1 == 5) {
-                    return this.sum1 / this.counter1;
-                  }
-                }
-              }),
+            data: this.data1,
             borderColor: this.color2,
             label: "Moisture level 2",
             backgroundColor: this.color2,
@@ -172,30 +178,7 @@ export default defineComponent({
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors
-              .filter((sensor: any) => {
-                if (sensor.field != "Moisture Level 3") {
-                  return false;
-                }
-                return true;
-              })
-              .map((el: any) => {
-                if (el.field == "Moisture Level 3") {
-                  if (this.counter2 > 5) {
-                    this.counter2 = 0;
-                    this.sum2 = 0;
-                  }
-                  this.counter2++;
-                  this.sum2 += el.value;
-                  if (this.counter2 == 5) {
-                    return this.sum2 / this.counter2;
-                  }
-                  if (this.counter2 == 6) {
-                    this.counter2 = 0;
-                    this.sum2 = 0;
-                  }
-                }
-              }),
+            data: this.data2,
             borderColor: this.color3,
             label: "Moisture level 3",
             backgroundColor: this.color3,
@@ -204,26 +187,7 @@ export default defineComponent({
             borderWidth: 10,
           },
           {
-            data: this.timeData.sensors
-              .filter((sensor: any) => {
-                if (sensor.field != "Moisture Level 4") {
-                  return false;
-                }
-                return true;
-              })
-              .map((el: any) => {
-                if (el.field == "Moisture Level 4") {
-                  if (this.counter3 > 6) {
-                    this.counter3 = 0;
-                    this.sum3 = 0;
-                  }
-                  this.counter3++;
-                  this.sum3 += el.value;
-                  if (this.counter3 == 5) {
-                    return this.sum3 / this.counter3;
-                  }
-                }
-              }),
+            data: this.data3,
             borderColor: this.color4,
             label: "Moisture level 4",
             backgroundColor: this.color4,
@@ -247,7 +211,10 @@ export default defineComponent({
     sum1: 0,
     sum2: 0,
     sum3: 0,
-
+    data0: [] as any,
+    data1: [] as any,
+    data2: [] as any,
+    data3: [] as any,
     color1: "rgb(219, 70, 48)",
     color2: "rgb(224, 196, 0)",
     color3: "rgb(0, 224, 120)",
@@ -256,6 +223,20 @@ export default defineComponent({
   watch: {
     timeData() {
       this.loaded = true;
+      this.labels = [];
+      this.sum0 = 0;
+      this.counter0 = 0;
+      this.data0 = [];
+      this.sum1 = 0;
+      this.counter1 = 0;
+      this.data1 = [];
+      this.sum2 = 0;
+      this.counter2 = 0;
+      this.data2 = [];
+      this.sum3 = 0;
+      this.counter3 = 0;
+      this.data3 = [];
+      this.calculateDataMoisture1();
       setTimeout(() => {
         console.log(this.lineChartData);
       }, 5000);

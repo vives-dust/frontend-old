@@ -15,29 +15,29 @@ const SparklineConfig1 = {
                 },
                 
             },
-            // scales: {
-            //     x: {
-            //         stacked: false,  
+            scales: {
+                x: {
+                    stacked: false,  
                     
-            //         grid: {
-            //             display: false,
-            //             drawBorder: false,
-            //         },
-            //         ticks: {
-            //             display: false,
-            //         },
-            //     },
-            //     y: {
-            //         stacked: false,  
-            //         grid: {
-            //             display: false,
-            //             drawBorder: false,
-            //         },
-            //         ticks: {
-            //             display: false,
-            //         },
-            //     },
-            // },
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        display: false,
+                    },
+                },
+                y: {
+                    stacked: false,  
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                    },
+                    ticks: {
+                        display: false,
+                    },
+                },
+            },
         }
     }
 }

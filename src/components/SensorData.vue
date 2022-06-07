@@ -62,9 +62,7 @@ export default defineComponent({
       } else if (this.time == "24h") {
         return `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.time == "7d") {
-        return `${
-          dateObject.getMonth() + 1
-        }/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "31d") {
         return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "1y") {
@@ -184,11 +182,6 @@ export default defineComponent({
     this.$store.commit("change_showSelect", {
       showSelect: true,
     });
-    // setTimeout(() => {
-    //   console.log(this.linechartDataNonMoisture.labels, "labels");
-    //   console.log(this.linechartDataNonMoisture.datasets, "datasets");
-
-    // }, 5000);
   },
   computed: {
     ...mapState(["timeData", "devices", "device", "time"]),
