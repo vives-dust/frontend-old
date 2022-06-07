@@ -6,9 +6,6 @@ const SparklineConfig1 = {
             events:[],
             spanGaps: true,
             pointRadius: 0,
-            animation: {
-                duration:0
-            },
             plugins: {
                 legend: {
                     display: true,

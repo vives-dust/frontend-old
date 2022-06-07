@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navigation-bar class="sticky hidden-xs" />
-    <router-view class="after-sticky"/>
+    <router-view />
     <footerBar />
     <v-snackbar v-model="updateAvailable">
        <p> Update available - Please update</p> 

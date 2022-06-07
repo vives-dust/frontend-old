@@ -19,6 +19,7 @@
       </v-row></v-img
     >
   </v-card>
+
   <v-row justify="center" class="hidden-xs">
     <v-col cols="11" sm="8">
       <div class="text-center">
@@ -80,16 +81,91 @@
     <v-col cols="1"> </v-col>
   </v-row>
 
+  <v-row
+    justify="center"
+    class="hidden-xs py-10 mb-10"
+    style="background: rgb(var(--v-theme-backgroundShift), 0.2)"
+  >
+    <v-col cols="8">
+      <v-card>
+        <v-form v-model="valid">
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <p class="text-h2">Contact</p>
+              </v-col>
+              <v-col cols="12" md="4">
+                <v-text-field
+                  v-model="firstname"
+                  :rules="nameRules"
+                  :counter="15"
+                  label="First name"
+                  required
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-card-account-details"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12" md="4">
+                <v-text-field
+                  v-model="companyName"
+                  :counter="20"
+                  label="Company"
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-office-building-outline"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12" md="4">
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-at"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-textarea
+                  label="Requesting Information"
+                  auto-grow
+                  outlined
+                  rows="4"
+                  row-height="15"
+                  v-model="requestedInformation"
+                ></v-textarea>
+              </v-col>
+              <v-col cols="12">
+                <v-btn @click="dataSend = true" :disabled="!valid"> Submit </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-form>
+      </v-card>
+    </v-col>
+  </v-row>
+
+  <v-snackbar v-model="dataSend">
+    <p>Form verstuurd!</p>
+
+    <template v-slot:actions>
+      <v-btn color="blue" variant="text" @click="dataSend = false"> ok! </v-btn>
+    </template>
+  </v-snackbar>
+
   <!-- FOR MOBILE -->
   <v-card elevation="5">
-    <v-img class="mt-10 hidden-sm-and-up" src="../assets/trees.jpg" height="150" cover>
+    <v-img
+      class="mt-10 hidden-sm-and-up"
+      src="../assets/trees.jpg"
+      height="150"
+      cover
+    >
       <v-row class="text-center" justify="center">
         <v-col cols="12">
-          <v-container >
-            <h1
-              class="text-h2 font-weight-bold mb-4 mt-1"
-              style="color: white"
-            >
+          <v-container>
+            <h1 class="text-h2 font-weight-bold mb-4 mt-1" style="color: white">
               DUST
             </h1>
 
@@ -169,17 +245,42 @@
 </template>
 
 <script lang="ts">
-import { useDisplay } from "vuetify";
-export default {
-  name: "aboutPage",
 
+import { defineComponent } from "vue";
+import { useDisplay } from "vuetify";
+export default defineComponent({
+  name: "aboutPage",
+  data() {
+    return {
+      valid: false,
+      firstname: "",
+      lastname: "",
+      companyName: "",
+      email: "",
+      requestedInformation: "",
+      dataSend: false,
+      nameRules: [
+        (v: string) => !!v || "Name is required",
+        (v: string) => v.length <= 15 || "Name must be less than 10 characters",
+      ],
+      emailRules: [
+        (v: string) => !!v || "E-mail is required",
+        (v: string) => /.+@.+/.test(v) || "E-mail must be valid",
+      ],
+    };
+  },
   setup() {
     // Destructure only the keys we want to use
     const { xs, mdAndUp } = useDisplay();
 
     return { xs, mdAndUp };
   },
-};
+  watch:{
+    requestedInformation(){
+      this.valid = true
+    }
+  }
+});
 </script>
 <style>
 </style>
