@@ -242,6 +242,70 @@
       </v-card>
     </v-col>
   </v-row>
+  <v-row
+    justify="center"
+    class="hidden-sm-and-up py-2 mt-2"
+    style="background: rgb(var(--v-theme-backgroundShift), 0.2)"
+  >
+    <v-col cols="11">
+      <v-card>
+        <v-form v-model="valid">
+          <v-container>
+            <v-row no-gutters>
+              <v-col cols="12" class="mb-2">
+                <p class="text-h2">Contact</p>
+              </v-col>
+              <v-col cols="12" class="mb-n6">
+                <v-text-field
+                  v-model="firstname"
+                  :rules="nameRules"
+                  :counter="15"
+                  label="First name"
+                  required
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-card-account-details"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12" class="mb-n6">
+                <v-text-field
+                  v-model="companyName"
+                  :counter="20"
+                  label="Company"
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-office-building-outline"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12" class="mb-n6">
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                  variant="outlined"
+                  prepend-inner-icon="mdi:mdi-at"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" class="mb-n6">
+                <v-textarea
+                  label="Requesting Information"
+                  auto-grow
+                  outlined
+                  rows="4"
+                  row-height="15"
+                  v-model="requestedInformation"
+                ></v-textarea>
+              </v-col>
+              <v-col cols="12">
+                <v-btn @click="dataSend = true" :disabled="!valid"> Submit </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-form>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
