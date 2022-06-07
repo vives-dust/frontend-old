@@ -338,7 +338,7 @@ export default defineComponent({
     const { xs, mdAndUp } = useDisplay();
 
     return { xs, mdAndUp };
-  },
+  },  
   watch:{
     requestedInformation(){
       this.valid = true
