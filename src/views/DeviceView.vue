@@ -30,10 +30,10 @@
     no-gutters
     style="background-color: rgb(var(--v-theme-backgroundShift), 0.2)"
   >
-    <v-col cols="11" sm="8">
+    <v-col cols="11" sm="8" class="hidden-xs">
       <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime metingen</p>
       <expention-map />
-      <deviceValues class="mb-16 hidden-xs"/>
+      <deviceValues class="mb-16 "/>
     </v-col>
   </v-row>
   <!-- <v-divider class="my-5 hidden-xs"></v-divider> -->

@@ -113,66 +113,125 @@
       </v-card>
     </v-col>
   </v-row>
+  <!-- MOBILE -->
+
+
+
+
+
+
   <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
-    <v-col
-      v-for="(card, index) in extraCards"
-      :key="index"
-      cols="6"
-    >
+    <v-col v-for="(card, index) in extraCards" :key="index" cols="6">
       <v-card
         color="third"
+        height="120"
         class="d-flex align-center"
         v-if="card[0] != 'picture' && card[0] != 'map'"
       >
         <v-row justify="center" no-gutters>
-          <h1 style="color: white; font-size: 20px">
+          <h1 style="color: white; font-size: 25px">
             {{ card[0] }}
           </h1>
-          <h1 style="color: white; font-size: 20px">
+          <h2 style="color: white; font-size: 20px">
             {{ card[1] }}
-          </h1>
+          </h2>
         </v-row>
       </v-card>
-    </v-col>
-
-    <v-col
-      class="hidden-sm-and-up"
-      v-for="sensor in device.sensors"
-      :key="sensor._id"
-      cols="6"
-    >
-      <v-card class="mx-n2 my-1" color="white">
-        <v-row justify="center" align="center">
-          <v-col cols="3">
-            <v-icon
-              size="45"
-              icon="mdi:mdi-thermometer "
-              v-if="sensor.type == 'temperature'"
-            />
-
-            <v-icon
-              size="45"
-              icon="mdi:mdi-water-percent"
-              v-if="sensor.type == 'moisture'"
-            />
-            <v-icon
-              size="45"
-              icon="mdi:mdi-tailwind"
-              v-if="sensor.type == 'pressure'"
-            />
-          </v-col>
-          <v-col cols="9">
-            <p v-if="sensor.type != 'temperature'" style="font-size: 125%">
-              {{ sensor.value }}%
-            </p>
-            <p v-if="sensor.type == 'temperature'" style="font-size: 125%">
-              {{ sensor.value }}&deg;C
-            </p>
+      <v-card>
+        <v-row
+          justify="center"
+          align="center"
+          no-gutters
+          v-if="card[0] == 'picture'"
+        >
+          <v-col>
+            <v-img src="@/assets/sensor.jpg" cover height="120"></v-img>
           </v-col>
         </v-row>
       </v-card>
     </v-col>
   </v-row>
+
+  <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
+    <v-col v-for="sensor in device.sensors" :key="sensor._id" cols="6" >
+      <v-card color="white" class="my-1" height="120">
+        <v-row align="center">
+          <v-col cols="3">
+            <v-icon
+              size="50"
+              icon="mdi:mdi-thermometer "
+              v-if="sensor.type == 'temperature'"
+              color="third"
+            />
+            <v-icon
+              size="50"
+              color="third"
+              icon="mdi:mdi-water-percent"
+              v-if="sensor.type == 'moisture'"
+            />
+            <v-icon
+              size="50"
+              icon="mdi:mdi-tailwind"
+              v-if="sensor.type == 'pressure'"
+              color="third"
+            />
+          </v-col>
+          <v-col>
+            <v-row>
+              <v-col cols="4"></v-col>
+              <v-col cols="8">
+                <p style="font-size: 70%" class="mr-1">{{ sensor.field }}</p>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <h1
+                  v-if="sensor.type == 'temperature'"
+                  class="font-weight-bold"
+                >
+                  {{ sensor.value }} &deg;C
+                </h1>
+
+                <h1 v-if="sensor.type != 'temperature'">{{ sensor.value }}%</h1>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+    <v-col cols="6">
+      <v-card color="white" class="my-1" height="120">
+        <v-row align="center">
+          <v-col cols="3">
+            <v-icon
+              size="50"
+              icon="mdi:mdi-tailwind"
+              color="third"
+            />
+          </v-col>
+          <v-col>
+            <v-row>
+              <v-col cols="4"></v-col>
+              <v-col cols="8">
+                <p style="font-size: 70%">Soil Model</p>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <h1
+                  class="font-weight-bold"
+                  style="font-size: 140%"
+                >
+                  {{ soilModel }} 
+                </h1>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+  
 </template>
 
 <script>
