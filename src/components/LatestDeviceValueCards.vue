@@ -9,10 +9,10 @@
       >
         <v-row justify="center" no-gutters>
           <h1 style="color: white; font-size: 40px">
-            {{ card[0] }}
+            {{ this.$store.state.device.name }}
           </h1>
           <h2 style="color: white">
-            {{ card[1] }}
+            {{ this.$store.state.device.description }}
           </h2>
         </v-row>
       </v-card>
@@ -130,10 +130,10 @@
       >
         <v-row justify="center" no-gutters>
           <h1 style="color: white; font-size: 25px">
-            {{ card[0] }}
+            {{ this.$store.state.device.name }}
           </h1>
           <h2 style="color: white; font-size: 20px">
-            {{ card[1] }}
+            {{ this.$store.state.device.description }}
           </h2>
         </v-row>
       </v-card>
