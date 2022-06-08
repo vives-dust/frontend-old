@@ -18,6 +18,9 @@ const Backend:any = {
     },
     get_periodeData(id:number,time:string){
         return api.get(`/${this.resource}/${id}/?period=${time}`)
+    },
+    get_soilModel(soilmodelid:any){
+        return api.get(`/soilmodels/${soilmodelid}`)
     }
 }
 

@@ -81,6 +81,37 @@
         </v-row>
       </v-card>
     </v-col>
+    <v-col cols="4">
+      <v-card color="white" class="my-3" height="170">
+        <v-row align="center">
+          <v-col cols="3">
+            <v-icon
+              class="mr-8"
+              size="100"
+              icon="mdi:mdi-tailwind"
+              color="third"
+            />
+          </v-col>
+          <v-col>
+            <v-row>
+              <v-col cols="5"></v-col>
+              <v-col cols="7">
+                <p style="font-size: 90%">Soil Model</p>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="9">
+                <h1
+                  class="font-weight-bold"
+                >
+                  {{ soilModel }} 
+                </h1>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
   </v-row>
   <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
     <v-col
@@ -149,7 +180,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "deviceValues",
-  computed: mapState(["device"]),
+  computed: mapState(["device","soilModel"]),
   data() {
     return {
       extraCards: [
