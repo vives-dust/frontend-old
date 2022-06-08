@@ -64,15 +64,6 @@ export default {
     pinClicked(pinid) {
       this.$router.push({ name: "device", params: { id: pinid } });
     },
-    // MapReady() {
-    //   this.$nextTick(() => {
-    //     let map = this.$refs.map.leafletObject;
-    //     let markers = L.markerClusterGroup();
-    //     markers.addLayer(L.marker([52, 2]));
-    //     markers.addLayer(L.marker([53.1, 5]));
-    //     map.addLayer(markers);  
-    //   });
-    // },
   },
   mounted() {
     this.url = `https://api.mapbox.com/styles/v1/${this.urlConfig.username}/${this.urlConfig.style_id}/tiles/256/{z}/{x}/{y}@2x?access_token=${this.urlConfig.acces_token}`;

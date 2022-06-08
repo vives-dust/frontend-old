@@ -32,7 +32,8 @@
   >
     <v-col cols="11" sm="8">
       <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime metingen</p>
-      <deviceValues class="mb-16 hidden-xs" />
+      <expention-map />
+      <deviceValues class="mb-16 hidden-xs"/>
     </v-col>
   </v-row>
   <!-- <v-divider class="my-5 hidden-xs"></v-divider> -->
@@ -64,6 +65,7 @@ import sensorPageTitle from "@/components/DevicePageTitle.vue";
 import deviceValues from "@/components/LatestDeviceValueCards.vue";
 import singleMarkerMap from "@/components/SingleMarkerMap.vue";
 import sensorData from "@/components/SensorData.vue";
+import expentionMap from "@/components/ExpentionMap.vue";
 import { mapState } from "vuex";
 import { defineComponent } from "vue";
 
@@ -74,6 +76,12 @@ export default defineComponent({
     deviceValues,
     sensorData,
     sparklineGraph,
+    expentionMap,
+  },
+  data(){
+    return{
+      reaload: false
+    }
   },
   created() {
     this.$store.commit("change_currentlySelectedPin", {
@@ -85,6 +93,10 @@ export default defineComponent({
     this.$store.commit("change_showSelect", {
       showSelect: true,
     });
+    this.$watch(() => this.$route.params,() => {
+        window.location.reload();
+      }
+    );
   },
   computed: mapState(["devices", "currentlySelectedPin"]),
   setup() {
