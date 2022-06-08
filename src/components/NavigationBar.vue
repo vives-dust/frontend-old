@@ -118,8 +118,9 @@
           max-height="40 "
            
         ></v-img>
-      </v-col>
+      </v-col >
         <v-img
+          v-show="!showSelect"
           class="mr-1 mt-1 text-right hidden-sm-and-up"
           src="@/assets/LogoFelix_1.png"
           max-height="40"

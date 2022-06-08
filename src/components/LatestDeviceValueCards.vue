@@ -81,7 +81,7 @@
         </v-row>
       </v-card>
     </v-col>
-    <v-col cols="4">
+    <v-col cols="4" v-show="soilModel != ''">
       <v-card color="white" class="my-3" height="170">
         <v-row align="center">
           <v-col cols="3">
@@ -199,7 +199,7 @@
         </v-row>
       </v-card>
     </v-col>
-    <v-col cols="6">
+    <v-col cols="6" v-show="soilModel != ''">
       <v-card color="white" class="my-1" height="120">
         <v-row align="center">
           <v-col cols="3">
@@ -209,7 +209,7 @@
               color="third"
             />
           </v-col>
-          <v-col>
+          <v-col >
             <v-row>
               <v-col cols="4"></v-col>
               <v-col cols="8">
