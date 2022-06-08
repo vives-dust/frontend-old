@@ -1,26 +1,25 @@
 <template>
-  <v-row justify="center" class="text-center mb-2">
-    <v-col
-      v-for="(card, index) in extraCards"
-      :key="index"
-      cols="4"
-      class="hidden-xs"
-    >
-      <v-card color="third" height="170" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
+  <v-row justify="center" class="text-center mb-2 hidden-xs">
+    <v-col v-for="(card, index) in extraCards" :key="index" cols="4">
+      <v-card
+        color="third"
+        height="170"
+        class="d-flex align-center"
+        v-if="card[0] != 'picture' && card[0] != 'map'"
+      >
         <v-row justify="center" no-gutters>
           <h1 style="color: white; font-size: 40px">
             {{ card[0] }}
           </h1>
           <h2 style="color: white">
-            {{ card[1] }} 
+            {{ card[1] }}
           </h2>
         </v-row>
       </v-card>
-      <!-- <v-card>
+      <v-card>
         <v-row
           justify="center"
           align="center"
-          class="d-flex"
           no-gutters
           v-if="card[0] == 'picture'"
         >
@@ -28,18 +27,12 @@
             <v-img src="@/assets/sensor.jpg" cover max-height="170"></v-img>
           </v-col>
         </v-row>
-
-        <v-row v-if="card[0] == 'map'" no-gutters justify="center">
-          <v-col> <singleMarkerMap height="170" /> </v-col>
-        </v-row>
-      </v-card> -->
+      </v-card>
     </v-col>
-    <v-col
-      v-for="sensor in device.sensors"
-      :key="sensor._id"
-      cols="4"
-      class="hidden-xs"
-    >
+  </v-row>
+
+  <v-row justify="center" class="text-center mb-2 hidden-xs">
+    <v-col v-for="sensor in device.sensors" :key="sensor._id" cols="4">
       <v-card color="white" class="my-3" height="170">
         <v-row align="center">
           <v-col cols="3">
@@ -88,14 +81,18 @@
         </v-row>
       </v-card>
     </v-col>
-    
+  </v-row>
+  <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
     <v-col
       v-for="(card, index) in extraCards"
       :key="index"
       cols="6"
-      class="hidden-sm-and-up"
     >
-      <v-card color="third" class="d-flex align-center" v-if="card[0] != 'picture' && card[0] != 'map'">
+      <v-card
+        color="third"
+        class="d-flex align-center"
+        v-if="card[0] != 'picture' && card[0] != 'map'"
+      >
         <v-row justify="center" no-gutters>
           <h1 style="color: white; font-size: 20px">
             {{ card[0] }}
@@ -113,7 +110,6 @@
       :key="sensor._id"
       cols="6"
     >
-    
       <v-card class="mx-n2 my-1" color="white">
         <v-row justify="center" align="center">
           <v-col cols="3">
@@ -157,12 +153,12 @@ export default {
   data() {
     return {
       extraCards: [
-        [this.$store.state.device.name, this.$store.state.device.description]
+        [this.$store.state.device.name, this.$store.state.device.description],
+        ["picture"],
       ],
     };
   },
-  components: {
-  },
+  components: {},
 };
 </script>
 

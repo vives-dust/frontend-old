@@ -31,15 +31,15 @@
     style="background-color: rgb(var(--v-theme-backgroundShift), 0.2)"
   >
     <v-col cols="11" sm="8">
-      <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime meetingen</p>
+      <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime metingen</p>
       <deviceValues class="mb-16 hidden-xs" />
     </v-col>
   </v-row>
   <!-- <v-divider class="my-5 hidden-xs"></v-divider> -->
 
-  <v-row justify="center">
+  <v-row justify="center" class="hidden-sm-and-up">
     <v-col cols="11" sm="8">
-      <deviceValues class="my-1 hidden-sm-and-up" />
+      <deviceValues class="my-1" />
     </v-col>
   </v-row>
 
