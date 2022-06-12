@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" class="text-center mb-2 hidden-xs">
+  <v-row justify="center" class="text-center mb-5 hidden-xs">
     <v-col v-for="(card, index) in extraCards" :key="index" cols="4">
       <v-card
         color="third"
@@ -33,7 +33,7 @@
 
   <v-row justify="center" class="text-center mb-2 hidden-xs">
     <v-col v-for="sensor in device.sensors" :key="sensor._id" cols="4">
-      <v-card color="white" class="my-3" height="170">
+      <v-card color="white" class="my-2" height="170">
         <v-row align="center">
           <v-col cols="3">
             <v-icon
@@ -82,7 +82,7 @@
       </v-card>
     </v-col>
     <v-col cols="4" v-show="soilModel != ''">
-      <v-card color="white" class="my-3" height="170">
+      <v-card color="white" class="mt-2" height="170">
         <v-row align="center">
           <v-col cols="3">
             <v-icon

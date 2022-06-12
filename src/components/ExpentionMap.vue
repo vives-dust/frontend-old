@@ -1,9 +1,10 @@
 <template>
   <v-col cols="12">
-    <v-expansion-panels>
+    <v-expansion-panels variant="accordion">
       <v-expansion-panel>
         <v-expansion-panel-title
           class="d-flex justify-center align-center"
+          icon-rotate
         >
           <v-icon color="secondary" icon="mdi:mdi-map-marker" class="mr-4"></v-icon>
           Click to toggle the map

@@ -27,26 +27,25 @@
 
   <v-row
     justify="center"
-    no-gutters
     style="background-color: rgb(var(--v-theme-backgroundShift), 0.2)"
   >
     <v-col cols="11" sm="8" class="hidden-xs">
       <p class="text-h3 text-left hidden-xs mt-16 mb-4">Realtime metingen</p>
-      <expention-map />
-      <deviceValues class="mb-16 "/>
+      <deviceValues />
+      <expention-map class="mb-4 mt-n3"/>
     </v-col>
   </v-row>
   <!-- <v-divider class="my-5 hidden-xs"></v-divider> -->
 
   <v-row justify="center" class="hidden-sm-and-up">
     <v-col cols="11" sm="8">
-      <deviceValues class="my-1" />
+      <deviceValues />
     </v-col>
   </v-row>
 
   <v-row>
     <v-col>
-      <sensor-data />
+      <sensor-data /> 
     </v-col>
   </v-row>
   <!-- <v-divider class="my-1 hidden-sm-and-up"></v-divider> -->
