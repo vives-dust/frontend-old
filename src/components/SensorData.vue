@@ -1,14 +1,18 @@
 <template>
   <v-row justify="center" v-if="loaded">
     <v-col cols="11" sm="8">
-      <p class="text-h3 text-left mt-15 hidden-xs">Humidity Sensors</p>
-      <p class="text-h4 text-left mt-2 hidden-sm-and-up">Humidity Sensors</p>
+      <p v-show="showMoisture" class="text-h3 text-left mt-15 hidden-xs">
+        Humidity Sensors
+      </p>
+      <p v-show="showMoisture" class="text-h4 text-left mt-2 hidden-sm-and-up">
+        Humidity Sensors
+      </p>
 
-      <v-card class="my-5 hidden-xs">
+      <v-card v-show="showMoisture" class="my-5 hidden-xs">
         <lineChart :data="linechartDataMoisture" />
       </v-card>
 
-      <v-card class="my-2 hidden-sm-and-up">
+      <v-card v-show="showMoisture" class="my-2 hidden-sm-and-up">
         <lineChart :data="linechartDataMoisture" />
       </v-card>
       <div
@@ -44,8 +48,10 @@ export default defineComponent({
   data: () => ({
     selectTime: ["1h", "24h", "7d", "31d", "1y", "all"],
     loaded: false,
+    showMoisture: false,
     colors: [] as any[],
     linechartDataNonMoisture: {
+      labels: [] as any[],
       datasets: [] as any[],
     },
     linechartDataMoisture: {
@@ -80,12 +86,13 @@ export default defineComponent({
     },
     CombineNoneMoistureData(index: number) {
       return {
-        labels: this.linechartDataMoisture.labels,
+        labels: this.linechartDataNonMoisture.labels,
         datasets: [this.linechartDataNonMoisture.datasets[index]],
       };
     },
     CreateDataMoisture(index: number) {
       console.log(index, "index");
+
       console.log(this.colors, "colors");
       return {
         data: this.timeData.sensors
@@ -120,11 +127,14 @@ export default defineComponent({
           .map((el: any) => {
             if (el.field == this.device.sensors[index].field) {
               let formatedTime = this.FormatTime(el.time);
+
               if (
-                !this.linechartDataMoisture.labels.find(
+                !this.linechartDataNonMoisture.labels.find(
                   (element) => element == formatedTime
                 )
-              ) 
+              ) {
+                this.linechartDataNonMoisture.labels.push(formatedTime);
+              }
               return el.value;
             }
           })
@@ -142,8 +152,14 @@ export default defineComponent({
 
     CreateSensorData() {
       this.linechartDataMoisture.labels = [];
+      this.linechartDataNonMoisture.labels = [];
+
       for (let index = 0; index < this.device.sensors.length; index++) {
         if (this.device.sensors[index].field.includes("Moisture")) {
+          this.showMoisture = true;
+          this.$store.commit("change_showTrendline", {
+            showTrendline: true,
+          });
           if (
             this.linechartDataMoisture.datasets.findIndex(
               (element) => element == undefined
@@ -161,7 +177,8 @@ export default defineComponent({
           }
         } else {
           if (
-            this.linechartDataMoisture.datasets.findIndex(
+            this.linechartDataNonMoisture.datasets.findIndex(
+              //NON MOISTURE?
               (element) => element == undefined
             ) == -1
           ) {
@@ -191,14 +208,20 @@ export default defineComponent({
   },
   watch: {
     timeData() {
+      this.loaded = true;
+      this.linechartDataNonMoisture.datasets = [];
+      this.linechartDataMoisture.datasets = [];
+      this.linechartDataMoisture.labels = [];
+      this.CreateSensorData();
+    },
+    loaded() {
+      console.log(this.device, "sensors");
+
       this.device.sensors.forEach(() => {
         let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
         this.colors.push(color);
       });
-      this.loaded = true;
-      this.linechartDataNonMoisture.datasets = [];
-      this.linechartDataMoisture.datasets = [];
-      this.CreateSensorData();
+      console.log(this.linechartDataNonMoisture.datasets, "datasets");
     },
   },
 });

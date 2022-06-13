@@ -1,5 +1,5 @@
-<template>
-  <p class="text-h3 text-left hidden-xs" v-if="loaded">
+<template >
+  <p v-show="showTrendline" class="text-h3 text-left hidden-xs" v-if="loaded">
     Trendline bodem-vochtigheid
   </p>
   <v-container
@@ -7,14 +7,15 @@
     color="blue"
     class="mx-auto text-center hidden-xs"
     dark
+    v-show="showTrendline"
   >
-    <v-card elevation="0">
+    <v-card elevation="0" >
       <LineChart :chart-data="lineChartData" :options="options" />
     </v-card>
   </v-container>
 
   <!-- MOBILE -->
-  <p class="text-left hidden-sm-and-up" style="font-size: 30px" v-if="loaded">
+  <p v-show="showTrendline" class="text-left hidden-sm-and-up" style="font-size: 30px" v-if="loaded">
     Trendline bodem-vochtigheid
   </p>
 
@@ -23,6 +24,7 @@
     color="blue"
     class="mx-auto text-center hidden-sm-and-up"
     dark
+    v-show="showTrendline"
   >
     <v-card elevation="0">
       <LineChart :chart-data="lineChartData" :options="options" />
@@ -142,7 +144,7 @@ export default defineComponent({
     // },
   },
   computed: {
-    ...mapState(["timeData"]),
+    ...mapState(["timeData","showTrendline"]),
     lineChartData() {
       return {
         labels: this.labels,

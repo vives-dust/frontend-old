@@ -14,6 +14,7 @@ export const store = createStore({
     timeData: {},
     showSelect: false,
     soilModel: "",
+    showTrendline: false
   },
   getters: {
 
@@ -21,6 +22,10 @@ export const store = createStore({
   mutations: {
     change_currentlySelectedPin(state, payload) {
       state.currentlySelectedPin = payload.currentlySelectedPin
+    },
+    change_showTrendline(state, payload) {
+      console.log("trendline changed to:", payload.showTrendline)
+      state.showTrendline = payload.showTrendline
     },
     change_devices(state, payload) {
       state.devices = payload.devices

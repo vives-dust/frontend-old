@@ -34,7 +34,7 @@
   <v-row justify="center" class="text-center mb-2 hidden-xs">
     <v-col v-for="sensor in device.sensors" :key="sensor._id" cols="4">
       <v-card color="white" class="my-2" height="170">
-        <v-row align="center">
+        <v-row align="center" class="pt-5">
           <v-col cols="3">
             <v-icon
               class="mr-8"
@@ -57,6 +57,20 @@
               v-if="sensor.type == 'pressure'"
               color="third"
             />
+            <v-icon
+              class="mr-8"
+              size="100"
+              icon="mdi:mdi-theme-light-dark"
+              v-if="sensor.type == 'Light'"
+              color="third"
+            />
+             <v-icon
+              class="mr-8"
+              size="100"
+              icon="mdi:mdi-tree"
+              v-if="sensor.type == 'Hydrometer'"
+              color="third"
+            />
           </v-col>
           <v-col>
             <v-row>
@@ -71,10 +85,10 @@
                   v-if="sensor.type == 'temperature'"
                   class="font-weight-bold"
                 >
-                  {{ sensor.value }} &deg;C
+                  {{ Math.round(sensor.value) }} &deg;C
                 </h1>
 
-                <h1 v-if="sensor.type != 'temperature'">{{ sensor.value }}%</h1>
+                <h1 v-if="sensor.type != 'temperature'">{{ Math.round(sensor.value)  }}%</h1>
               </v-col>
             </v-row>
           </v-col>
@@ -83,7 +97,7 @@
     </v-col>
     <v-col cols="4" v-show="soilModel != ''">
       <v-card color="white" class="mt-2" height="170">
-        <v-row align="center">
+        <v-row align="center" class="pt-5">
           <v-col cols="3">
             <v-icon
               class="mr-8"
