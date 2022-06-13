@@ -46,7 +46,6 @@ export default defineComponent({
     loaded: false,
     colors: [] as any[],
     linechartDataNonMoisture: {
-      labels: [] as any[],
       datasets: [] as any[],
     },
     linechartDataMoisture: {
@@ -81,8 +80,7 @@ export default defineComponent({
     },
     CombineNoneMoistureData(index: number) {
       return {
-        labels: this.linechartDataNonMoisture.labels,
-
+        labels: this.linechartDataMoisture.labels,
         datasets: [this.linechartDataNonMoisture.datasets[index]],
       };
     },
@@ -126,9 +124,7 @@ export default defineComponent({
                 !this.linechartDataMoisture.labels.find(
                   (element) => element == formatedTime
                 )
-              ) {
-                this.linechartDataNonMoisture.labels.push(formatedTime);
-              }
+              ) 
               return el.value;
             }
           })
@@ -146,7 +142,6 @@ export default defineComponent({
 
     CreateSensorData() {
       this.linechartDataMoisture.labels = [];
-      this.linechartDataNonMoisture.labels = [];
       for (let index = 0; index < this.device.sensors.length; index++) {
         if (this.device.sensors[index].field.includes("Moisture")) {
           if (
