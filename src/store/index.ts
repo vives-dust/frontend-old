@@ -117,6 +117,15 @@ function replaceFieldValues(device: any) {
     } else if (sensor.field == "moistureLevel_4") {
       device.sensors[index].field = "Moisture Level 4"
 
+    }else if (sensor.field == "TreeHydrometer") {
+      device.sensors[index].field = "Tree Hydrometer"
+
+    }else if (sensor.field == "outsideTemperature") {
+      device.sensors[index].field = "Outside Temperature"
+
+    }else if (sensor.field == "undergroundTemperature") {
+      device.sensors[index].field = "Underground Temperaturee"
+
     }
   });
 }

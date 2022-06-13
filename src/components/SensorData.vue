@@ -62,19 +62,20 @@ export default defineComponent({
       } else if (this.time == "24h") {
         return `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.time == "7d") {
-        return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${dateObject.getMonth() + 1}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "31d") {
-        return `${dateObject.getMonth()}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${dateObject.getMonth() + 1}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "1y") {
-        return `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       } else {
-        return `${dateObject.getMonth()}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       }
     },
     CombineNoneMoistureData(index: number) {
       return {
         labels: this.linechartDataNonMoisture.labels,
-        datasets: [this.linechartDataNonMoisture.datasets[index]],
+        
+        datasets: [this.linechartDataNonMoisture.datasets[index]]
       };
     },
     CreateDataMoisture(index: number) {

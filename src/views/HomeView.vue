@@ -62,7 +62,7 @@
         uitgebreid.
       </p>
       <p class="my-10 font-weight-bold">
-        U kunt een interactieve kaart hieronder terug vinden. <br />
+        Hieronder vindt u een interactieve kaart terug. <br />
         Druk op een pin om een apparaat met al zijn sensoren te bekijken.
       </p>
       <mapVue class="my-15" />
@@ -88,7 +88,7 @@
         uitgebreid.
       </p>
       <p class="my-3 font-weight-bold">
-        U kunt een interactieve kaart hieronder terug vinden. <br />
+        Hieronder vindt u een interactieve kaart terug. <br />
         Druk op een pin om een apparaat met al zijn sensoren te bekijken.
       </p>
       <mapVue class="mt-2 mb-2" />
