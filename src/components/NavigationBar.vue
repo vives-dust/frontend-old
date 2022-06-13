@@ -80,7 +80,7 @@
       </v-col>
 
       <v-col cols="2" md="2" v-show="showSelect">
-        <v-card elevation="0" color="primary" class="mr-3 hidden-xs">
+        <v-card elevation="0" color="primary" class="mr-3 mt-1 hidden-xs">
           <v-select
             
             density="compact"
