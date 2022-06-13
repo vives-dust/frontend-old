@@ -134,7 +134,7 @@
 
 
 
-  <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
+  <v-row justify="center" class="text-center mb-3 hidden-sm-and-up" dense>
     <v-col v-for="(card, index) in extraCards" :key="index" cols="6">
       <v-card
         color="third"
@@ -143,12 +143,12 @@
         v-if="card[0] != 'picture' && card[0] != 'map'"
       >
         <v-row justify="center" no-gutters>
-          <h1 style="color: white; font-size: 25px">
+          <h1 style="color: white; font-size: 23px">
             {{ this.$store.state.device.name }}
           </h1>
-          <h2 style="color: white; font-size: 20px">
+          <p style="color: white; font-size: 17px">
             {{ this.$store.state.device.description }}
-          </h2>
+          </p>
         </v-row>
       </v-card>
       <v-card>
@@ -166,27 +166,41 @@
     </v-col>
   </v-row>
 
-  <v-row justify="center" class="text-center mb-2 hidden-sm-and-up">
+  <v-row justify="center" class="text-center mb-2 hidden-sm-and-up" dense>
     <v-col v-for="sensor in device.sensors" :key="sensor._id" cols="6" >
       <v-card color="white" class="my-1" height="120">
         <v-row align="center">
           <v-col cols="3">
             <v-icon
-              size="50"
+              size="60"
               icon="mdi:mdi-thermometer "
               v-if="sensor.type == 'temperature'"
               color="third"
             />
             <v-icon
-              size="50"
+              size="60"
               color="third"
               icon="mdi:mdi-water-percent"
               v-if="sensor.type == 'moisture'"
             />
             <v-icon
-              size="50"
+              size="60"
               icon="mdi:mdi-tailwind"
               v-if="sensor.type == 'pressure'"
+              color="third"
+            />
+            <v-icon
+              class="mr-8"
+              size="60"
+              icon="mdi:mdi-theme-light-dark"
+              v-if="sensor.type == 'Light'"
+              color="third"
+            />
+             <v-icon
+              class="mr-8"
+              size="60"
+              icon="mdi:mdi-tree"
+              v-if="sensor.type == 'Hydrometer'"
               color="third"
             />
           </v-col>
@@ -203,10 +217,10 @@
                   v-if="sensor.type == 'temperature'"
                   class="font-weight-bold"
                 >
-                  {{ sensor.value }} &deg;C
+                  {{  Math.round(sensor.value) }} &deg;C
                 </h1>
 
-                <h1 v-if="sensor.type != 'temperature'">{{ sensor.value }}%</h1>
+                <h1 v-if="sensor.type != 'temperature'">{{  Math.round(sensor.value) }}%</h1>
               </v-col>
             </v-row>
           </v-col>
@@ -218,7 +232,7 @@
         <v-row align="center">
           <v-col cols="3">
             <v-icon
-              size="50"
+              size="60"
               icon="mdi:mdi-tailwind"
               color="third"
             />

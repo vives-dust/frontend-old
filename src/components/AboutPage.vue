@@ -32,7 +32,6 @@
     </v-col>
   </v-row>
   <v-row justify="center" class="hidden-xs mb-15">
-    <v-col cols="1"> </v-col>
     <v-dialog v-model="dialog0" class="hidden-xs">
       <template v-slot:activator="{ props }">
         <v-col cols="2" md="2" v-bind="props">
@@ -272,7 +271,6 @@
               <v-col cols="12" md="4">
                 <v-text-field
                   v-model="firstname"
-                  :rules="nameRules"
                   :counter="15"
                   label="First name"
                   required
@@ -294,7 +292,6 @@
               <v-col cols="12" md="4">
                 <v-text-field
                   v-model="email"
-                  :rules="emailRules"
                   label="E-mail"
                   required
                   variant="outlined"
@@ -312,9 +309,7 @@
                 ></v-textarea>
               </v-col>
               <v-col cols="12">
-                <v-btn @click="dataSend = true" :disabled="!valid">
-                  Submit
-                </v-btn>
+                <v-btn @click="sendData" :disabled="!valid"> Submit </v-btn>
               </v-col>
             </v-row>
           </v-container>
@@ -366,31 +361,137 @@
     </v-col>
   </v-row>
   <v-row justify="center" class="hidden-sm-and-up">
-    <v-col cols="11">
-      <v-card height="400">
-        <v-card max-height="150" elevation="0">
-          <v-img height="strech" cover src="../assets/sensor.jpg"> </v-img>
-        </v-card>
-        <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
-        <p class="ml-3">
-          {{ $t("aboutPage.card1.text") }}
-        </p>
-      </v-card>
-    </v-col>
+    <v-dialog v-model="dialog0" class="hidden-sm-and-up">
+      <template v-slot:activator="{ props }">
+        <v-col cols="11" v-bind="props">
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card
+              height="400"
+              v-bind="props"
+              :elevation="isHovering ? 16 : 2"
+            >
+              <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
+              <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
+              <p class="ml-3">
+                {{ $t("aboutPage.card1.text") }}
+              </p>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </template>
+      <v-row justify="center">
+        <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
+              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
+              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
+              onbekende drukker een zethaak met letters nam en ze door elkaar
+              husselde om een font-catalogus te maken. Het heeft niet alleen
+              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
+              overgenomen in elektronische letterzetting. Het is in de jaren '60
+              populair geworden met de introductie van Letraset vellen met Lorem
+              Ipsum passages en meer recentelijk door desktop publishing
+              software zoals Aldus PageMaker die versies van Lorem Ipsum
+              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
+              bekend gegeven dat een lezer, tijdens het bekijken van de layout
+              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
+              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
+              een min of meer normale verdeling van letters bestaat, in
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="secondary" block @click="dialog0 = false"
+                >Close Dialog</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-dialog>
+
   </v-row>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
   <v-row justify="center" class="hidden-sm-and-up">
-    <v-col cols="11">
-      <v-card height="400">
-        <v-card height="150" elevation="0">
-          <v-img height="strech" src="../assets/lake.jpg" cover> </v-img>
-        </v-card>
-        <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
-        <p class="ml-3">
-          {{ $t("aboutPage.card2.text") }}
-        </p>
-      </v-card>
-    </v-col>
+    <v-dialog v-model="dialog1" class="hidden-sm-and-up">
+      <template v-slot:activator="{ props }">
+        <v-col cols="11" v-bind="props">
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card
+              height="400"
+              v-bind="props"
+              :elevation="isHovering ? 16 : 2"
+            >
+              <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
+              <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
+              <p class="ml-3">
+                {{ $t("aboutPage.card2.text") }}
+              </p>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </template>
+      <v-row justify="center">
+        <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
+              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
+              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
+              onbekende drukker een zethaak met letters nam en ze door elkaar
+              husselde om een font-catalogus te maken. Het heeft niet alleen
+              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
+              overgenomen in elektronische letterzetting. Het is in de jaren '60
+              populair geworden met de introductie van Letraset vellen met Lorem
+              Ipsum passages en meer recentelijk door desktop publishing
+              software zoals Aldus PageMaker die versies van Lorem Ipsum
+              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
+              bekend gegeven dat een lezer, tijdens het bekijken van de layout
+              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
+              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
+              een min of meer normale verdeling van letters bestaat, in
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="secondary" block @click="dialog1 = false"
+                >Close Dialog</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-dialog>
   </v-row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <v-row justify="center" class="hidden-sm-and-up">
     <v-dialog v-model="dialog2" class="hidden-sm-and-up">
@@ -543,7 +644,6 @@
               <v-col cols="12" class="mb-n6">
                 <v-text-field
                   v-model="firstname"
-                  :rules="nameRules"
                   :counter="15"
                   label="First name"
                   required
@@ -565,7 +665,6 @@
               <v-col cols="12" class="mb-n6">
                 <v-text-field
                   v-model="email"
-                  :rules="emailRules"
                   label="E-mail"
                   required
                   variant="outlined"

@@ -2,7 +2,13 @@
   <!-- <sensorPageTitle :currentDevice="this.currentlySelectedPin" /> -->
   <v-card elevation="5">
     <v-img
-      class="mt-10"
+      class="mt-10 hidden-xs"
+      src="@/assets/panorama-nature_1920.jpg"
+      :height="xs ? 150 : 400"
+      cover
+    ></v-img>
+    <v-img
+      class="hidden-sm-and-up"
       src="@/assets/panorama-nature_1920.jpg"
       :height="xs ? 150 : 400"
       cover
@@ -18,7 +24,7 @@
   </v-row>
   <!-- MOBILE -->
   <v-row justify="center hidden-sm-and-up">
-    <v-col cols="11" sm="8" class="my-10">
+    <v-col cols="11" sm="8" class="my-5">
       <v-row>
         <sparkline-graph />
       </v-row>

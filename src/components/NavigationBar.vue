@@ -65,11 +65,11 @@
       <v-col cols="8" class="text-center hidden-sm-and-up" md="8">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" exact class="pr-n2">
-            <v-icon size="25"  icon="mdi:mdi-home" />
+            <v-icon size="32"  icon="mdi:mdi-home" />
           </v-tab>
           <v-divider vertical class="mx-1 my-2"></v-divider>
           <v-tab exact value="About" to="/about"
-            ><v-icon size="25"  icon="mdi:mdi-information" />
+            ><v-icon size="32"  icon="mdi:mdi-information" />
           </v-tab>
         </v-tabs>
       </v-col>
@@ -104,16 +104,16 @@
       <v-col v-show="!showSelect" cols="1" class="hidden-xs"></v-col>
       <v-col v-show="!showSelect" class="text-right hidden-xs" cols="1">
         <v-img
-          class="my-1 ml-15"
+          class="my-1 ml-15 hidden-xs"
           src="@/assets/LogoFelix_1.png"
           max-height="40 "
         ></v-img>
       </v-col>
       <v-img
         v-show="!showSelect"
-        class="mr-1 mt-1 text-right hidden-sm-and-up"
+        class="mr-1 mt-2 text-right hidden-sm-and-up"
         src="@/assets/LogoFelix_1.png"
-        max-height="40"
+        max-height="32"
       ></v-img>
     </v-row>
   </v-card>

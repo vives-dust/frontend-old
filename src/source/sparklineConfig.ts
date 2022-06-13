@@ -10,7 +10,7 @@ const SparklineConfig1 = {
                 legend: {
                     display: true,
                     labels:{
-                        padding: 20
+                        padding: 15
                     }
                 },
                 

@@ -15,7 +15,7 @@
   </v-container>
 
   <!-- MOBILE -->
-  <p v-show="showTrendline" class="text-left hidden-sm-and-up" style="font-size: 30px" v-if="loaded">
+  <p v-show="showTrendline" class="text-left hidden-sm-and-up" style="font-size: 25px" v-if="loaded">
     Trendline bodem-vochtigheid
   </p>
 
