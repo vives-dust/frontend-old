@@ -33,7 +33,7 @@
   </v-row>
   <v-row justify="center" class="hidden-xs mb-15">
     <v-col cols="1"> </v-col>
-    <v-dialog v-model="dialog0">
+    <v-dialog v-model="dialog0" class="hidden-xs">
       <template v-slot:activator="{ props }">
         <v-col cols="2" md="2" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
@@ -88,7 +88,7 @@
         </v-col>
       </v-row>
     </v-dialog>
-    <v-dialog v-model="dialog1">
+    <v-dialog v-model="dialog1" class="hidden-xs">
       <template v-slot:activator="{ props }">
         <v-col cols="2" md="2" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
@@ -143,7 +143,7 @@
         </v-col>
       </v-row>
     </v-dialog>
-    <v-dialog v-model="dialog2">
+    <v-dialog v-model="dialog2" class="hidden-xs">
       <template v-slot:activator="{ props }">
         <v-col cols="2" md="2" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
@@ -198,7 +198,7 @@
         </v-col>
       </v-row>
     </v-dialog>
-    <v-dialog v-model="dialog3">
+    <v-dialog v-model="dialog3" class="hidden-xs">
       <template v-slot:activator="{ props }">
         <v-col cols="2" md="2" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
@@ -334,7 +334,7 @@
   <!-- FOR MOBILE -->
   <v-card elevation="5">
     <v-img
-      class="mt-10 hidden-sm-and-up"
+      class="hidden-sm-and-up"
       src="../assets/trees.jpg"
       height="150"
       cover
@@ -359,7 +359,7 @@
     <v-col cols="11" sm="8">
       <div class="text-center">
         <!-- All picture are under the creative common license -->
-        <p class="text-h5 text-justify mt-7 mb-5">
+        <p class="text-justify mt-7 mb-5">
           {{ $t("aboutPage.introduction") }}
         </p>
       </div>
@@ -393,32 +393,140 @@
   </v-row>
 
   <v-row justify="center" class="hidden-sm-and-up">
-    <v-col cols="11">
-      <v-card height="400">
-        <v-card height="150" elevation="0">
-          <v-img height="strech" src="../assets/trees2.jpg" cover> </v-img>
-        </v-card>
-        <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
-        <p class="ml-3">
-          {{ $t("aboutPage.card3.text") }}
-        </p>
-      </v-card>
-    </v-col>
+    <v-dialog v-model="dialog2" class="hidden-sm-and-up">
+      <template v-slot:activator="{ props }">
+        <v-col cols="11" v-bind="props">
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card
+              height="400"
+              v-bind="props"
+              :elevation="isHovering ? 16 : 2"
+            >
+              <v-img height="130" src="../assets/VIVES_Logo.png" cover> </v-img>
+              <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
+              <p class="ml-3">
+                {{ $t("aboutPage.card3.text") }}
+              </p>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </template>
+      <v-row justify="center">
+        <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
+              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
+              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
+              onbekende drukker een zethaak met letters nam en ze door elkaar
+              husselde om een font-catalogus te maken. Het heeft niet alleen
+              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
+              overgenomen in elektronische letterzetting. Het is in de jaren '60
+              populair geworden met de introductie van Letraset vellen met Lorem
+              Ipsum passages en meer recentelijk door desktop publishing
+              software zoals Aldus PageMaker die versies van Lorem Ipsum
+              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
+              bekend gegeven dat een lezer, tijdens het bekijken van de layout
+              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
+              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
+              een min of meer normale verdeling van letters bestaat, in
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="secondary" block @click="dialog2 = false"
+                >Close Dialog</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-dialog>
+
   </v-row>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <v-row justify="center" class="hidden-sm-and-up">
-    <v-col cols="11">
-      <v-card height="400">
-        <v-card height="150" elevation="0">
-          <v-img height="strech " src="../assets/VIVES_Logo.png" cover> </v-img>
-        </v-card>
-        <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
-        <p class="ml-3">
-          {{ $t("aboutPage.card4.text") }}
-        </p>
-      </v-card>
-    </v-col>
+    <v-dialog v-model="dialog3" class="hidden-sm-and-up">
+      <template v-slot:activator="{ props }">
+        <v-col cols="11" v-bind="props">
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card
+              height="400"
+              v-bind="props"
+              :elevation="isHovering ? 16 : 2"
+            >
+              <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
+              <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
+              <p class="ml-3">
+                {{ $t("aboutPage.card4.text") }}
+              </p>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </template>
+      <v-col cols="1"> </v-col>
+      <v-row justify="center">
+        <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
+              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
+              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
+              onbekende drukker een zethaak met letters nam en ze door elkaar
+              husselde om een font-catalogus te maken. Het heeft niet alleen
+              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
+              overgenomen in elektronische letterzetting. Het is in de jaren '60
+              populair geworden met de introductie van Letraset vellen met Lorem
+              Ipsum passages en meer recentelijk door desktop publishing
+              software zoals Aldus PageMaker die versies van Lorem Ipsum
+              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
+              bekend gegeven dat een lezer, tijdens het bekijken van de layout
+              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
+              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="secondary" block @click="dialog3 = false"
+                >Close Dialog</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-dialog>
   </v-row>
+
   <v-row
     justify="center"
     class="hidden-sm-and-up py-2 mt-2"

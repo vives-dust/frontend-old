@@ -2,7 +2,9 @@
   <v-app>
     <navigation-bar class="sticky hidden-xs" />
     <router-view />
-    <footerBar />
+    <footerBar class="mb-10 hidden-sm-and-up"/>
+    <footerBar class="hidden-xs"/>
+
     <v-snackbar v-model="updateAvailable">
        <p> Update available - Please update</p> 
 
@@ -10,7 +12,7 @@
         <v-btn color="blue" variant="text" @click="Update"> Update </v-btn>
       </template>
     </v-snackbar>
-    <navigation-bar class=" hidden-sm-and-up" />
+    <navigation-bar class="sticky hidden-sm-and-up" style="bottom: 0px;" />
   </v-app>
 </template>
 

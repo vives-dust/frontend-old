@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-card elevation="5" class="hidden-sm-and-up mt-10">
+      <v-card elevation="5" class="hidden-sm-and-up">
         <v-img src="@/assets/nature.jpg" height="150" cover>
           <v-row class="text-center" justify="center">
             <v-col cols="12">
@@ -47,7 +47,7 @@
   <v-row justify="center" class="hidden-xs text-center">
     <v-col cols="10">
       <v-layout class="my-10"></v-layout>
-      <p>
+      <p class="text-justify">
         Het DUST-platform is een sensorplatform dat een overzicht creëert van de
         bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in
         gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en
@@ -58,8 +58,7 @@
         temperatuur van de grond meten. Hoewel de nadruk op ondergrondse
         metingen ligt, zullen uitbreidingen bovengrondse sensoren bevatten. Deze
         sensoren kunnen bijvoorbeeld de luchtvochtigheid, de buitentemperatuur
-        en de hoeveelheid zonlicht bepalen. De sensoren kunnen eenvoudig worden
-        uitgebreid.
+        en de hoeveelheid zonlicht bepalen.
       </p>
       <p class="my-10 font-weight-bold">
         Hieronder vindt u een interactieve kaart terug. <br />
@@ -73,7 +72,12 @@
   <v-row justify="center" class="hidden-sm-and-up text-center">
     <v-col cols="11">
       <v-layout class="my-2"></v-layout>
-      <p>
+      <p class="my-3 font-weight-bold">
+        Hieronder vindt u een interactieve kaart. <br />
+        Druk op een pin om een apparaat met al zijn sensoren te bekijken.
+      </p>
+      <mapVue class="mt-2 mb-2" />
+      <p class="text-justify">
         Het DUST-platform is een sensorplatform dat een overzicht creëert van de
         bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in
         gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en
@@ -87,11 +91,6 @@
         en de hoeveelheid zonlicht bepalen. De sensoren kunnen eenvoudig worden
         uitgebreid.
       </p>
-      <p class="my-3 font-weight-bold">
-        Hieronder vindt u een interactieve kaart terug. <br />
-        Druk op een pin om een apparaat met al zijn sensoren te bekijken.
-      </p>
-      <mapVue class="mt-2 mb-2" />
       <v-layout class="my-5"></v-layout>
     </v-col>
   </v-row>
@@ -131,3 +130,7 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+
+</style>

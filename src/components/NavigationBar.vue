@@ -65,16 +65,11 @@
       <v-col cols="8" class="text-center hidden-sm-and-up" md="8">
         <v-tabs centered height="auto">
           <v-tab value="Home" to="/" exact class="pr-n2">
-            <v-icon size="25" class="mr-1 ml-n3" icon="mdi:mdi-home" />
-            {{ $t("navigationBar.home") }}
+            <v-icon size="25"  icon="mdi:mdi-home" />
           </v-tab>
           <v-divider vertical class="mx-1 my-2"></v-divider>
-          <v-tab value="About" to="/about"
-            ><v-icon
-              size="25"
-              class="mr-1 ml-n3"
-              icon="mdi:mdi-information"
-            />{{ $t("navigationBar.about") }}
+          <v-tab exact value="About" to="/about"
+            ><v-icon size="25"  icon="mdi:mdi-information" />
           </v-tab>
         </v-tabs>
       </v-col>
@@ -82,7 +77,6 @@
       <v-col cols="2" md="2" v-show="showSelect">
         <v-card elevation="0" color="primary" class="mr-3 mt-1 hidden-xs">
           <v-select
-            
             density="compact"
             v-model="select"
             :items="selectTime"
@@ -94,19 +88,16 @@
           ></v-select>
         </v-card>
 
-        <v-card elevation="0" color="primary" class="hidden-sm-and-up">
+        <v-card elevation="0" color="primary" class="hidden-sm-and-up mt-1" height="40">
           <v-select
             density="compact"
             v-model="select"
             :items="selectTime"
-            label="Select time"
             solo
             hide-details
             single-line
             @update:modelValue="ChartTimeChanged"
-            height="15"
           >
-            <v-selection-control> </v-selection-control>
           </v-select>
         </v-card>
       </v-col>
@@ -116,16 +107,14 @@
           class="my-1 ml-15"
           src="@/assets/LogoFelix_1.png"
           max-height="40 "
-           
         ></v-img>
-      </v-col >
-        <v-img
-          v-show="!showSelect"
-          class="mr-1 mt-1 text-right hidden-sm-and-up"
-          src="@/assets/LogoFelix_1.png"
-          max-height="40"
-           
-        ></v-img>
+      </v-col>
+      <v-img
+        v-show="!showSelect"
+        class="mr-1 mt-1 text-right hidden-sm-and-up"
+        src="@/assets/LogoFelix_1.png"
+        max-height="40"
+      ></v-img>
     </v-row>
   </v-card>
 </template>
