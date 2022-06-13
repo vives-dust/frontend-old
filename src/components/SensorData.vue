@@ -62,23 +62,33 @@ export default defineComponent({
       } else if (this.time == "24h") {
         return `${dateObject.getHours()}:${dateObject.getMinutes()}`;
       } else if (this.time == "7d") {
-        return `${dateObject.getMonth() + 1}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${
+          dateObject.getMonth() + 1
+        }/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "31d") {
-        return `${dateObject.getMonth() + 1}/${dateObject.getDate()} - ${dateObject.getHours()}h`;
+        return `${
+          dateObject.getMonth() + 1
+        }/${dateObject.getDate()} - ${dateObject.getHours()}h`;
       } else if (this.time == "1y") {
-        return `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${
+          dateObject.getMonth() + 1
+        }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       } else {
-        return `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        return `${
+          dateObject.getMonth() + 1
+        }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
       }
     },
     CombineNoneMoistureData(index: number) {
       return {
         labels: this.linechartDataNonMoisture.labels,
-        
-        datasets: [this.linechartDataNonMoisture.datasets[index]]
+
+        datasets: [this.linechartDataNonMoisture.datasets[index]],
       };
     },
     CreateDataMoisture(index: number) {
+      console.log(index, "index");
+      console.log(this.colors, "colors");
       return {
         data: this.timeData.sensors
           .map((el: any) => {
@@ -176,10 +186,7 @@ export default defineComponent({
   created() {
     this.$store.dispatch("get_device");
     this.$store.dispatch("get_periodeData");
-    this.device.sensors.forEach(() => {
-      let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-      this.colors.push(color);
-    });
+
     this.$store.commit("change_showSelect", {
       showSelect: true,
     });
@@ -189,6 +196,10 @@ export default defineComponent({
   },
   watch: {
     timeData() {
+      this.device.sensors.forEach(() => {
+        let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        this.colors.push(color);
+      });
       this.loaded = true;
       this.linechartDataNonMoisture.datasets = [];
       this.linechartDataMoisture.datasets = [];
