@@ -3,7 +3,6 @@ const SparklineConfig1 = {
     
     config: {
         options: {
-            events:[],
             spanGaps: true,
             pointRadius: 0,
             plugins: {
@@ -17,7 +16,6 @@ const SparklineConfig1 = {
             },
             scales: {
                 x: {
-                    stacked: false,  
                     
                     grid: {
                         display: false,
@@ -28,7 +26,6 @@ const SparklineConfig1 = {
                     },
                 },
                 y: {
-                    stacked: false,  
                     grid: {
                         display: false,
                         drawBorder: false,

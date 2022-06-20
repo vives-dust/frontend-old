@@ -1,86 +1,93 @@
 {
     "mapText": "Kaart",
     "footer": {
-        "header": "De wereld meer water laten drinken",
-        "underHeader": "gewoon een tweede paragraaf",
+        "header": "Stadsboomspiegels monitoren",
+        "underHeader": "om bomen betere groeimogelijkheden te bieden",
         "links": {
             "title": "LINKS",
-            "one": "Link één",
-            "two": "link twee",
-            "three": "link drie",
-            "four": "link vier"
+            "one": "VIVES",
+            "two": "IoT Incubator",
+            "three": "GitHub",
+            "four": "Thesis"
         },
         "support": {
-            "title": "SUPPORT",
-            "one": "Link één",
-            "two": "link twee",
-            "three": "link drie",
-            "four": "link vier"
+            "title": "CONTACT",
+            "one": "Piet Cordemans",
+            "two": "VIVES campus Brugge",
+            "three": "Spoorwegstraat 12 ",
+            "four": "8200 Brugge België"
         },
         "legal": {
-            "title": "LEGAL",
-            "one": "Link één",
-            "two": "link twee",
-            "three": "link drie",
-            "four": "link vier"
+            "title": "LEGAAL",
+            "one": "MIT Licensed"
         },
         "sitemap": {
-            "title": "SITEMAP",
-            "one": "Link één",
-            "two": "link twee",
-            "three": "link drie",
-            "four": "link vier"
+            "title": "Gemaakt door",
+            "one": "Felix Falk"
         }
     },
-    "cards": {
-        "card1": {
-            "title": "City's",
-            "subtitle": "7",
-            "icon": "mdi:mdi-home-city"
-        },
-        "card2": {
-            "title": "Devices",
-            "subtitle": "9",
-            "icon": "mdi:mdi-bus-articulated-front"
-        },
-        "card3": {
-            "title": "developers",
-            "subtitle": "3",
-            "icon": "mdi:mdi-bottle-wine-outline"
-        },
-        "card4": {
-            "title": "Sponsors",
-            "subtitle": "0",
-            "icon": "mdi:mdi-card-text"
-        },
-        "card5": {
-            "title": "git-hub-stars",
-            "subtitle": "0",
-            "icon": "mdi:mdi-star"
-        }
-    },
+    
     "navigationBar": {
         "home": "Home",
         "about": "Over ons"
     },
     "aboutPage":{
+        "bannerText": "Why do nature a favor ",
         "title": "Over ons",
-        "introduction": "Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden.",
+        "introduction": "Op deze pagina vindt u diepgaandere informatie terug over het project alsook meer informatie over de medewerkers van DUST en een contactformulier.",
         "card1":{
-            "title":"Wat is dit project",
-            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+            "title":"De droogteproblematiek in Vlaanderen",
+            "shortText":"Al een paar jaar spreekt men over de droogteproblematiek in Vlaanderen. Deze droogteproblematiek heeft veel te maken met de lage watercapacitatie in verstedelijkte gebieden. Dit is te danken aan de hoge verzegelingsgraad, de lange droogtes en de intense buien op korte periodes.",
+            "text": "Al een paar jaar spreekt men over de droogteproblematiek in Vlaanderen. Deze droogteproblematiek heeft veel te maken met de lage watercapacitatie in verstedelijkte gebieden. Dit is te danken aan de hoge verzegelingsgraad, de lange droogtes en de intense buien op korte periodes. Bomen kunnen gedeeltelijk een oplossing bieden voor de droogteproblematiek want ze bieden afkoeling en ze hebben een waterbufferend vermogen. Bovendien zijn bomen de op één na grootste producent van zuurstof, enkel de zee doet het nog beter. Hoewel bomen in stedelijke gebieden veel voordelen kunnen bieden i.f.v. de droogteproblematiek, vermoedt men dat de bomen allerminst hun maximale capaciteiten benutten, omdat de groeiplaatskwaliteit van stadsbomen ondermaats is. De groei en de levensverwachting van stadsbomen neemt hierdoor sterk af. Momenteel bestaat er nog geen exacte data van de stadsboomspiegels in Vlaanderen, waardoor bestuursorganen geen maatregelen (kunnen) nemen om de kwaliteit van de stadsbomen te optimaliseren. Om de bestuursorganen van de steden te overtuigen te investeren in de groeiplaatskwaliteit van hun bomen, is er concrete data nodig die deze aannames kan bevestigen."
         },
         "card2":{
-            "title":"Waarom dust?",
-            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+            "title":"Het DUST-platform",
+            "shortText":"Binnen dit onderzoeksproject wil men twee doelstellingen behalen: enerzijds een urban soil index opstellen waarbij stedelijke stadsboomspiegels via objectieve criteria gescreend kunnen worden; anderzijds wil men een proof of concept realiseren voor een open source, real-time bodemmonitor netwerk op basis van low-cost sensoren.",
+            "text": "Het PWO (Praktijkgericht Wetenschappelijk Onderzoek) project DUST (Devices for Ubiquitous Soil and Temperature Measurements) probeert hier een antwoord op te bieden. Binnen dit onderzoeksproject wil men twee doelstellingen behalen: enerzijds een urban soil index opstellen waarbij stedelijke stadsboomspiegels via objectieve criteria gescreend kunnen worden; anderzijds wil men een proof of concept realiseren voor een open source, real-time bodemmonitor netwerk op basis van low-cost sensoren.  het platform zal volgende taken uitvoeren: Eerst en vooral dient er data vergaard te worden ter hoogte van de stadsbomen d.m.v. draadloze sensoren. Per locatie moeten er verschillende metingen uitgevoerd kunnen worden waaronder de bovenvochtigheid en de bodemtemperatuur.Vervolgens moet de ruwe data opgeslagen kunnen worden op een centrale plaats. De centrale plaats kan gezien worden als een tussenstation, een cloud, waar de data gecategoriseerd wordt, maar nog niet gebruiksvriendelijk is voor de eindgebruiker. Tot slot zou de data omgevormd moeten worden tot visuele informatie, die de eindgebruiker in staat stelt de ruwe data te interpreteren. Deze informatie moet beschikbaar zijn voor het grote publiek."
+
         },
         "card3":{
-            "title":"Van waar zijn wij",
-            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+            "title":"Agro- & Biotechnology en Smart Technologies",
+            "shortText":"Het PWO (Praktijkgericht Wetenschappelijk Onderzoek) project DUST (Devices for Ubiquitous Soil and Temperature Measurements) is een samenwerkingsverband tussen de expertisecentra Agro- & Biotechnology en Smart Technologies.",
+            "text": ""
         },
         "card4":{
-            "title":"Over het milieu",
-            "text":"Wij hebben een project gemaakt met sensoren om heel vlaanderen te voorzien van vochtigheids meters, deze om data uit de grond te halen en deze belangerijke informatie te versprijden."
+            "title":"Sensor-apparaten",
+            "shortText":"Een sensor-apparaat bestaat uit verschillende onderdelen, waaronder een microcontroller, een LoRaWAN chip en verschillende andere sensoren.",
+            "text": "Een microcontroller die als het ware het hart is van het sensor-apparaat. Hij heeft als hoofdtaken het uitlezen van de verschillende sensoren en het verzenden van deze data via LoRaWAN. Daarbij is deze zo geprogrammeerd om zo zuinig mogelijk om te gaan met de beschikbare energie (deepsleep). Een LoRaWAN chip laat toe om draadloos de data van de microcontroller te verzenden en dit via de LoRaWAN standaard. Op de huidige prototypes van het DUST-sensorplatform zitten er twee types sensoren. Namelijk een temperatuur- en vier vochtigheid sensoren. Het is de bedoeling dat het sensor-apparaat zo geplaatst wordt dat alle vochtigheid sensoren onder het grondoppervlak zitten. De temperatuur wordt op dit moment ter hoogte van het grondoppervlak gemeten. Het sensor-apparaat is zo voorzien dat er in de toekomst nog andere sensoren kunnen worden toegevoegd."
+        }
+    },
+    "homePage":{
+        "bannerText": "Do nature a favor ", 
+        "introduction":"Het DUST-platform is een sensorplatform dat een overzicht creëert van de bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en individuen de kans krijgen om informatie over de grond en heel specifiek over de stadsboomspiegels te weten te komen. Door middel van sensoren kan men bijvoorbeeld de grondsamentelling vaststellen, de grondvochtigheid op verschillende dieptes te weten komen en de temperatuur van de grond meten. Hoewel de nadruk op ondergrondse metingen ligt, zullen uitbreidingen bovengrondse sensoren bevatten. Deze sensoren kunnen bijvoorbeeld de luchtvochtigheid, de buitentemperatuur en de hoeveelheid zonlicht bepalen.",
+        "hieronderKaart": "Hieronder vindt u een interactieve kaart terug. ",
+        "drukOpEenPin":"Druk op een pin om een apparaat met al zijn sensoren te bekijken. ",
+        "cards": {
+            "card1": {
+                "title": "Steden",
+                "subtitle": "7",
+                "icon": "mdi:mdi-home-city"
+            },
+            "card2": {
+                "title": "Apparaten",
+                "subtitle": "9",
+                "icon": "mdi:mdi-cube"
+            },
+            "card3": {
+                "title": "Gebruikers",
+                "subtitle": "3",
+                "icon": "mdi:mdi-account"
+            },
+            "card4": {
+                "title": "Sponsors",
+                "subtitle": "0",
+                "icon": "mdi:mdi-card-text"
+            },
+            "card5": {
+                "title": "Sensoren ",
+                "subtitle": "2",
+                "icon": "mdi:mdi-car-cruise-control"
+            }
         }
     }
 }

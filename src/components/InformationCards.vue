@@ -79,9 +79,9 @@ export default {
     return {
       cards: keys.map((key, id) => ({
         id,
-        title: `cards.${key}.title`,
-        subtitle: `cards.${key}.subtitle`,
-        icon: `cards.${key}.icon`,
+        title: `homePage.cards.${key}.title`,
+        subtitle: `homePage.cards.${key}.subtitle`,
+        icon: `homePage.cards.${key}.icon`,
       })),
     };
   },

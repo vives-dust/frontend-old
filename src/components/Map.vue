@@ -50,7 +50,7 @@ export default {
     return {
       zoom: 9,
       urlConfig: {
-        username: "flixushd",
+        username: process.env.VUE_APP_USERNAME,
         style_id: process.env.VUE_APP_STYLE_ID,
         acces_token: process.env.VUE_APP_MAPBOX_TOKEN,
       },

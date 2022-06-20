@@ -14,7 +14,7 @@
                 </h1>
 
                 <h4 class="text-h4 font-weight-thin" style="color: white">
-                  Do nature a favor
+                  {{ $t("homePage.bannerText") }}
                 </h4>
               </v-container>
             </v-col>
@@ -35,7 +35,7 @@
                 </h1>
 
                 <h4 class="text-h4 font-weight-thin" style="color: white">
-                  Do nature a favor
+                  {{ $t("homePage.bannerText") }}
                 </h4>
               </v-container>
             </v-col>
@@ -48,21 +48,11 @@
     <v-col cols="10">
       <v-layout class="my-10"></v-layout>
       <p class="text-justify">
-        Het DUST-platform is een sensorplatform dat een overzicht creëert van de
-        bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in
-        gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en
-        individuen de kans krijgen om informatie over de grond en heel specifiek
-        over de stadsboomspiegels te weten te komen. Door middel van sensoren
-        kan men bijvoorbeeld de grondsamentelling vaststellen, de
-        grondvochtigheid op verschillende dieptes te weten komen en de
-        temperatuur van de grond meten. Hoewel de nadruk op ondergrondse
-        metingen ligt, zullen uitbreidingen bovengrondse sensoren bevatten. Deze
-        sensoren kunnen bijvoorbeeld de luchtvochtigheid, de buitentemperatuur
-        en de hoeveelheid zonlicht bepalen.
+        {{ $t("homePage.introduction") }}
       </p>
       <p class="my-10 font-weight-bold">
-        Hieronder vindt u een interactieve kaart terug. <br />
-        Druk op een pin om een apparaat met al zijn sensoren te bekijken.
+        {{ $t("homePage.hieronderKaart") }} <br />
+        {{ $t("homePage.drukOpEenPin") }}
       </p>
       <mapVue class="my-15" />
       <v-layout class="my-15"></v-layout>
@@ -73,23 +63,12 @@
     <v-col cols="11">
       <v-layout class="my-2"></v-layout>
       <p class="my-3 font-weight-bold">
-        Hieronder vindt u een interactieve kaart. <br />
-        Druk op een pin om een apparaat met al zijn sensoren te bekijken.
+        {{ $t("homePage.hieronderKaart") }} <br />
+        {{ $t("homePage.drukOpEenPin") }}
       </p>
       <mapVue class="mt-2 mb-2" />
       <p class="text-justify">
-        Het DUST-platform is een sensorplatform dat een overzicht creëert van de
-        bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in
-        gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en
-        individuen de kans krijgen om informatie over de grond en heel specifiek
-        over de stadsboomspiegels te weten te komen. Door middel van sensoren
-        kan men bijvoorbeeld de grondsamentelling vaststellen, de
-        grondvochtigheid op verschillende dieptes te weten komen en de
-        temperatuur van de grond meten. Hoewel de nadruk op ondergrondse
-        metingen ligt, zullen uitbreidingen bovengrondse sensoren bevatten. Deze
-        sensoren kunnen bijvoorbeeld de luchtvochtigheid, de buitentemperatuur
-        en de hoeveelheid zonlicht bepalen. De sensoren kunnen eenvoudig worden
-        uitgebreid.
+        {{ $t("homePage.introduction") }}
       </p>
       <v-layout class="my-5"></v-layout>
     </v-col>
@@ -104,7 +83,10 @@
       <informationCards />
     </v-col>
   </v-row>
+
 </template>
+
+
 
 <script lang="ts">
 import mapVue from "@/components/Map.vue";

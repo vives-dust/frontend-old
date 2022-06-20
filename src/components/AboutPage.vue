@@ -12,7 +12,8 @@
             </h1>
 
             <h4 class="text-h4 font-weight-thin" style="color: white">
-              Why do nature a favor
+             {{ $t("aboutPage.bannerText") }}
+
             </h4>
           </v-container>
         </v-col>
@@ -41,10 +42,10 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
+              <v-img height="130" src="../assets/drought.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card1.text") }}
+                {{ $t("aboutPage.card1.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -54,29 +55,7 @@
         <v-col cols="6">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
-              tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min
-              of meer leesbaar nederlands maakt. Veel desktop publishing
-              pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum
-              als hun standaard model tekst, en een zoekopdracht naar "lorem
-              ipsum" ontsluit veel websites die nog in aanbouw zijn.
-              Verscheidene versies hebben zich ontwikkeld in de loop van de
-              jaren, soms per ongeluk soms expres (ingevoegde humor en
-              dergelijke).
+              {{ $t("aboutPage.card1.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog0 = false"
@@ -99,7 +78,7 @@
               <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card2.text") }}
+                {{ $t("aboutPage.card2.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -109,29 +88,7 @@
         <v-col cols="6">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
-              tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min
-              of meer leesbaar nederlands maakt. Veel desktop publishing
-              pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum
-              als hun standaard model tekst, en een zoekopdracht naar "lorem
-              ipsum" ontsluit veel websites die nog in aanbouw zijn.
-              Verscheidene versies hebben zich ontwikkeld in de loop van de
-              jaren, soms per ongeluk soms expres (ingevoegde humor en
-              dergelijke).
+              {{ $t("aboutPage.card2.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog1 = false"
@@ -151,10 +108,10 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/VIVES_Logo.png" cover> </v-img>
+              <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card3.text") }}
+                {{ $t("aboutPage.card3.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -164,29 +121,7 @@
         <v-col cols="6">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
-              tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min
-              of meer leesbaar nederlands maakt. Veel desktop publishing
-              pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum
-              als hun standaard model tekst, en een zoekopdracht naar "lorem
-              ipsum" ontsluit veel websites die nog in aanbouw zijn.
-              Verscheidene versies hebben zich ontwikkeld in de loop van de
-              jaren, soms per ongeluk soms expres (ingevoegde humor en
-              dergelijke).
+              {{ $t("aboutPage.card3.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog2 = false"
@@ -206,10 +141,10 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
+              <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card4.text") }}
+                {{ $t("aboutPage.card4.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -220,29 +155,7 @@
         <v-col cols="6">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
-              tegenstelling tot "Hier uw tekst, hier uw tekst" wat het tot min
-              of meer leesbaar nederlands maakt. Veel desktop publishing
-              pakketten en web pagina editors gebruiken tegenwoordig Lorem Ipsum
-              als hun standaard model tekst, en een zoekopdracht naar "lorem
-              ipsum" ontsluit veel websites die nog in aanbouw zijn.
-              Verscheidene versies hebben zich ontwikkeld in de loop van de
-              jaren, soms per ongeluk soms expres (ingevoegde humor en
-              dergelijke).
+              {{ $t("aboutPage.card4.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog3 = false"
@@ -342,7 +255,8 @@
             </h1>
 
             <h4 class="text-h4 font-weight-thin" style="color: white">
-              Why do nature a favor
+                           {{ $t("aboutPage.bannerText") }}
+
             </h4>
           </v-container>
         </v-col>
@@ -366,14 +280,14 @@
         <v-col cols="11" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
             <v-card
-              height="400"
+              height="450"
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
               <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card1.text") }}
+                {{ $t("aboutPage.card1.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -383,21 +297,7 @@
         <v-col cols="12">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
+              {{ $t("aboutPage.card1.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog0 = false"
@@ -408,22 +308,7 @@
         </v-col>
       </v-row>
     </v-dialog>
-
   </v-row>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
 
   <v-row justify="center" class="hidden-sm-and-up">
     <v-dialog v-model="dialog1" class="hidden-sm-and-up">
@@ -431,14 +316,14 @@
         <v-col cols="11" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
             <v-card
-              height="400"
+              height="450"
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
               <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card2.text") }}
+                {{ $t("aboutPage.card2.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -448,21 +333,7 @@
         <v-col cols="12">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
+              {{ $t("aboutPage.card2.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog1 = false"
@@ -475,38 +346,20 @@
     </v-dialog>
   </v-row>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <v-row justify="center" class="hidden-sm-and-up">
     <v-dialog v-model="dialog2" class="hidden-sm-and-up">
       <template v-slot:activator="{ props }">
         <v-col cols="11" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
             <v-card
-              height="400"
+              height="450"
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
               <v-img height="130" src="../assets/VIVES_Logo.png" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card3.text") }}
+                {{ $t("aboutPage.card3.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -516,21 +369,7 @@
         <v-col cols="12">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
-              een min of meer normale verdeling van letters bestaat, in
+              {{ $t("aboutPage.card3.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog2 = false"
@@ -541,42 +380,7 @@
         </v-col>
       </v-row>
     </v-dialog>
-
   </v-row>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <v-row justify="center" class="hidden-sm-and-up">
     <v-dialog v-model="dialog3" class="hidden-sm-and-up">
@@ -584,14 +388,14 @@
         <v-col cols="11" v-bind="props">
           <v-hover v-slot="{ isHovering, props }">
             <v-card
-              height="400"
+              height="450"
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
               <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
               <p class="ml-3">
-                {{ $t("aboutPage.card4.text") }}
+                {{ $t("aboutPage.card4.shortText") }}
               </p>
             </v-card>
           </v-hover>
@@ -602,20 +406,7 @@
         <v-col cols="12">
           <v-card>
             <v-card-text>
-              Wat is Lorem Ipsum? Lorem Ipsum is slechts een proeftekst uit het
-              drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-              proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een
-              onbekende drukker een zethaak met letters nam en ze door elkaar
-              husselde om een font-catalogus te maken. Het heeft niet alleen
-              vijf eeuwen overleefd maar is ook, vrijwel onveranderd,
-              overgenomen in elektronische letterzetting. Het is in de jaren '60
-              populair geworden met de introductie van Letraset vellen met Lorem
-              Ipsum passages en meer recentelijk door desktop publishing
-              software zoals Aldus PageMaker die versies van Lorem Ipsum
-              bevatten. Waarom gebruiken we het? Het is al geruime tijd een
-              bekend gegeven dat een lezer, tijdens het bekijken van de layout
-              van een pagina, afgeleid wordt door de tekstuele inhoud. Het
-              belangrijke punt van het gebruik van Lorem Ipsum is dat het uit
+              {{ $t("aboutPage.card4.text") }}
             </v-card-text>
             <v-card-actions>
               <v-btn color="secondary" block @click="dialog3 = false"

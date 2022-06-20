@@ -1,62 +1,29 @@
 {
     "mapText": "Map",
     "footer": {
-        "header": "Making the world drink enough water",
-        "underHeader": "Just another paragraph for the sake of it",
+        "header": "Monitoring tree soil",
+        "underHeader": "to provide trees with better growth opportunities",
         "links": {
             "title": "LINKS",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "VIVES",
+            "two": "IoT Incubator",
+            "three": "GitHub",
+            "four": "Thesis"
         },
         "support": {
-            "title": "SUPPORT",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "title": "CONTACT",
+            "one": "Piet Cordemans",
+            "two": "VIVES campus Bruges",
+            "three": "Spoorwegstraat 12 ",
+            "four": "8200 Bruges Belgium"
         },
         "legal": {
             "title": "LEGAL",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
+            "one": "MIT Licensed"
         },
         "sitemap": {
-            "title": "SITEMAP",
-            "one": "Link one",
-            "two": "link two",
-            "three": "link three",
-            "four": "link four"
-        }
-    },
-    "cards": {
-        "card1": {
-            "title": "Name",
-            "subtitle": "foo",
-            "icon": "mdi:mdi-home-city"
-        },
-        "card2": {
-            "title": "Cities",
-            "subtitle": "Bar",
-            "icon": "mdi:mdi-bus-articulated-front"
-        },
-        "card3": {
-            "title": "Projects",
-            "subtitle": "0",
-            "icon": "mdi:mdi-bottle-wine-outline"
-        },
-        "card4": {
-            "title": "Owners",
-            "subtitle": "24",
-            "icon": "mdi:mdi-card-text"
-        },
-        "card5": {
-            "title": "Centers",
-            "subtitle": "Castle",
-            "icon": "mdi:mdi-castle"
+            "title": "Made By",
+            "one": "Felix Falk"
         }
     },
     "navigationBar": {
@@ -64,23 +31,61 @@
         "about": "About"
     },
     "aboutPage":{
+        "bannerText": "Why do nature a favor ",
         "title": "About us",
-        "introduction": "We build an application, some prototypes and the firmware going with it. So everything that would be needed to scale this project up. The idea is that everyone who needs a soil moisture sensor can use our open source schematics to make their own hardware. Then add a device to our user-friendly website, and you should be good to go. Data flows from your device directly to our site where you can see all data that comes from your device. Even placed in interactive graphs and everything! ",
+        "introduction": "On this page one can find in depth information about this project as well as more information about the collaborators of DUST and a contact form",
         "card1":{
-            "title":"What is this project",
-            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+            "title":"The drought problem in Flanders",
+            "shortText":"For a few years now people have been talking about the drought problem in Flanders. This drought problem has a lot to do with the low water capacity in urbanized areas. This is due to high sealing reate, long droughts and intense showers at short periods of time.",
+            "text":"For a few years now people have been talking about the drought problem in Flanders. This drought problem has a lot to do with the low water capacity in urbanized areas. This is due to high sealing rate, long droughts and intense showers at short periods of time. Trees can partially solve the drought problem because they provide cooling and have a water buffering capacity. Moreover, trees are the second largest producer of oxygen, only the sea does better. Although trees in urban areas can offer many advantages with regard to the drought problem, it is suspected that trees are far from reaching their maximum capacity, because the quality of the habitat for urban trees is inadequate. The growth and life expectancy of urban trees is therefore strongly reduced. At the moment, there is no exact data on the urban tree population in Flanders, which means that administrative bodies do not (can not) take measures to optimize the quality of the urban trees. In order to convince the governing bodies of the cities to invest in the habitat quality of their trees, concrete data is needed that can confirm these assumptions."
         },
         "card2":{
-            "title":"Why dust?",
-            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+            "title":"The DUST-platform",
+            "shortText":"Within this research project, two objectives are to be achieved: on the one hand, an urban soil index in which urban tree mirrors can be screened via objective criteria; on the other hand, a proof of concept for an open source, real-time soil monitoring network based on low-cost sensors.",
+            "text":"The PWO (Practical Scientific Research) project DUST (Devices for Ubiquitous Soil and Temperature Measurements) tries to provide an answer to this. Within this research project, two objectives are to be achieved: on the one hand, an urban soil index in which urban tree mirrors can be screened by means of objective criteria; on the other hand, a proof of concept for an open source, real-time soil monitoring network based on low-cost sensors: First of all, data must be collected at the level of the city trees by means of wireless sensors. It must be possible to take various measurements per location, including the top humidity and the soil temperature. The central location can be seen as an intermediate station, a cloud, where the data is categorized but not yet user-friendly for the end user. Finally, the data should be transformed into visual information that allows the end user to interpret the raw data. This information should be available to the general public."
         },
         "card3":{
-            "title":"Where are we from",
-            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+            "title":"Agro- & Biotechnology en Smart Technologies",
+            "shortText":"The PWO (Practical Scientific Research) project DUST (Devices for Ubiquitous Soil and Temperature Measurements) is a collaboration between the Agro- & Biotechnology and Smart Technologies centers of expertise.",
+            "text":""
         },
         "card4":{
             "title":"About the environment",
-            "text":"this project is about making sure the world drinks enough water, what we mean by that is we want to measure where and how much water gets picked up by the ground. Tis is very presious information for institutions to have."
+            "shortText":"A sensor device consists of several components, including a microcontroller, a LoRaWAN chip and several other sensors.",
+            "text":"A microcontroller that is, as it were, the heart of the sensor device. Its main tasks are to read out the various sensors and to send this data via LoRaWAN. In addition, it is programmed to be as energy-efficient as possible (deep sleep). A LoRaWAN chip allows the data from the microcontroller to be transmitted wirelessly using the LoRaWAN standard. On the current prototypes of the DUST sensor platform, there are two types of sensors. Namely, one temperature and four humidity sensors. The intention is to place the sensor device so that all the humidity sensors are below the ground surface. The temperature is currently measured at the height of the ground surface. The sensor device is planned so that other sensors can be added in the future."
+        }
+    },
+    "homePage":{
+        "bannerText": "Do nature a favor ",
+        "introduction":"The DUST platform is a sensor platform that creates an overview of soil moisture and other soil values of urban trees throughout Flanders. With the help of DUST, cities, municipalities and individuals will have the opportunity to information about the soil and specifically about the urban trees. By means of sensors one can, for example, determine the soil contour, find out the soil moisture at different depths and measure the temperature of the soil. Although the emphasis is on underground measurements, extensions will include above-ground sensors. These sensors can determine, for example, the humidity, the outside temperature, and the amount of sunlight.",
+        "hieronderKaart": "An interactive map can be found below. ",
+        "drukOpEenPin":"Click on a pin to view a device with all its sensors. ",
+        "cards": {
+            "card1": {
+                "title": "Cities",
+                "subtitle": "7",
+                "icon": "mdi:mdi-home-city"
+            },
+            "card2": {
+                "title": "Devices",
+                "subtitle": "9",
+                "icon": "mdi:mdi-cube"
+            },
+            "card3": {
+                "title": "Users",
+                "subtitle": "3",
+                "icon": "mdi:mdi-account"
+            },
+            "card4": {
+                "title": "Sponsors",
+                "subtitle": "0",
+                "icon": "mdi:mdi-card-text"
+            },
+            "card5": {
+                "title": "Sensors ",
+                "subtitle": "2",
+                "icon": "mdi:mdi-car-cruise-control"
+            }
         }
     }
 }

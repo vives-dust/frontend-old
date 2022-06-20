@@ -11,6 +11,7 @@ services:
       # Mount src dir into container
       - ./src:/app/src
     ports:
-      # Run dev server on host port 8080
+      # Run dev server on host port 8090
       - "8090:8090"
     restart: "no"
+

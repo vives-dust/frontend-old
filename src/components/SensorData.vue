@@ -178,7 +178,6 @@ export default defineComponent({
         } else {
           if (
             this.linechartDataNonMoisture.datasets.findIndex(
-              //NON MOISTURE?
               (element) => element == undefined
             ) == -1
           ) {
@@ -215,13 +214,11 @@ export default defineComponent({
       this.CreateSensorData();
     },
     loaded() {
-      console.log(this.device, "sensors");
 
       this.device.sensors.forEach(() => {
         let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
         this.colors.push(color);
       });
-      console.log(this.linechartDataNonMoisture.datasets, "datasets");
     },
   },
 });
