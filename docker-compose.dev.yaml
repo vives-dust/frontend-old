@@ -2,16 +2,19 @@
 version: "3.7"
 
 services:
+
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile
-      target: development-stage
+      target: 'develop-stage'
     volumes:
-      # Mount src dir into container
       - ./src:/app/src
     ports:
-      # Run dev server on host port 8090
-      - "8090:8090"
+      - "8080:8080"
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
     restart: "no"
-
+    command: /bin/sh -c "npm run serve"
+    # logging:
+    #   driver: none

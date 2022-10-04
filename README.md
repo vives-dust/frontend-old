@@ -20,7 +20,7 @@ Docker and docker-compose files are available in the directory.
 Just execute the following for the development version and the front-end will be online on port [8090](http://localhost:8090/)
 
 ```bash
-docker-compose -f docker-compose.dev.yaml up
+docker-compose -f docker-compose.dev.yaml up --build
 ```
 
 For the distribution
