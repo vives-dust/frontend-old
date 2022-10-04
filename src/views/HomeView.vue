@@ -2,7 +2,7 @@
   <v-row>
     <v-col cols="12">
       <v-card elevation="5" class="hidden-sm-and-up">
-        <v-img src="@/assets/nature.jpg" height="150" cover>
+        <v-img src="/img/nature.jpg" height="150" cover>
           <v-row class="text-center" justify="center">
             <v-col cols="12">
               <v-container>
@@ -23,7 +23,7 @@
       </v-card>
 
       <v-card elevation="5" class="hidden-xs mt-10">
-        <v-img src="@/assets/nature.jpg" height="400" cover>
+        <v-img src="/img/nature.jpg" height="400" cover>
           <v-row class="text-center" justify="center">
             <v-col cols="12">
               <v-container class="mt-16">
@@ -96,11 +96,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "HomeView",
-  setup() {
-    const { t, locale } = useI18n();
+  // setup() {
+  //   const { t, locale } = useI18n();
 
-    return { t, locale };
-  },
+  //   return { t, locale };
+  // },
   created() {
     this.$store.commit("change_showSelect", {
       showSelect: false,

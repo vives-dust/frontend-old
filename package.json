@@ -1,78 +1,58 @@
 {
-  "name": "dust",
+  "name": "dust-frontend",
   "version": "0.1.0",
   "private": true,
+  "description": "DUST Vue3 Frontend Progressive Web Application",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "jest --testPathPattern=src/test"
+    "serve": "vite preview",
+    "build": "vite build",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "build-only": "vite build",
+    "dev": "vite",
+    "preview": "vite preview --port 4173",
+    "type-check": "vue-tsc --noEmit"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vives-dust/frontend"
+  },
+  "author": "Nico De Witte, Sille Vanlandschoot",
+  "contributors": [
+    {
+      "name": "Felix Falk"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/vives-dust/frontend/issues"
+  },
+  "homepage": "https://github.com/vives-dust/frontend#readme",
   "dependencies": {
     "@mdi/font": "5.9.55",
-    "@types/leaflet": "^1.7.9",
-    "axios": "^0.26.1",
-    "chart.js": "^3.7.1",
-    "dotenv": "^16.0.0",
-    "jest": "^28.0.3",
-    "leaflet": "^1.8.0",
-    "leaflet.markercluster": "^1.5.3",
-    "nginx": "^1.0.7",
-    "register-service-worker": "^1.7.2",
+    "axios": "^0.27.2",
+    "chart.js": "^3.9.1",
     "roboto-fontface": "*",
-    "vue": "^3.2.13",
+    "vue": "^3.2.38",
     "vue-chart-3": "^3.1.8",
-    "vue-chartjs": "^4.0.5",
-    "vue-i18n": "^9.1.2",
-    "vue-router": "^4.0.3",
+    "vue-i18n": "^9.3.0-beta.6",
+    "vue-router": "^4.1.5",
     "vuetify": "^3.0.0-beta.0",
-    "vuex": "^4.0.0",
+    "vuex": "^4.0.2",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.16.7",
-    "@types/jest": "^27.5.0",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@types/node": "^16.11.56",
     "@types/webfontloader": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "@vue-leaflet/vue-leaflet": "^0.6.1",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-pwa": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "@vue/eslint-config-typescript": "^9.1.0",
-    "deepmerge": "^4.2.2",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "sass": "~1.32",
-    "sass-loader": "^10.2.1",
-    "ts-jest": "^28.0.1",
-    "typescript": "~4.5.5",
-    "vue-cli-plugin-vue-i18n": "~1.0.1",
-    "vue-cli-plugin-vuetify": "~2.4.8",
-    "vuetify-loader": "^2.0.0-alpha.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript/recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ]
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "~4.7.4",
+    "vite": "^3.0.9",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "vue-tsc": "^0.40.7"
+  }
 }

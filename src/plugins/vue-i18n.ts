@@ -10,5 +10,6 @@ export const i18n = createI18n({
     en: en,
     nl: nl,
   },
-  fallbackLocale: 'nl'
+  fallbackLocale: 'nl',
+  globalInjection: true,
 });

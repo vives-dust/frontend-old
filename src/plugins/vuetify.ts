@@ -3,8 +3,10 @@ import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import { aliases, fa } from 'vuetify/lib/iconsets/fa'
 import { mdi } from 'vuetify/lib/iconsets/mdi'
-//Vuetify
+
+// Vuetify
 import { createVuetify } from 'vuetify'
+
 const myCustomTheme = {
   dark: false,
   colors: {
@@ -22,11 +24,6 @@ const myCustomTheme = {
     warning: '#FB8C00',
   }
 }
-
-
-//00FAE9
-
-//0CFA9A
 
 export default createVuetify({
   icons: {
@@ -49,3 +46,4 @@ export default createVuetify({
 
 }
 )
+

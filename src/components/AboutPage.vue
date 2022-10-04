@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="5">
-    <v-img class="mt-10 hidden-xs" src="../assets/trees.jpg" height="400" cover>
+    <v-img class="mt-10 hidden-xs" src="/img/trees.jpg" height="400" cover>
       <v-row class="text-center" justify="center">
         <v-col cols="12">
           <v-container class="mt-16">
@@ -42,7 +42,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/drought.jpg" cover> </v-img>
+              <v-img height="130" src="/img/drought.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card1.shortText") }}
@@ -75,7 +75,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
+              <v-img height="130" src="/img/lake.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card2.shortText") }}
@@ -108,7 +108,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
+              <v-img height="130" src="/img/trees2.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card3.shortText") }}
@@ -141,7 +141,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
+              <v-img height="130" src="/img/sensor.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card4.shortText") }}
@@ -243,7 +243,7 @@
   <v-card elevation="5">
     <v-img
       class="hidden-sm-and-up"
-      src="../assets/trees.jpg"
+      src="/img/trees.jpg"
       height="150"
       cover
     >
@@ -284,7 +284,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/sensor.jpg" cover> </v-img>
+              <v-img height="130" src="/img/sensor.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card1.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card1.shortText") }}
@@ -320,7 +320,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/lake.jpg" cover> </v-img>
+              <v-img height="130" src="/img/lake.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card2.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card2.shortText") }}
@@ -356,7 +356,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/VIVES_Logo.png" cover> </v-img>
+              <v-img height="130" src="/img/VIVES_Logo.png" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card3.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card3.shortText") }}
@@ -392,7 +392,7 @@
               v-bind="props"
               :elevation="isHovering ? 16 : 2"
             >
-              <v-img height="130" src="../assets/trees2.jpg" cover> </v-img>
+              <v-img height="130" src="/img/trees2.jpg" cover> </v-img>
               <h2 class="ma-3">{{ $t("aboutPage.card4.title") }}</h2>
               <p class="ml-3">
                 {{ $t("aboutPage.card4.shortText") }}

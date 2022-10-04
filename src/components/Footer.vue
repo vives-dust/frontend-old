@@ -183,18 +183,8 @@
   </v-footer>
 </template>
 
-<script lang="ts">
-import { useI18n } from "vue-i18n";
+<!-- <script setup lang="ts">
+  import { useI18n } from "vue-i18n";
 
-export default {
-  name: "footerBar",
-  setup() {
-    const { t, locale } = useI18n();
-
-    return { t, locale };
-  },
-};
-</script>
-
-<style>
-</style>
+  const { t, locale } = useI18n();
+</script> -->
