@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import informationCards from '@/components/InformationCards.vue'
+import StatCard from '@/components/StatCard.vue'
+import { useDeviceStore } from '@/stores/devices';
+
+const deviceStore = useDeviceStore()
+deviceStore.fetch_devices();
+
+const static_stats = ref([
+  { label: 'cities', icon: 'mdi-home-city', value: 3 },
+  { label: 'users', icon: 'mdi-account', value: 8 },
+])
+
+</script>
+
 <template>
   <v-row>
     <v-col cols="12">
@@ -74,45 +90,20 @@
     </v-col>
   </v-row>
 
-  <v-row
-    justify="center"
-    style="background: rgb(var(--v-theme-backgroundShift), 0.2)"
-    class="py-15"
-  >
-    <v-col cols="11" sm="10">
-      <informationCards />
+  <v-row justify="center" class="py-15" style="background: rgb(var(--v-theme-backgroundShift), 0.2)">
+    <v-col cols="12" md="10">
+      <v-row justify="center">
+        <v-col cols="12" sm="6" md="4" lg="3">
+          <StatCard :label="$t('devices')" :value="deviceStore.device_count" icon="mdi-cube" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4" lg="3">
+          <StatCard :label="$t('sensors')" :value="deviceStore.sensor_count" icon="mdi-car-cruise-control" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4" lg="3" v-for="stat in static_stats" :key="stat.label">
+          <StatCard :label="$t(stat.label)" :value="stat.value" :icon="stat.icon" />
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 
 </template>
-
-
-
-<script lang="ts">
-import mapVue from "@/components/Map.vue";
-import informationCards from "@/components/InformationCards.vue";
-import { useI18n } from "vue-i18n";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "HomeView",
-  // setup() {
-  //   const { t, locale } = useI18n();
-
-  //   return { t, locale };
-  // },
-  created() {
-    this.$store.commit("change_showSelect", {
-      showSelect: false,
-    });
-  },
-  components: {
-    mapVue,
-    informationCards,
-  },
-});
-</script>
-
-<style scoped>
-
-</style>

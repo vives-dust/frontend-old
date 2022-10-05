@@ -1,4 +1,9 @@
 {
+  "devices": "Apparaten",
+  "sensors": "Sensoren",
+  "cities": "Steden",
+  "users": "Gebruikers",
+
     "mapText": "Kaart",
     "footer": {
         "header": "Stadsboomspiegels monitoren",
@@ -61,34 +66,7 @@
         "bannerText": "Do nature a favor ", 
         "introduction":"Het DUST-platform is een sensorplatform dat een overzicht creëert van de bodemvochtigheid en andere bodemwaardes ter hoogte van stadsbomen in gans Vlaanderen. Met behulp van DUST zullen steden, gemeentes en individuen de kans krijgen om informatie over de grond en heel specifiek over de stadsboomspiegels te weten te komen. Door middel van sensoren kan men bijvoorbeeld de grondsamentelling vaststellen, de grondvochtigheid op verschillende dieptes te weten komen en de temperatuur van de grond meten. Hoewel de nadruk op ondergrondse metingen ligt, zullen uitbreidingen bovengrondse sensoren bevatten. Deze sensoren kunnen bijvoorbeeld de luchtvochtigheid, de buitentemperatuur en de hoeveelheid zonlicht bepalen.",
         "hieronderKaart": "Hieronder vindt u een interactieve kaart terug. ",
-        "drukOpEenPin":"Druk op een pin om een apparaat met al zijn sensoren te bekijken. ",
-        "cards": {
-            "card1": {
-                "title": "Steden",
-                "subtitle": "7",
-                "icon": "mdi:mdi-home-city"
-            },
-            "card2": {
-                "title": "Apparaten",
-                "subtitle": "9",
-                "icon": "mdi:mdi-cube"
-            },
-            "card3": {
-                "title": "Gebruikers",
-                "subtitle": "3",
-                "icon": "mdi:mdi-account"
-            },
-            "card4": {
-                "title": "Sponsors",
-                "subtitle": "0",
-                "icon": "mdi:mdi-card-text"
-            },
-            "card5": {
-                "title": "Sensoren ",
-                "subtitle": "2",
-                "icon": "mdi:mdi-car-cruise-control"
-            }
-        }
+        "drukOpEenPin":"Druk op een pin om een apparaat met al zijn sensoren te bekijken. "
     }
 }
 

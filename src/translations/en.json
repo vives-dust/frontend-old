@@ -1,4 +1,9 @@
 {
+  "devices": "Devices",
+  "sensors": "Sensors",
+  "cities": "Cities",
+  "users": "Users",
+
     "mapText": "Map",
     "footer": {
         "header": "Monitoring tree soil",
@@ -59,33 +64,6 @@
         "bannerText": "Do nature a favor ",
         "introduction":"The DUST platform is a sensor platform that creates an overview of soil moisture and other soil values of urban trees throughout Flanders. With the help of DUST, cities, municipalities and individuals will have the opportunity to information about the soil and specifically about the urban trees. By means of sensors one can, for example, determine the soil contour, find out the soil moisture at different depths and measure the temperature of the soil. Although the emphasis is on underground measurements, extensions will include above-ground sensors. These sensors can determine, for example, the humidity, the outside temperature, and the amount of sunlight.",
         "hieronderKaart": "An interactive map can be found below. ",
-        "drukOpEenPin":"Click on a pin to view a device with all its sensors. ",
-        "cards": {
-            "card1": {
-                "title": "Cities",
-                "subtitle": "7",
-                "icon": "mdi:mdi-home-city"
-            },
-            "card2": {
-                "title": "Devices",
-                "subtitle": "9",
-                "icon": "mdi:mdi-cube"
-            },
-            "card3": {
-                "title": "Users",
-                "subtitle": "3",
-                "icon": "mdi:mdi-account"
-            },
-            "card4": {
-                "title": "Sponsors",
-                "subtitle": "0",
-                "icon": "mdi:mdi-card-text"
-            },
-            "card5": {
-                "title": "Sensors ",
-                "subtitle": "2",
-                "icon": "mdi:mdi-car-cruise-control"
-            }
-        }
+        "drukOpEenPin":"Click on a pin to view a device with all its sensors. "
     }
 }

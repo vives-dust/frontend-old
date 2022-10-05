@@ -1,8 +1,6 @@
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
-import { aliases, fa } from 'vuetify/lib/iconsets/fa'
-import { mdi } from 'vuetify/lib/iconsets/mdi'
 
 // Vuetify
 import { createVuetify } from 'vuetify'
@@ -13,7 +11,7 @@ const myCustomTheme = {
     background: '#FFFFFF',
     backgroundShift: '#CDCDCD',
     surface: '#FFFFFF',
-    primary: '#00FAE9',
+    primary: '#11AD6F',
     secondary: '#28C6FA',
     third: '#11AD6F',
     fourth: '#1186AD',
@@ -26,14 +24,6 @@ const myCustomTheme = {
 }
 
 export default createVuetify({
-  icons: {
-    defaultSet: 'fa',
-    aliases,
-    sets: {
-      fa,
-      mdi,
-    }
-  },
   theme: {
     defaultTheme: 'myCustomTheme',
     options: {
@@ -43,7 +33,4 @@ export default createVuetify({
       myCustomTheme,
     }
   },
-
-}
-)
-
+})
