@@ -5,7 +5,7 @@ import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import 'leaflet/dist/leaflet.css';
 import { i18n } from './plugins/vue-i18n'
-import { store } from './stores'
+import { store } from './store'
 
 loadFonts()
 
