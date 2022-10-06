@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import informationCards from '@/components/InformationCards.vue'
 import StatCard from '@/components/StatCard.vue'
 import { useDeviceStore } from '@/stores/devices';
 
