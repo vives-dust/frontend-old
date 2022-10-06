@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import StatCard from '@/components/StatCard.vue'
 import { useDeviceStore } from '@/stores/devices';
+import HeroImage from '../components/HeroImage.vue';
 
 const deviceStore = useDeviceStore()
 deviceStore.fetch_devices();
@@ -14,51 +15,15 @@ const static_stats = ref([
 </script>
 
 <template>
+
   <v-row>
     <v-col cols="12">
-      <v-card elevation="5" class="hidden-sm-and-up">
-        <v-img src="/img/nature.jpg" height="150" cover>
-          <v-row class="text-center" justify="center">
-            <v-col cols="12">
-              <v-container>
-                <h1
-                  class="text-h2 font-weight-bold mb-4 mt-1"
-                  style="color: white"
-                >
-                  DUST
-                </h1>
-
-                <h4 class="text-h4 font-weight-thin" style="color: white">
-                  {{ $t("homePage.bannerText") }}
-                </h4>
-              </v-container>
-            </v-col>
-          </v-row>
-        </v-img>
-      </v-card>
-
-      <v-card elevation="5" class="hidden-xs mt-10">
-        <v-img src="/img/nature.jpg" height="400" cover>
-          <v-row class="text-center" justify="center">
-            <v-col cols="12">
-              <v-container class="mt-16">
-                <h1
-                  class="text-h2 font-weight-bold mb-4 mt-12"
-                  style="color: white"
-                >
-                  DUST
-                </h1>
-
-                <h4 class="text-h4 font-weight-thin" style="color: white">
-                  {{ $t("homePage.bannerText") }}
-                </h4>
-              </v-container>
-            </v-col>
-          </v-row>
-        </v-img>
-      </v-card>
+      <!-- TODO: this.$vuetify.breakpoint.smAndUp not available in Vuetify 3. Other options ? -->
+      <HeroImage image="/img/nature.jpg" title="DUST" :subtitle="$t('hero')" height="150" class="hidden-sm-and-up" />
+      <HeroImage image="/img/nature.jpg" title="DUST" :subtitle="$t('hero')" height="400" class="hidden-xs" />
     </v-col>
   </v-row>
+
   <v-row justify="center" class="hidden-xs text-center">
     <v-col cols="10">
       <v-layout class="my-10"></v-layout>

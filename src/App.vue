@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navigation-bar class="sticky hidden-xs" />
-    <v-main>
+    <v-main class="ma-0 pa-0">
       <router-view />
     </v-main>
     <footerBar class="mb-10 hidden-sm-and-up"/>

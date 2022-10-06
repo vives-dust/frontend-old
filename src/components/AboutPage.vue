@@ -1,25 +1,11 @@
 <template>
-  <v-card elevation="5">
-    <v-img class="mt-10 hidden-xs" src="/img/trees.jpg" height="400" cover>
-      <v-row class="text-center" justify="center">
-        <v-col cols="12">
-          <v-container class="mt-16">
-            <h1
-              class="text-h2 font-weight-bold mb-4 mt-12"
-              style="color: white"
-            >
-              DUST
-            </h1>
-
-            <h4 class="text-h4 font-weight-thin" style="color: white">
-             {{ $t("aboutPage.bannerText") }}
-
-            </h4>
-          </v-container>
-        </v-col>
-      </v-row></v-img
-    >
-  </v-card>
+  <v-row>
+    <v-col cols="12">
+      <!-- TODO: this.$vuetify.breakpoint.smAndUp not available in Vuetify 3. Other options ? -->
+      <HeroImage image="/img/trees.jpg" title="DUST" :subtitle="$t('hero')" height="150" class="hidden-sm-and-up" />
+      <HeroImage image="/img/trees.jpg" title="DUST" :subtitle="$t('hero')" height="400" class="hidden-xs" />
+    </v-col>
+  </v-row>
 
   <v-row justify="center" class="hidden-xs">
     <v-col cols="11" sm="8">
@@ -486,8 +472,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useDisplay } from "vuetify";
+import HeroImage from "@/components/HeroImage.vue"
 export default defineComponent({
   name: "aboutPage",
+  components: { HeroImage },
   data() {
     return {
       valid: false,
