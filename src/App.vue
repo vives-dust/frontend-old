@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <navigation-bar class="sticky hidden-xs" />
+    <NavBar />
     <v-main class="ma-0 pa-0">
       <router-view />
     </v-main>
@@ -11,13 +11,12 @@
 </template>
 
 <script>
-// import { RouterLink, RouterView } from 'vue-router'
-import NavigationBar from "@/components/NavigationBar.vue";
 import footerBar from "@/components/Footer.vue";
+import NavBar from '@/components/NavBar.vue'
 export default {
   components: {
-    NavigationBar,
     footerBar,
+    NavBar
   },
   data: () => ({
     isRefreshing: false,
