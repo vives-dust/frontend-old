@@ -1,12 +1,14 @@
 <template>
   <v-card
-    color="fourth"
+    color="white"
     height="auto"
     width="100%"
+    class="mb-2"
     fixed
     app
     style="z-index: 20001"
     rounded="0"
+    flat
   >
     <v-row no-gutters>
       <v-col cols="2" md="2" class="text-left">
@@ -14,7 +16,6 @@
           <v-menu v-model="menu" transition="slide-x-transition">
             <template v-slot:activator="{ props }">
               <v-btn
-                color="fourth"
                 v-bind="props"
                 elevation="0"
                 id="languageSelection"
@@ -28,14 +29,14 @@
             </template>
             <v-list
               active
-              bg-color="fourth"
+              bg-color="white"
               variant="plain"
               density="comfortable"
               elevation="10"
             >
               <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>
-                  <v-btn color="fourth" @click="selectLanguage(item.lang)">
+                  <v-btn color="white" @click="selectLanguage(item.lang)">
                     {{ item.title }}
                   </v-btn>
                 </v-list-item-title>
@@ -46,15 +47,14 @@
       </v-col>
 
       <v-col cols="8" class="text-center hidden-xs" md="8">
-        <v-tabs centered height="auto">
-          <v-tab value="Home" to="/" exact class="pr-n2">
-            <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" />
+        <v-tabs centered height="auto" color="red">
+          <v-tab value="Home" to="/" exact class="pr-n2 mr-4 text-primary" >
+            <v-icon size="25" class="mr-2 ml-n3" icon="mdi:mdi-home" color="primary" />
             {{ $t("navigationBar.home") }}
           </v-tab>
-          <v-divider vertical class="mx-2 my-2"></v-divider>
-          <v-tab value="About" to="/about"
+          <v-tab value="About" to="/about" class="text-primary"
             ><v-icon
-              size="25"
+              size="25"  color="primary"
               class="mr-2 ml-n3"
               icon="mdi:mdi-information"
             />{{ $t("navigationBar.about") }}
@@ -164,9 +164,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-p {
-  font-size: 17px;
-}
-</style>
