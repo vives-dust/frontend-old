@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <NavBar />
-    <v-main class="ma-0 pa-0">
+    <v-main>
       <router-view />
     </v-main>
     <footerBar class="mb-10 hidden-sm-and-up"/>
     <footerBar class="hidden-xs"/>
-    <navigation-bar class="sticky hidden-sm-and-up" style="bottom: 0px;" />
+    <!-- <navigation-bar class="sticky hidden-sm-and-up" style="bottom: 0px;" /> -->
   </v-app>
 </template>
 
@@ -26,20 +26,3 @@ export default {
   },
 };
 </script>
-<style>
-@media screen and (max-width: 700px) {
-  html {
-    scrollbar-width: none;
-    overflow-x: clip;
-  }
-  html,
-  body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-}
-</style>
-
-
