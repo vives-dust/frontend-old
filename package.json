@@ -28,6 +28,7 @@
   "homepage": "https://github.com/vives-dust/frontend#readme",
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "@vue-leaflet/vue-leaflet": "^0.6.1",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
     "leaflet": "^1.9.2",
