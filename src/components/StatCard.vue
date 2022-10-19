@@ -5,13 +5,14 @@ const props = defineProps({
   icon: { type: String, default: 'mdi-thermometer' },
   label: { type: String, default: 'Counter' },
   value: { type: [String, Number], default: '?' },
-  color: { type: String, default: 'primary' }
+  color: { type: String, default: 'primary' },
+  loading: { type: Boolean, default: false }
 })
 
 </script>
 
 <template>
-  <v-card>
+  <v-card :loading="loading">
     <v-container class="d-flex flex-row justify-space-around align-center">
       <v-icon :icon="props.icon" :color="props.color" size="72" />
       <v-card variant="text">

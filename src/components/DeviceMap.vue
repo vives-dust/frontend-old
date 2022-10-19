@@ -4,40 +4,44 @@ import LeafLet from 'leaflet';
 import { useDeviceStore } from '@/stores/devices';
 
 const deviceStore = useDeviceStore()
-// deviceStore.fetch_devices();
 
-const center = ref([51.186917505979025, 3.2031807018500427] as LeafLet.LatLngTuple)
-const zoom = ref(13)    // Max = 19
+const center = ref({ lat: 51.21075496799041, lng: 3.2273173995302034 } as LeafLet.LatLngLiteral)
+const zoom = ref(12)    // Max = 19
+
+const map = {
+  container: {} as LeafLet.Map,
+  markers: {} as LeafLet.LayerGroup
+}
+
+const add_device_markers_to_map = function() {
+  if (!deviceStore.loading && !deviceStore.error) {
+    // Remove old layer of markers
+    if (map.markers) map.container.removeLayer(map.markers)
+
+    // Create layer with markers
+    map.markers = LeafLet.layerGroup();
+    deviceStore.devices.forEach((device) => LeafLet.marker([device.location.latitude, device.location.longitude]).bindPopup('VIVES').addTo(map.markers))
+    map.markers.addTo(map.container);
+  }
+}
 
 const setup_leaflet = function() {
-  const container = LeafLet.map("map_container").setView(center.value, zoom.value);
-  LeafLet.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
-      maxZoom: 19,
-    }
-  ).addTo(container);
-   
-  // Show marker on the map
-  // LeafLet.marker([51.186917505979025, 3.2031807018500427]).bindPopup('VIVES').addTo(container);
+  map.container = LeafLet.map("map_container").setView(center.value, zoom.value);
+  LeafLet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+    maxZoom: 19,
+  }).addTo(map.container);
+
+  add_device_markers_to_map()
 
   watch(
     () => deviceStore.loading,
-    (loading) => {
-      console.log(`Loading changed to ${loading}`)
-      if (!loading && !deviceStore.error) {
-        for(let device of deviceStore.devices) {
-          // console.log(device)
-          LeafLet.marker([device.location.latitude + 0.1*Math.random(), device.location.longitude + 0.1*Math.random()])
-          .bindPopup('VIVES').addTo(container);
-        }
-      }
-    }
+    (loading) => add_device_markers_to_map()
   )
 }
 
 onMounted(() => {
+  // Map setup requires dom to be mounted
   setup_leaflet();
 })
 
@@ -45,7 +49,18 @@ onMounted(() => {
 
 <template>
   <v-sheet>
-    <div id="map_container"></div>
+    <div id="map_container">
+      <div v-if="deviceStore.loading" id="map_progress" class="d-flex align-center justify-center h-100">
+        <v-progress-circular
+          color="primary"
+          indeterminate
+          :size="96"
+          :width="6"
+        >
+          <v-icon size="96" icon="mdi-tree" />
+        </v-progress-circular>
+      </div>
+    </div>
   </v-sheet>
 </template>
 
@@ -53,4 +68,10 @@ onMounted(() => {
 #map_container {
   height: 50vh;
 }
+
+#map_progress {
+  z-index: 1000;
+  position: relative;
+}
+
 </style>

@@ -6,8 +6,9 @@ export const useDeviceStore = defineStore('device', () => {
 
   const devices = ref([])
 
+  const tree_count = computed(() => { return devices.value.length })
   const device_count = computed(() => { return devices.value.length })
-  const sensor_count = computed(() => { return devices.value.reduce((sum, dev : any) => { return sum + dev.sensors?.length },0 ) })
+  const sensor_count = computed(() => { return devices.value.reduce((sum, dev : any) => { return sum + dev.sensors?.length }, 0 ) })
 
   const loading = ref(false);
   const error = ref('');
@@ -29,6 +30,7 @@ export const useDeviceStore = defineStore('device', () => {
 
   return {
     devices,
+    tree_count,
     device_count,
     sensor_count,
     loading,
