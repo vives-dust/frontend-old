@@ -2,6 +2,7 @@
 import { onMounted, ref, watch } from 'vue';
 import LeafLet from 'leaflet';
 import { useDeviceStore } from '@/stores/devices';
+import treeSvg from '@/assets/tree.svg'
 
 const deviceStore = useDeviceStore()
 
@@ -13,6 +14,16 @@ const map = {
   markers: {} as LeafLet.LayerGroup
 }
 
+const treeIcon = LeafLet.icon({
+    iconUrl: treeSvg,
+    // shadowUrl: 'leaf-shadow.png',
+    iconSize:     [32, 32], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+    // shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [0, -16] // point from which the popup should open relative to the iconAnchor
+});
+
 const add_device_markers_to_map = function() {
   if (!deviceStore.loading && !deviceStore.error) {
     // Remove old layer of markers
@@ -20,7 +31,7 @@ const add_device_markers_to_map = function() {
 
     // Create layer with markers
     map.markers = LeafLet.layerGroup();
-    deviceStore.devices.forEach((device) => LeafLet.marker([device.location.latitude, device.location.longitude]).bindPopup('VIVES').addTo(map.markers))
+    deviceStore.devices.forEach((device) => LeafLet.marker([device.location.latitude, device.location.longitude], {icon: treeIcon}).bindPopup('VIVES').addTo(map.markers))
     map.markers.addTo(map.container);
   }
 }
